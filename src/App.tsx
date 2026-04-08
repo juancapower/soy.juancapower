@@ -23,9 +23,9 @@ const FloatingWhatsApp = () => (
 
 const Logo = () => (
   <img 
-    src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775515143/logoJuanCaPower_z5roiw.png" 
+    src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775674989/JuanCa_Power_Hor_kqtnsc.png" 
     alt="JuanCa Power" 
-    className="h-8 md:h-10 w-auto"
+    className="h-10 md:h-12 w-auto"
     referrerPolicy="no-referrer"
   />
 );
@@ -43,13 +43,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Mi Historia', href: '#historia' },
-    { name: 'Sistema Power 4', href: '#sistema' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Testimonios', href: '#testimonios' },
-    { name: 'Eventos', href: '#eventos' },
-    { name: 'Agencia Power Digital', href: 'https://digital.juancapower.com' },
+    { id: 'inicio', name: 'Inicio', href: '#inicio' },
+    { id: 'historia', name: 'Mi Historia', href: '#historia' },
+    { id: 'sistema', name: 'Sistema Power 4', href: '#sistema' },
+    { id: 'servicios', name: 'Servicios', href: '#servicios' },
+    { id: 'testimonios', name: 'Testimonios', href: '#testimonios' },
+    { id: 'eventos', name: 'Eventos', href: '#eventos' },
+    { id: 'agencia', name: <>Agencia <span className="text-cyan-400">Power</span> Digital</>, href: 'https://digital.juancapower.com' },
   ];
 
   return (
@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a 
-                key={link.name} 
+                key={link.id} 
                 href={link.href}
                 className="text-sm font-space font-medium text-text-muted hover:text-gold-premium transition-colors"
               >
@@ -97,7 +97,7 @@ const Navbar = () => {
           <div className="px-6 py-4 space-y-4 flex flex-col">
             {navLinks.map((link) => (
               <a 
-                key={link.name} 
+                key={link.id} 
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-space font-medium text-text-muted hover:text-gold-premium transition-colors py-2"
@@ -721,6 +721,11 @@ const PowerDigital = () => {
             <div className="absolute inset-0 bg-cyan-400/10 blur-[60px] rounded-full scale-75 z-0"></div>
             <div className="relative w-full max-w-sm aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 group shadow-2xl z-10">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20"></div>
+              <div className="absolute bottom-6 left-0 w-full text-center z-30">
+                <span className="px-4 py-2 bg-black/60 backdrop-blur-md text-white text-sm font-space font-bold rounded-full border border-white/10">
+                  Conoce a Amara - Modelo Digital 100% IA
+                </span>
+              </div>
               <img 
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1774478528/hf_20260313_184816_fc5087de-2ff6-498d-a0a0-3c6f3bcef096_tfwmtg.jpg" 
                 alt="Amara - Modelo Digital" 
