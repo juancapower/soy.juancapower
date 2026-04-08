@@ -129,7 +129,7 @@ const Hero = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775666946/JuanCa_Hero_zyte0x.png" 
-          alt="JuanCa Power Background" 
+          alt="JuanCa Power - Speaker y Mentor de Mentalidad en Perú" 
           className="w-full h-full object-cover object-center opacity-40"
           referrerPolicy="no-referrer"
         />
@@ -150,6 +150,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.1]">
+            <span className="block text-xl md:text-2xl text-gold-premium font-space mb-4 font-normal tracking-widest uppercase">Speaker & Mentor de Mentalidad en Perú</span>
             No esperes motivación. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold-premium">Crea resultados.</span>
           </h1>
@@ -212,7 +213,7 @@ const Historia = () => {
             <div className="aspect-[3/4] rounded-3xl overflow-hidden relative z-10">
               <img 
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514609/JuanCa_Power_ygvsaf.png" 
-                alt="JuanCa Power Perfil" 
+                alt="JuanCa Power - Transformación Personal y Liderazgo" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -480,11 +481,11 @@ const Servicios = () => {
             <div>
               <h4 className="text-xl font-space font-bold mb-2">Recursos Gratuitos</h4>
               <p className="text-text-muted font-light text-sm mb-6">
-                Accede a mi clase gratis "Mentalidad Power" en YouTube y descarga mis ebooks gratuitos para empezar tu camino.
+                Accede a mi clase gratis "Mentalidad Power" y descarga mis ebooks gratuitos para empezar tu camino de transformación personal.
               </p>
             </div>
-            <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="text-gold-premium font-space font-bold text-sm flex items-center hover:text-gold-light transition-colors">
-              Ver contenido <ChevronRight className="w-4 h-4 ml-1" />
+            <a href="/mentalidadpower" className="text-gold-premium font-space font-bold text-sm flex items-center hover:text-gold-light transition-colors">
+              Acceder a Mentalidad Power <ChevronRight className="w-4 h-4 ml-1" />
             </a>
           </div>
         </motion.div>
@@ -672,7 +673,7 @@ const Eventos = () => {
             <div className="aspect-[4/5] rounded-3xl overflow-hidden">
               <img 
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775669405/Despierta_tu_Power_pxfjyw.jpg" 
-                alt="JuanCa Power en escenario" 
+                alt="JuanCa Power dando una conferencia corporativa en Perú" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
