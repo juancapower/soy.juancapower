@@ -430,7 +430,7 @@ const Servicios = () => {
                 Comunidad Salón Power
               </h4>
               <p className="text-text-muted font-light text-sm mb-6">Únete a nuestro grupo exclusivo de WhatsApp con personas elevando sus estándares todos los días.</p>
-              <a href="https://wa.me/51963335717" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#25D366] text-black font-space font-bold rounded-full hover:bg-[#20bd5a] transition-colors text-sm hover:scale-105">
+              <a href="https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#25D366] text-black font-space font-bold rounded-full hover:bg-[#20bd5a] transition-colors text-sm hover:scale-105">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Unirme al grupo de WhatsApp
               </a>
