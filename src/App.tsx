@@ -379,23 +379,50 @@ const Servicios = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Service */}
+          {/* 1. Speaker (Full Width) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="lg:col-span-3 bg-bg-main p-10 md:p-14 rounded-3xl border border-gold-premium/40 relative overflow-hidden group hover:border-gold-premium transition-colors"
+          >
+            <div className="absolute top-0 right-0 w-96 h-96 bg-gold-premium/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 group-hover:bg-gold-premium/20 transition-colors"></div>
+            <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="inline-block px-3 py-1 bg-gold-premium/10 text-gold-premium text-xs font-space font-bold uppercase tracking-wider rounded-full mb-6">
+                  Speaker Internacional
+                </div>
+                <h4 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Conferencias y <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold-premium">Entrenamientos Corporativos</span></h4>
+                <p className="text-lg text-text-muted font-light mb-8 max-w-xl leading-relaxed">
+                  Llevo el mensaje de transformación, liderazgo y mentalidad de alto rendimiento a escenarios, empresas e instituciones. Una experiencia inmersiva diseñada para romper el piloto automático, elevar los estándares de tu equipo y catalizar resultados extraordinarios.
+                </p>
+                <a href="mailto:hola@juancapower.com" className="inline-flex items-center px-8 py-4 bg-gold-premium text-bg-main font-space font-bold rounded-full hover:bg-gold-light transition-all text-lg shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_40px_rgba(197,160,89,0.5)] hover:scale-105">
+                  Solicitar propuesta para mi evento <ArrowRight className="w-5 h-5 ml-2" />
+                </a>
+              </div>
+              <div className="hidden md:block relative h-full min-h-[300px] rounded-2xl overflow-hidden border border-white/10">
+                 <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775669405/Despierta_tu_Power_pxfjyw.jpg" alt="JuanCa Power Speaker" className="absolute inset-0 w-full h-full object-cover" referrerPolicy="no-referrer" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-bg-main/80 via-transparent to-transparent"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 2. Mentoría 1:1 (2 Columns) */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-2 bg-bg-main p-10 rounded-3xl border border-gold-premium/20 relative overflow-hidden group hover:border-gold-premium/40 transition-colors"
+            className="lg:col-span-2 bg-surface-1 p-10 rounded-3xl border border-white/5 hover:border-white/20 transition-colors relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-premium/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-gold-premium/20 transition-colors"></div>
-            
             <div className="relative z-10">
-              <div className="inline-block px-3 py-1 bg-gold-premium/10 text-gold-premium text-xs font-space font-bold uppercase tracking-wider rounded-full mb-6">
+              <div className="inline-block px-3 py-1 bg-white/5 text-text-main text-xs font-space font-bold uppercase tracking-wider rounded-full mb-6">
                 Servicio Premium
               </div>
-              <h4 className="text-3xl md:text-4xl font-bold mb-4">Mentoría 1:1</h4>
-              <p className="text-lg text-text-muted font-light mb-8 max-w-xl">
-                Agenda tu primera mentoría totalmente gratis. Sesiones privadas de alto impacto vía Google Meet. Diseñaremos un plan de acción implacable para tu vida personal y profesional.
+              <h4 className="text-3xl font-bold mb-4">Mentoría Élite 1:1</h4>
+              <p className="text-text-muted font-light mb-8 max-w-xl">
+                Acompañamiento privado y exclusivo para quienes están listos para dejar las excusas. Diseñaremos un plan de acción implacable para tu vida personal y profesional.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -407,88 +434,72 @@ const Servicios = () => {
                 ))}
               </ul>
               
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20agendar%20mi%20primera%20mentoría%20gratuita" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-gold-premium text-bg-main font-space font-bold rounded-full hover:bg-gold-light transition-all text-center shadow-[0_0_20px_rgba(197,160,89,0.3)] hover:shadow-[0_0_40px_rgba(197,160,89,0.5)]">
-                  Agendar primera mentoría gratuita
+              <div className="flex items-center">
+                <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20agendar%20mi%20primera%20mentoría%20gratuita" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 border border-gold-premium text-gold-premium font-space font-bold rounded-full hover:bg-gold-premium/10 transition-all text-center flex items-center justify-center">
+                  Agendar primera mentoría gratuita <ChevronRight className="w-5 h-5 ml-1" />
                 </a>
-                <span className="text-text-muted font-space text-sm">Desde S/75 a S/150 (40-60 min)</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Secondary Services */}
-          <div className="space-y-8">
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-surface-1 p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-colors"
-            >
-              <h4 className="text-xl font-space font-bold mb-2 flex items-center">
-                <MessageCircle className="w-5 h-5 mr-2 text-[#25D366]" />
+          {/* 3. Comunidad Salón Power (1 Column) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:col-span-1 bg-surface-1 p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-colors flex flex-col justify-between"
+          >
+            <div>
+              <h4 className="text-xl font-space font-bold mb-4 flex items-center">
+                <MessageCircle className="w-6 h-6 mr-3 text-[#25D366]" />
                 Comunidad Salón Power
               </h4>
-              <p className="text-text-muted font-light text-sm mb-6">Únete a nuestro grupo exclusivo de WhatsApp con personas elevando sus estándares todos los días.</p>
-              <a href="https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#25D366] text-black font-space font-bold rounded-full hover:bg-[#20bd5a] transition-colors text-sm hover:scale-105">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Unirme al grupo de WhatsApp
-              </a>
-            </motion.div>
+              <p className="text-text-muted font-light text-sm mb-8">Únete a nuestro grupo exclusivo de WhatsApp con personas elevando sus estándares todos los días.</p>
+            </div>
+            <a href="https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#25D366] text-black font-space font-bold rounded-full hover:bg-[#20bd5a] transition-colors text-sm hover:scale-105">
+              <MessageCircle className="w-4 h-4 mr-2" />
+              Unirme al grupo
+            </a>
+          </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-surface-1 p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-colors"
-            >
+          {/* 4. Mini Curso (1 Column) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:col-span-1 bg-surface-1 p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-colors flex flex-col justify-between"
+          >
+            <div>
               <div className="inline-block px-2 py-1 bg-[#E65100]/20 text-[#E65100] text-[10px] font-space font-bold uppercase tracking-wider rounded mb-4">
                 Próximamente
               </div>
-              <h4 className="text-xl font-space font-bold mb-2">Mini Curso: Reprograma tu Mente</h4>
+              <h4 className="text-xl font-space font-bold mb-2">Reprograma tu Mente</h4>
               <p className="text-text-muted font-light text-sm mb-4">Un sistema paso a paso para hackear tus creencias limitantes.</p>
-              <div className="text-lg font-space font-bold text-text-main">S/97</div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Free Resources & Corporate */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid md:grid-cols-2 gap-8 mt-8"
-        >
-          <div className="bg-surface-1 p-8 rounded-3xl border border-white/5 flex flex-col justify-between relative overflow-hidden group hover:border-white/20 transition-colors">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold-premium/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-gold-premium/20 transition-colors"></div>
-            <div className="relative z-10">
-              <div className="inline-block px-2 py-1 bg-gold-premium/10 text-gold-premium text-[10px] font-space font-bold uppercase tracking-wider rounded mb-4">
-                Speaker
-              </div>
-              <h4 className="text-xl font-space font-bold mb-2">Conferencias y Talleres</h4>
-              <p className="text-text-muted font-light text-sm mb-6">
-                Llevo el mensaje de transformación y liderazgo a empresas e instituciones. Experiencia comprobada con Caja Arequipa y más.
-              </p>
             </div>
-            <a href="mailto:hola@juancapower.com" className="text-gold-premium font-space font-bold text-sm flex items-center hover:text-gold-light transition-colors relative z-10">
-              Solicitar propuesta <ChevronRight className="w-4 h-4 ml-1" />
-            </a>
-          </div>
-          
-          <div className="bg-surface-1 p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
-            <div>
+            <div className="text-lg font-space font-bold text-text-main">S/97</div>
+          </motion.div>
+
+          {/* 5. Recursos Gratuitos (2 Columns) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="lg:col-span-2 bg-surface-1 p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+          >
+            <div className="max-w-md">
               <h4 className="text-xl font-space font-bold mb-2">Recursos Gratuitos</h4>
-              <p className="text-text-muted font-light text-sm mb-6">
+              <p className="text-text-muted font-light text-sm">
                 Accede a mi clase gratis "Mentalidad Power" y descarga mis ebooks gratuitos para empezar tu camino de transformación personal.
               </p>
             </div>
-            <a href="/mentalidadpower" className="text-gold-premium font-space font-bold text-sm flex items-center hover:text-gold-light transition-colors">
+            <a href="/mentalidadpower" className="shrink-0 text-gold-premium font-space font-bold text-sm flex items-center hover:text-gold-light transition-colors">
               Acceder a Mentalidad Power <ChevronRight className="w-4 h-4 ml-1" />
             </a>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
