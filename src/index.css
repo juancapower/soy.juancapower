@@ -1,24 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
-  --color-bg-main: #0B0D17;
-  --color-surface-1: #10121F;
-  --color-surface-2: #161829;
-  --color-text-main: #F8F9FA;
-  --color-text-muted: #A0A4B8;
-  --color-gold-premium: #C5A059;
-  --color-gold-light: #FDF6E3;
-  --color-orange-fire: #E65100;
+:root {
+  --jcp-bg: #0B0D17;
+  --jcp-surface: #10121F;
+  --jcp-surface-2: #161829;
+  --jcp-surface-3: #1D2038;
+  --jcp-fire: #E65100;
+  --jcp-fire-l: #FF7A2F;
+  --jcp-fire-d: #B83E00;
+  --jcp-fire-glow: rgba(230,81,0,0.20);
+  --jcp-gold: #C5A059;
+  --jcp-cream: #FDF6E3;
+  --jcp-text: #F8F9FA;
+  --jcp-text-2: #A0A4B8;
+  --jcp-text-3: #616880;
+  --jcp-border: rgba(197,160,89,0.12);
+  --jcp-border-n: rgba(255,255,255,0.07);
+}
 
-  --font-cormorant: "Cormorant Garamond", serif;
+@theme {
+  --color-jcp-bg: var(--jcp-bg);
+  --color-jcp-surface: var(--jcp-surface);
+  --color-jcp-surface-2: var(--jcp-surface-2);
+  --color-jcp-surface-3: var(--jcp-surface-3);
+  --color-jcp-fire: var(--jcp-fire);
+  --color-jcp-fire-l: var(--jcp-fire-l);
+  --color-jcp-fire-d: var(--jcp-fire-d);
+  --color-jcp-fire-glow: var(--jcp-fire-glow);
+  --color-jcp-gold: var(--jcp-gold);
+  --color-jcp-cream: var(--jcp-cream);
+  --color-jcp-text: var(--jcp-text);
+  --color-jcp-text-2: var(--jcp-text-2);
+  --color-jcp-text-3: var(--jcp-text-3);
+  --color-jcp-border: var(--jcp-border);
+  --color-jcp-border-n: var(--jcp-border-n);
+
   --font-space: "Space Grotesk", sans-serif;
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
+  
+  --background-image-gradient-gold: linear-gradient(135deg, var(--jcp-gold) 0%, var(--jcp-cream) 50%, var(--jcp-gold) 100%);
+  --background-image-gradient-fire: linear-gradient(135deg, var(--jcp-fire) 0%, var(--jcp-fire-l) 60%, #FFAD74 100%);
+  --background-image-gradient-space: linear-gradient(180deg, var(--jcp-bg) 0%, var(--jcp-surface-2) 50%, var(--jcp-surface-3) 100%);
+  --background-image-gradient-fire-glow: radial-gradient(circle at 30% 50%, rgba(230,81,0,0.35) 0%, transparent 60%);
 }
 
 body {
-  background-color: var(--color-bg-main);
-  color: var(--color-text-main);
+  background-color: var(--jcp-bg);
+  color: var(--jcp-text);
   font-family: var(--font-jakarta);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,6 +57,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-space);
+  letter-spacing: -0.02em;
+}
+
+.title-tight {
+  letter-spacing: -0.03em;
 }
 
 .font-cormorant {
@@ -38,4 +74,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .font-jakarta {
   font-family: var(--font-jakarta);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.section-padding {
+  padding-block: clamp(64px, 8vw, 120px);
+}
+
+/* Custom Utilities for Quote styling */
+.quote-background {
+  position: relative;
+}
+.quote-background::before {
+  content: '"';
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  font-family: var(--font-cormorant);
+  font-size: 15rem;
+  color: var(--jcp-gold);
+  opacity: 0.08;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
 }
