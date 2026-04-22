@@ -323,7 +323,7 @@ const SistemaPower = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-jcp-surface-2 border border-jcp-border-n p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
             >
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">1</div>
+               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">4</div>
                <div className="text-3xl mb-4 relative z-10">💧</div>
                <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Emoción</h4>
                <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Dominio de tu energía interior. Pasa del estrés a la calma y toma decisiones asertivas.</p>
@@ -336,14 +336,14 @@ const SistemaPower = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="bg-jcp-surface-2 border border-jcp-border-n p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
             >
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">2</div>
+               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">3</div>
                <div className="text-3xl mb-4 relative z-10">💪</div>
                <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Cuerpo</h4>
                <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Construcción de hábitos innegociables. Transforma tu cuerpo físico y maximiza tu energía.</p>
             </motion.div>
           </div>
 
-          {/* Base: Espíritu y Mente */}
+          {/* Base: Mente y Espíritu */}
           <div className="grid md:grid-cols-2 gap-6 z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -353,10 +353,10 @@ const SistemaPower = () => {
               className="bg-jcp-surface-2 border border-jcp-border-n rounded-bl-[3rem] p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
             >
                <div className="absolute inset-0 bg-gradient-to-t from-jcp-gold/5 to-transparent"></div>
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">3</div>
-               <div className="text-3xl mb-4 relative z-10">🌌</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Espíritu</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Conexión profunda con tu propósito y fe. La base inquebrantable de tu transformación.</p>
+               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">2</div>
+               <div className="text-3xl mb-4 relative z-10">🧠</div>
+               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Mente</h4>
+               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Reprogramación de creencias limitantes. Construcción de una mentalidad de acero y enfoque láser.</p>
             </motion.div>
 
             <motion.div 
@@ -367,10 +367,10 @@ const SistemaPower = () => {
               className="bg-jcp-surface-2 border border-jcp-border-n rounded-br-[3rem] p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
             >
                <div className="absolute inset-0 bg-gradient-to-t from-jcp-gold/5 to-transparent"></div>
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">4</div>
-               <div className="text-3xl mb-4 relative z-10">🧠</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Mente</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Reprogramación de creencias limitantes. Construcción de una mentalidad de acero y enfoque láser.</p>
+               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">1</div>
+               <div className="text-3xl mb-4 relative z-10">🌌</div>
+               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Espíritu</h4>
+               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Conexión profunda con tu propósito y fe. La base inquebrantable de tu transformación.</p>
             </motion.div>
           </div>
 
@@ -481,16 +481,19 @@ const Servicios = () => {
   );
 };
 
-const TestimonioVideo: React.FC<{ src: string, name: string }> = ({ src, name }) => {
-  const [isMuted, setIsMuted] = useState(true);
+const TestimonioVideo: React.FC<{ src: string, name: string, isMuted: boolean, onToggleMute: () => void }> = ({ src, name, isMuted, onToggleMute }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  // Sync the DOM element's muted property with the React state
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
 
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    onToggleMute();
   };
 
   return (
@@ -505,6 +508,8 @@ const TestimonioVideo: React.FC<{ src: string, name: string }> = ({ src, name })
         loop
         muted={isMuted}
         playsInline
+        autoPlay
+        preload="metadata"
       />
       <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md p-2 rounded-full text-white z-10 transition-opacity">
         {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
@@ -515,10 +520,12 @@ const TestimonioVideo: React.FC<{ src: string, name: string }> = ({ src, name })
 };
 
 const Testimonios = () => {
+  const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
+
   const testimonios = [
     {
       name: "Ybeth A.",
-      cargo: "Emprendedora",
+      cargo: "Maestra de Inicial",
       quote: "JuanCa me ayudó a encontrar esa fuerza interior que no sabía que tenía. Mi vida personal ha dado un giro total.",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667361/Testimonio_YbethA_hjhhsw.mp4",
     },
@@ -530,19 +537,19 @@ const Testimonios = () => {
     },
     {
       name: "Gabriella V.",
-      cargo: "CEO",
+      cargo: "Líder de Equipo",
       quote: "Alinear mis emociones con mi propósito de negocio fue el desbloqueo que necesitaba para escalar.",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_GabrielaV_zpq676.mp4",
     },
     {
       name: "Karen G.",
-      cargo: "Profesional Independiente",
+      cargo: "Abogada",
       quote: "Entender que la mente dirige y el cuerpo ejecuta cambió mi forma de trabajar. Las sesiones 1 a 1 valen cada céntimo.",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_KarenG_fkgzkm.mp4",
     },
     {
       name: "Alvaro V.",
-      cargo: "Director Comercial",
+      cargo: "Ing. de Sistemas",
       quote: "Pasé del piloto automático a tener el control intencional de mis días. La transformación es brutal y expansiva.",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667358/Testimonio_AlvaroV_u1liet.mp4",
     }
@@ -559,15 +566,7 @@ const Testimonios = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">💬 Resultados Reales</div>
-          <h2 className="text-[32px] font-space font-semibold mb-8 text-jcp-text">Lo que dicen quienes ya tomaron acción.</h2>
-
-          {/* Quote destacado */}
-          <div className="bg-gradient-to-r from-[#1D1107] to-[#120B05] border border-jcp-fire/20 p-8 md:p-12 rounded-[24px] mb-12 shadow-[0_0_30px_var(--jcp-fire-glow)] relative">
-            <div className="absolute -top-6 -left-2 text-jcp-fire/10 text-9xl font-cormorant select-none">"</div>
-            <p className="font-cormorant text-[22px] italic text-jcp-cream relative z-10 font-medium">
-              "El principal cambio no fue solo en mis finanzas o mi negocio, sino en la paz mental y la seguridad con la que tomo mis decisiones cada mañana."
-            </p>
-          </div>
+          <h2 className="text-[32px] font-space font-semibold text-jcp-text">Lo que dicen quienes ya tomaron acción.</h2>
         </motion.div>
 
         <motion.div 
@@ -579,14 +578,15 @@ const Testimonios = () => {
         >
           {testimonios.map((t, i) => (
             <div key={i} className="bg-jcp-surface border border-jcp-border-n rounded-[12px] p-5 flex flex-col relative">
-              <TestimonioVideo src={t.video} name={t.name} />
+              <TestimonioVideo 
+                src={t.video} 
+                 name={t.name} 
+                isMuted={activeVideoIndex !== i}
+                onToggleMute={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}
+              />
               
-              <div className="relative mt-2 flex-grow flex flex-col justify-between">
-                <div className="absolute top-0 right-0 text-jcp-gold/10 text-6xl font-cormorant select-none">"</div>
-                <p className="font-cormorant italic text-[16px] text-jcp-text mb-4 relative z-10 leading-snug">
-                  "{t.quote}"
-                </p>
-                <div>
+              <div className="relative mt-2 flex-grow flex flex-col justify-end">
+                <div className="mt-2">
                   <div className="flex items-center text-jcp-fire mb-2 text-sm">
                     ★★★★★
                   </div>
