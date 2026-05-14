@@ -3,6 +3,11 @@ import { motion } from 'motion/react';
 
 const mentors = [
   {
+    name: "Daniela Sarfati",
+    role: "Coach de Vida y Coach Espiritual",
+    img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769440/DanielaSarfati_eozbgp.jpg"
+  },
+  {
     name: "Orlando Denegri",
     role: "PNL y Coaching",
     img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1773384474/juanca_y_orlando_denegri_wxy2xs.jpg"
