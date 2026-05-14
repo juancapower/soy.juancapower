@@ -656,6 +656,15 @@ const Eventos = () => {
                   Próxima Experiencia
                 </div>
                 
+                <div className="w-full md:w-[220px] flex-shrink-0 flex justify-center relative z-10">
+                  <img 
+                    src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769045/JuanCaPower_LiberaTuProposito_kffzlv.png" 
+                    alt="Libera tu propósito" 
+                    className="w-full max-w-[240px] md:max-w-full rounded-xl object-cover shadow-lg border border-jcp-gold/20"
+                    style={{ aspectRatio: '9/16' }}
+                  />
+                </div>
+
                 <div className="flex-1 w-full relative z-10 text-center md:text-left">
                   <div className="flex justify-center md:justify-start items-center gap-4 mb-4 mt-2">
                     <div className="w-16 h-16 bg-jcp-gold/10 rounded-xl flex items-center justify-center">
@@ -720,7 +729,9 @@ const Eventos = () => {
             className="columns-2 sm:columns-2 gap-4 space-y-4"
           >
             {/* Masonry Grid of images */}
+            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769045/TrascendiendoElDuelo_JuanCaPower_mchl22.jpg" alt="Trascendiendo el duelo JuanCa" className="w-full rounded-xl object-cover mb-4 aspect-[4/5]" />
             <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1776364279/CajaArequipa_Piura1_h6hbaz.jpg" alt="Evento" className="w-full rounded-xl object-cover mb-4" />
+            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769044/TrascendiendoElDuelo_grupal_mzytdc.jpg" alt="Trascendiendo el duelo Grupal" className="w-full rounded-xl object-cover mb-4 aspect-video" />
             <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514826/escenario_naywym.png" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-video" />
             <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1776364279/CajaArequipa_Piura2_hw7due.jpg" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-video" />
             <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_pizarra_onq7x1.png" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-[3/4]" />
@@ -842,6 +853,33 @@ const Footer = () => {
 };
 
 export default function App() {
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    };
+
+    // Fallback attempts to ensure scroll happens after layout and paints
+    setTimeout(handleHashScroll, 100);
+    setTimeout(handleHashScroll, 500);
+    setTimeout(handleHashScroll, 1000);
+
+    window.addEventListener('load', handleHashScroll);
+    return () => window.removeEventListener('load', handleHashScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-jcp-bg text-jcp-text font-jakarta selection:bg-jcp-fire/30 selection:text-gold-light">
       <NoiseOverlay />
