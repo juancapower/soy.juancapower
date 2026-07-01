@@ -20,7 +20,7 @@ export default function MentoriaSection() {
   return (
     <section id="mentoria" className="section-padding bg-jcp-bg relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-jcp-fire/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-jcp-power/5 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -37,7 +37,7 @@ export default function MentoriaSection() {
             Agenda tu <span className="text-jcp-gold">Mentoria</span>
           </h2>
           <p className="text-[18px] font-jakarta text-jcp-text-2 max-w-2xl mx-auto leading-relaxed">
-            El compromiso con tu éxito comienza hoy. Recuerda que la <span className="text-jcp-fire font-bold uppercase">primera sesión es 100% gratuita</span>.
+            El compromiso con tu éxito comienza hoy. Recuerda que la <span className="text-jcp-power font-bold uppercase">primera sesión es 100% gratuita</span>.
           </p>
         </motion.div>
 
@@ -91,10 +91,10 @@ export default function MentoriaSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="group relative bg-jcp-surface border border-jcp-border-n p-8 md:p-10 rounded-[24px] hover:border-jcp-fire/40 transition-all duration-500 shadow-2xl"
+            className="group relative bg-jcp-surface border border-jcp-border-n p-8 md:p-10 rounded-[24px] hover:border-jcp-power/40 transition-all duration-500 shadow-2xl"
           >
-            <div className="w-16 h-16 bg-jcp-fire/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <WhatsAppIcon className="w-8 h-8 text-jcp-fire" />
+            <div className="w-16 h-16 bg-jcp-power/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+              <WhatsAppIcon className="w-8 h-8 text-jcp-power" />
             </div>
             
             <h3 className="text-[24px] font-space font-bold mb-4 text-jcp-text">Consulta por WhatsApp</h3>
@@ -104,15 +104,15 @@ export default function MentoriaSection() {
 
             <ul className="mb-10 space-y-4">
               <li className="flex items-center text-jcp-text-2 text-sm font-jakarta">
-                <CheckCircle2 className="w-5 h-5 text-jcp-fire mr-3 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-jcp-power mr-3 shrink-0" />
                 Comunicación directa y rápida
               </li>
               <li className="flex items-center text-jcp-text-2 text-sm font-jakarta">
-                <CheckCircle2 className="w-5 h-5 text-jcp-fire mr-3 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-jcp-power mr-3 shrink-0" />
                 Resolución de dudas específicas
               </li>
               <li className="flex items-center text-jcp-text-2 text-sm font-jakarta">
-                <CheckCircle2 className="w-5 h-5 text-jcp-fire mr-3 shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-jcp-power mr-3 shrink-0" />
                 Atención 100% personalizada
               </li>
             </ul>
@@ -121,7 +121,7 @@ export default function MentoriaSection() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4 border-2 border-jcp-fire text-jcp-fire font-space font-bold rounded-xl flex items-center justify-center hover:bg-jcp-fire hover:text-white transition-all shadow-[0_10px_30px_rgba(230,81,0,0.1)]"
+              className="w-full py-4 border-2 border-jcp-power text-jcp-power font-space font-bold rounded-xl flex items-center justify-center hover:bg-jcp-power hover:text-white transition-all shadow-[0_10px_30px_var(--jcp-power-glow)]"
             >
               Hablar con JuanCa
               <WhatsAppIcon className="ml-2 w-5 h-5" />

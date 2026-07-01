@@ -29,7 +29,7 @@ const FloatingWhatsApp = () => (
     href="https://wa.me/51963335717" 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="fixed bottom-6 right-6 z-[60] bg-jcp-fire text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-fire-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-fire-glow)] transition-all flex items-center justify-center"
+    className="fixed bottom-6 right-6 z-[60] bg-jcp-power text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-power-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-power-glow)] transition-all flex items-center justify-center"
     aria-label="Contactar por WhatsApp"
   >
     <WhatsAppIcon size={28} />
@@ -49,7 +49,7 @@ const Logo = () => (
         JuanCa <span className="text-[#C5A059]">Power</span>
       </span>
       <span className="font-cormorant italic text-jcp-gold text-[12px] md:text-[14px] leading-none">
-        No esperes motivación.
+        No esperes motivación. Crea resultados.
       </span>
     </div>
   </div>
@@ -96,7 +96,7 @@ const Navbar = () => {
             ))}
             <a 
               href="#mentoria"
-              className="px-6 py-2.5 bg-[#E65100] text-white font-space font-semibold rounded-lg hover:bg-jcp-fire-l transition-all shadow-[0_0_15px_var(--jcp-fire-glow)] hover:shadow-[0_0_25px_var(--jcp-fire-glow)]"
+              className="px-6 py-2.5 bg-jcp-power text-white font-space font-semibold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]"
             >
               Agenda tu sesión
             </a>
@@ -132,7 +132,7 @@ const Navbar = () => {
           <a 
             href="#mentoria"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block w-full py-4 bg-[#E65100] text-white font-space font-semibold rounded-lg hover:bg-jcp-fire-l transition-all shadow-[0_0_15px_var(--jcp-fire-glow)] hover:shadow-[0_0_25px_var(--jcp-fire-glow)] text-center text-lg"
+            className="block w-full py-4 bg-jcp-power text-white font-space font-semibold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)] text-center text-lg"
           >
             Agenda tu sesión
           </a>
@@ -167,8 +167,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-3xl"
         >
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-jcp-gold/30 bg-jcp-fire/10 mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-jcp-fire animate-pulse"></span>
+          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-jcp-gold/30 bg-jcp-power/10 mb-8 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-jcp-power animate-pulse"></span>
             <span className="text-xs font-space font-medium text-jcp-gold tracking-wider uppercase">Mentoría Premium 1:1 Activa</span>
           </div>
           
@@ -183,7 +183,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href="#mentoria" className="px-8 py-4 bg-jcp-fire text-white font-space font-bold rounded-lg hover:bg-jcp-fire-l transition-all flex items-center justify-center group text-[16px] shadow-[0_0_15px_var(--jcp-fire-glow)] hover:shadow-[0_0_25px_var(--jcp-fire-glow)]">
+            <a href="#mentoria" className="px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all flex items-center justify-center group text-[16px] shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]">
               Agenda tu sesión gratuita
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -231,7 +231,7 @@ const Historia = () => {
             className="lg:w-3/5 relative flex"
           >
             {/* Timeline line */}
-            <div className="w-[3px] bg-gradient-to-b from-jcp-fire via-jcp-fire-l to-transparent shrink-0 rounded-full mr-8 hidden md:block"></div>
+            <div className="w-[3px] bg-gradient-to-b from-jcp-power via-jcp-power-l to-transparent shrink-0 rounded-full mr-8 hidden md:block"></div>
             
             <div>
               <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">🌌 Mi Historia</div>
@@ -258,7 +258,7 @@ const Historia = () => {
               </div>
             </div>
           </motion.div>
-
+ 
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -275,7 +275,7 @@ const Historia = () => {
               />
             </div>
             {/* Decorative elements */}
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-jcp-fire/10 rounded-full blur-3xl z-0"></div>
+            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-jcp-power/10 rounded-full blur-3xl z-0"></div>
             <div className="absolute -top-8 -left-8 w-64 h-64 bg-jcp-surface-2 rounded-full z-0"></div>
           </motion.div>
         </div>
@@ -384,6 +384,58 @@ const SistemaPower = () => {
             </motion.div>
           </div>
 
+          {/* Integration Banner: JuanCa Power & Power Digital */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="mt-12 bg-gradient-to-br from-jcp-surface-2 to-[#0B0D17] border border-jcp-gold/20 rounded-[24px] p-8 md:p-10 relative overflow-hidden text-left"
+          >
+            {/* Minimalist Tech Architecture Graphic */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `radial-gradient(var(--jcp-power) 1.5px, transparent 1.5px)`, backgroundSize: '24px 24px' }}></div>
+            <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-jcp-power/10 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute -left-24 -top-24 w-96 h-96 bg-jcp-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div className="relative z-10 flex flex-col lg:flex-row gap-8 items-center justify-between">
+              <div className="max-w-xl text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-jcp-power/10 border border-jcp-power/20 rounded-full text-xs font-mono text-jcp-power-l uppercase tracking-wider mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-jcp-power animate-pulse"></span>
+                  <span>Ecosistema de Expansión</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-space font-bold text-white mb-4">
+                  Sinergia de Evolución Integral
+                </h3>
+                <p className="font-jakarta text-jcp-text-2 text-[15px] leading-relaxed mb-6">
+                  Para que tu impacto trascienda, no basta con alinear tu mentalidad. Expandimos tu legado construyendo tu ecosistema digital mediante automatizaciones de vanguardia, inteligencia artificial aplicada y diseño estratégico de alto valor.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 text-left">
+                  <div className="bg-[#0B0D17]/60 p-4 rounded-xl border border-jcp-border-n hover:border-jcp-gold/30 transition-colors">
+                    <span className="text-jcp-gold font-space font-bold text-[14px] block mb-1">🧠 JuanCa Power</span>
+                    <span className="text-[12px] text-jcp-text-2">Transformación interna profunda para elevar tus estándares y forjar una disciplina de acero.</span>
+                  </div>
+                  <div className="bg-[#0B0D17]/60 p-4 rounded-xl border border-jcp-border-n hover:border-jcp-power/30 transition-colors">
+                    <span className="text-jcp-power-l font-space font-bold text-[14px] block mb-1">⚡ Power Digital</span>
+                    <span className="text-[12px] text-jcp-text-2">Expansión externa masiva con sistemas tecnológicos avanzados, IA y construcción digital de marca.</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex-shrink-0 text-center lg:text-right bg-gradient-to-b from-[#10121F] to-[#0B0D17] p-8 rounded-2xl border border-jcp-gold/15 max-w-sm w-full shadow-2xl relative">
+                <div className="absolute top-2 right-2 flex space-x-1.5">
+                  <span className="w-2 h-2 rounded-full bg-jcp-power opacity-40"></span>
+                  <span className="w-2 h-2 rounded-full bg-jcp-gold opacity-40"></span>
+                </div>
+                <span className="font-cormorant italic text-jcp-gold text-[24px] block mb-4 leading-snug">
+                  "Primero transforma tu sistema interno. Luego construye tu sistema digital."
+                </span>
+                <span className="font-mono text-[9px] text-jcp-text-3 uppercase tracking-widest block">
+                  Principio de Crecimiento Infinito
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
@@ -394,7 +446,7 @@ const Servicios = () => {
   return (
     <section id="servicios" className="section-padding bg-jcp-surface relative overflow-hidden border-y border-jcp-border-n">
       {/* Subtle radial glow */}
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-jcp-fire/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-jcp-power/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div 
@@ -404,10 +456,10 @@ const Servicios = () => {
           transition={{ duration: 0.8 }}
           className="text-center md:text-left mb-16"
         >
-          <div className="text-sm font-mono font-bold text-jcp-fire uppercase tracking-[0.2em] mb-4">🔥 Trabaja Conmigo</div>
+          <div className="text-sm font-mono font-bold text-jcp-power uppercase tracking-[0.2em] mb-4">⚡ Trabaja Conmigo</div>
           <h2 className="text-[36px] font-space font-semibold mb-4 text-jcp-text">Espacios limitados para personas comprometidas.</h2>
-          <p className="text-[20px] font-cormorant italic text-jcp-fire-l font-medium">
-            Obsesiónate con tu objetivo
+          <p className="text-[20px] font-cormorant italic text-jcp-power-l font-medium">
+            Obsesiónate con tu objetivo. Diseña tu sistema.
           </p>
         </motion.div>
 
@@ -460,7 +512,7 @@ const Servicios = () => {
               ))}
             </ul>
 
-            <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20aplicar%20a%20la%20mentoría%20élite" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-4 bg-jcp-fire text-white font-space font-bold rounded-lg hover:bg-jcp-fire-l transition-all text-[16px] shadow-[0_0_15px_var(--jcp-fire-glow)] hover:shadow-[0_0_25px_var(--jcp-fire-glow)]">
+            <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20aplicar%20a%20la%20mentoría%20élite" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all text-[16px] shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]">
               Aplicar ahora <ArrowRight className="w-4 h-4 ml-2" />
             </a>
           </motion.div>
@@ -597,7 +649,7 @@ const Testimonios = () => {
               
               <div className="relative mt-2 flex-grow flex flex-col justify-end">
                 <div className="mt-2">
-                  <div className="flex items-center text-jcp-fire mb-2 text-sm">
+                  <div className="flex items-center text-jcp-gold mb-2 text-sm">
                     ★★★★★
                   </div>
                   <div className="font-space font-semibold text-[14px] text-jcp-text">{t.name}</div>
@@ -627,7 +679,7 @@ const RecursosGratuitos = () => {
           <p className="text-[16px] font-jakarta font-normal text-jcp-text-2 mb-10 max-w-2xl mx-auto">
             Un sistema paso a paso para hackear tus creencias limitantes. Accede a mi clase gratis "Mentalidad Power" y descarga mis ebooks gratuitos para empezar tu camino de transformación personal.
           </p>
-          <a href="https://mentalidad.juancapower.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 bg-jcp-fire text-white font-space font-bold rounded-lg hover:bg-jcp-fire-l transition-all text-[16px] shadow-[0_0_20px_var(--jcp-fire-glow)] hover:shadow-[0_0_30px_var(--jcp-fire-glow)] hover:-translate-y-1">
+          <a href="https://mentalidad.juancapower.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all text-[16px] shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_30px_var(--jcp-power-glow)] hover:-translate-y-1">
             Accede al material gratuito <ArrowRight className="w-5 h-5 ml-2" />
           </a>
         </motion.div>
@@ -676,11 +728,11 @@ const Eventos = () => {
                   
                   <div className="flex flex-col sm:flex-row gap-4 text-sm font-mono mb-8 text-jcp-text justify-center md:justify-start">
                     <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-jcp-fire" />
+                      <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
                       17 de Octubre, 2026
                     </div>
                     <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-jcp-fire" />
+                      <MapPin className="w-4 h-4 mr-2 text-jcp-power" />
                       Lima, Perú
                     </div>
                   </div>
@@ -700,7 +752,7 @@ const Eventos = () => {
                   </div>
                   <h4 className="text-[20px] font-space font-bold mb-2 text-jcp-text-2">Trascendiendo el duelo</h4>
                   <div className="flex items-center text-[14px] font-mono text-jcp-text-3">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
                     3 de mayo de 2026 • Trujillo
                   </div>
                 </div>
@@ -713,7 +765,7 @@ const Eventos = () => {
                   </div>
                   <h4 className="text-[20px] font-space font-bold mb-2 text-jcp-text-2">Despierta tu Power</h4>
                   <div className="flex items-center text-[14px] font-mono text-jcp-text-3">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
                     28 de marzo de 2026 • Trujillo
                   </div>
                 </div>
@@ -746,8 +798,8 @@ const Eventos = () => {
 
 const BottomCTA = () => {
   return (
-    <section id="contacto" className="section-padding bg-jcp-bg relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B0D17 0%, #1A130C 100%)' }}>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(230,81,0,0.15)_0%,transparent_60%)] pointer-events-none"></div>
+    <section id="contacto" className="section-padding bg-jcp-bg relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B0D17 0%, #10121F 100%)' }}>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(67,97,238,0.12)_0%,transparent_60%)] pointer-events-none"></div>
       
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
         <motion.div
@@ -770,9 +822,9 @@ const BottomCTA = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
             <a 
               href="#mentoria" 
-              className="inline-flex items-center px-10 py-5 bg-jcp-fire text-white font-space font-bold rounded-[8px] hover:bg-jcp-fire-l transition-all text-[18px] shadow-[0_0_20px_var(--jcp-fire-glow)] hover:shadow-[0_0_40px_var(--jcp-fire-glow)] hover:-translate-y-1 w-full sm:w-auto justify-center"
+              className="inline-flex items-center px-10 py-5 bg-jcp-power text-white font-space font-bold rounded-[8px] hover:bg-jcp-power-l transition-all text-[18px] shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_40px_var(--jcp-power-glow)] hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
-              🔥 Agenda tu sesión gratuita
+              ⚡ Agenda tu sesión gratuita
             </a>
             <a 
               href="mailto:hola@juancapower.com" 
@@ -825,16 +877,16 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h4 className="font-space font-bold mb-6 text-jcp-text">Sociales</h4>
             <div className="flex space-x-4">
-              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-fire transition-all">
+              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-fire transition-all">
+              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
               </a>
-              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-fire transition-all">
+              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-fire transition-all">
+              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
@@ -881,7 +933,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-jcp-bg text-jcp-text font-jakarta selection:bg-jcp-fire/30 selection:text-gold-light">
+    <div className="min-h-screen bg-jcp-bg text-jcp-text font-jakarta selection:bg-jcp-power/30 selection:text-gold-light">
       <NoiseOverlay />
       <Navbar />
       <main>

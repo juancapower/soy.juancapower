@@ -6,17 +6,29 @@
   --jcp-surface: #10121F;
   --jcp-surface-2: #161829;
   --jcp-surface-3: #1D2038;
-  --jcp-fire: #E65100;
-  --jcp-fire-l: #FF7A2F;
-  --jcp-fire-d: #B83E00;
-  --jcp-fire-glow: rgba(230,81,0,0.20);
+  
+  /* Azul Power (Primary Brand & Technology) */
+  --jcp-power: #4361EE;
+  --jcp-power-l: #6C84F5;
+  --jcp-power-d: #2742CB;
+  --jcp-power-glow: rgba(67, 97, 238, 0.25);
+  
+  /* Oro Líquido (Premium Legacy & Alignment) */
   --jcp-gold: #C5A059;
   --jcp-cream: #FDF6E3;
+  
+  /* Text & Accents */
   --jcp-text: #F8F9FA;
   --jcp-text-2: #A0A4B8;
   --jcp-text-3: #616880;
   --jcp-border: rgba(197,160,89,0.12);
   --jcp-border-n: rgba(255,255,255,0.07);
+
+  /* Backward Compatibility with existing classes using -fire */
+  --jcp-fire: var(--jcp-power);
+  --jcp-fire-l: var(--jcp-power-l);
+  --jcp-fire-d: var(--jcp-power-d);
+  --jcp-fire-glow: var(--jcp-power-glow);
 }
 
 @theme {
@@ -24,10 +36,12 @@
   --color-jcp-surface: var(--jcp-surface);
   --color-jcp-surface-2: var(--jcp-surface-2);
   --color-jcp-surface-3: var(--jcp-surface-3);
-  --color-jcp-fire: var(--jcp-fire);
-  --color-jcp-fire-l: var(--jcp-fire-l);
-  --color-jcp-fire-d: var(--jcp-fire-d);
-  --color-jcp-fire-glow: var(--jcp-fire-glow);
+  
+  --color-jcp-power: var(--jcp-power);
+  --color-jcp-power-l: var(--jcp-power-l);
+  --color-jcp-power-d: var(--jcp-power-d);
+  --color-jcp-power-glow: var(--jcp-power-glow);
+  
   --color-jcp-gold: var(--jcp-gold);
   --color-jcp-cream: var(--jcp-cream);
   --color-jcp-text: var(--jcp-text);
@@ -36,15 +50,21 @@
   --color-jcp-border: var(--jcp-border);
   --color-jcp-border-n: var(--jcp-border-n);
 
+  /* Backward Compatibility with existing color names */
+  --color-jcp-fire: var(--jcp-fire);
+  --color-jcp-fire-l: var(--jcp-fire-l);
+  --color-jcp-fire-d: var(--jcp-fire-d);
+  --color-jcp-fire-glow: var(--jcp-fire-glow);
+
   --font-space: "Space Grotesk", sans-serif;
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-cormorant: "Cormorant Garamond", serif;
   --font-mono: "DM Mono", monospace;
   
   --background-image-gradient-gold: linear-gradient(135deg, var(--jcp-gold) 0%, var(--jcp-cream) 50%, var(--jcp-gold) 100%);
-  --background-image-gradient-fire: linear-gradient(135deg, var(--jcp-fire) 0%, var(--jcp-fire-l) 60%, #FFAD74 100%);
+  --background-image-gradient-fire: linear-gradient(135deg, var(--jcp-power) 0%, var(--jcp-power-l) 60%, var(--jcp-gold) 100%);
   --background-image-gradient-space: linear-gradient(180deg, var(--jcp-bg) 0%, var(--jcp-surface-2) 50%, var(--jcp-surface-3) 100%);
-  --background-image-gradient-fire-glow: radial-gradient(circle at 30% 50%, rgba(230,81,0,0.35) 0%, transparent 60%);
+  --background-image-gradient-fire-glow: radial-gradient(circle at 30% 50%, rgba(67, 97, 238, 0.3) 0%, transparent 60%);
 }
 
 body {
