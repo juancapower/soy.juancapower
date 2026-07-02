@@ -1,5 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Star, ChevronRight, Play, ArrowRight, CheckCircle2, MapPin, Calendar, Mail, Instagram, Youtube, Facebook, Flame, Brain, Dumbbell, Heart, Volume2, VolumeX } from 'lucide-react';
+import { Menu, X, ArrowRight, MapPin, Calendar, Mail, Instagram, Youtube, Facebook, Star, Flame } from 'lucide-react';
+import { motion } from 'motion/react';
+
+// Import our highly polished, modular JuanCa Power 3.0 sections
+import EventosSection from './components/EventosSection';
+import HistoriaSection from './components/HistoriaSection';
+import SistemaPowerSection from './components/SistemaPowerSection';
+import PowerDigitalSection from './components/PowerDigitalSection';
+import ComunidadSection from './components/ComunidadSection';
+import ConferenciasSection from './components/ConferenciasSection';
+import TestimoniosSection from './components/TestimoniosSection';
+import EliteSection from './components/EliteSection';
+import MentoriaSection from './components/MentoriaSection';
 
 const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
@@ -13,9 +25,6 @@ const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
-import { motion } from 'motion/react';
-import EliteSection from './components/EliteSection';
-import MentoriaSection from './components/MentoriaSection';
 
 const NoiseOverlay = () => (
   <div 
@@ -29,7 +38,7 @@ const FloatingWhatsApp = () => (
     href="https://wa.me/51963335717" 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="fixed bottom-6 right-6 z-[60] bg-jcp-power text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-power-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-power-glow)] transition-all flex items-center justify-center"
+    className="fixed bottom-6 right-6 z-[60] bg-jcp-power text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-power-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-power-glow)] transition-all flex items-center justify-center animate-bounce"
     aria-label="Contactar por WhatsApp"
   >
     <WhatsAppIcon size={28} />
@@ -37,19 +46,19 @@ const FloatingWhatsApp = () => (
 );
 
 const Logo = () => (
-  <div className="flex items-center space-x-3">
-    <img 
-      src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514898/favicon_pegejm.png" 
-      alt="Isotipo JuanCa Power" 
-      className="h-10 w-10 md:h-12 md:w-12 object-contain"
-      referrerPolicy="no-referrer"
-    />
+  <div className="flex items-center space-x-3 group">
+    {/* Isotipo JuanCa Power Refined */}
+    <div className="relative w-10 h-10 md:w-11 md:h-11 flex items-center justify-center overflow-hidden rounded-xl border border-jcp-gold/30 bg-jcp-surface shadow-[0_0_15px_rgba(197,160,89,0.15)] group-hover:border-jcp-power/40 group-hover:shadow-[0_0_20px_rgba(67,97,238,0.25)] transition-all">
+      <img 
+        src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783016428/Favicon_JuanCaPower_w4zc3b.png" 
+        alt="Isotipo JuanCa Power" 
+        className="h-7 w-7 object-contain transition-transform duration-500 group-hover:scale-110"
+        referrerPolicy="no-referrer"
+      />
+    </div>
     <div className="flex flex-col justify-center">
-      <span className="font-space font-bold text-xl md:text-2xl leading-none tracking-tight text-white mb-1">
-        JuanCa <span className="text-[#C5A059]">Power</span>
-      </span>
-      <span className="font-cormorant italic text-jcp-gold text-[12px] md:text-[14px] leading-none">
-        No esperes motivación. Crea resultados.
+      <span className="font-space font-bold text-lg md:text-xl leading-none tracking-tight text-[#d8d9da]">
+        JuanCa Power
       </span>
     </div>
   </div>
@@ -68,11 +77,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { id: 'sistema', name: 'Sistema Power', href: '#sistema' },
-    { id: 'servicios', name: 'Trabaja Conmigo', href: '#servicios' },
     { id: 'eventos', name: 'Eventos', href: '#eventos' },
-    { id: 'recursos', name: 'Recursos', href: '/mentalidadpower' },
-    { id: 'contacto', name: 'Contacto', href: '#contacto' },
+    { id: 'sistema', name: 'Sistema Power', href: '#sistema' },
+    { id: 'comunidad', name: 'Comunidad', href: '#comunidad' },
+    { id: 'conferencias', name: 'Conferencias', href: '#conferencias' },
+    { id: 'mentoria', name: 'Mentoría', href: '#mentoria' },
   ];
 
   return (
@@ -84,21 +93,21 @@ const Navbar = () => {
           </a>
           
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a 
                 key={link.id} 
                 href={link.href}
-                className="text-[14px] font-jakarta font-medium text-jcp-text-2 hover:text-jcp-text transition-colors"
+                className="text-xs font-mono uppercase tracking-wider text-jcp-text-2 hover:text-jcp-gold transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <a 
               href="#mentoria"
-              className="px-6 py-2.5 bg-jcp-power text-white font-space font-semibold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]"
+              className="px-5 py-2.5 bg-jcp-power text-white font-space font-bold rounded-lg text-xs hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]"
             >
-              Agenda tu sesión
+              Agenda 1:1
             </a>
           </div>
 
@@ -107,6 +116,7 @@ const Navbar = () => {
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-jcp-text p-2"
+              aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -122,7 +132,7 @@ const Navbar = () => {
               key={link.id} 
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-xl font-jakarta font-medium text-jcp-text-2 hover:text-jcp-text transition-colors border-b border-jcp-border-n pb-4"
+              className="text-lg font-space font-bold uppercase tracking-wider text-jcp-text-2 hover:text-jcp-gold transition-colors border-b border-white/5 pb-4"
             >
               {link.name}
             </a>
@@ -132,9 +142,9 @@ const Navbar = () => {
           <a 
             href="#mentoria"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="block w-full py-4 bg-jcp-power text-white font-space font-semibold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)] text-center text-lg"
+            className="block w-full py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)] text-center text-base"
           >
-            Agenda tu sesión
+            Agenda 1:1
           </a>
         </div>
       </div>
@@ -142,653 +152,188 @@ const Navbar = () => {
   );
 };
 
-const Hero = () => {
+const DigitalParticles = () => {
+  const particles = Array.from({ length: 8 });
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <motion.img 
-          initial={{ scale: 1.05 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775666946/JuanCa_Hero_zyte0x.png" 
-          alt="JuanCa Power - Speaker y Mentor de Mentalidad en Perú" 
-          className="w-full h-full object-cover object-center opacity-40"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-jcp-bg/80 via-jcp-bg/60 to-jcp-bg"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-jcp-bg/90 via-jcp-bg/50 to-transparent"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl"
-        >
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-jcp-gold/30 bg-jcp-power/10 mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-jcp-power animate-pulse"></span>
-            <span className="text-xs font-space font-medium text-jcp-gold tracking-wider uppercase">Mentoría Premium 1:1 Activa</span>
-          </div>
-          
-          <h1 className="text-[clamp(44px,7vw,80px)] font-bold tracking-tight mb-6 leading-[1.1] title-tight">
-            <span className="block text-[18px] text-jcp-text-2 font-jakarta mb-4 font-normal tracking-normal uppercase normal-case">Speaker & Mentor de Mentalidad en Perú</span>
-            <span className="text-jcp-text">No esperes motivación.</span> <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold opacity-100 via-jcp-cream to-jcp-gold" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>Crea resultados.</span>
-          </h1>
-          
-          <p className="text-[16px] text-jcp-text-2 mb-10 max-w-[560px] font-jakarta font-normal leading-relaxed">
-            Transforma tus relaciones, tu cuerpo y tu gestión emocional. Deja de andar en automático y construye una vida con propósito, yo te guío.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href="#mentoria" className="px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all flex items-center justify-center group text-[16px] shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]">
-              Agenda tu sesión gratuita
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="#servicios" className="px-8 py-4 border border-jcp-border text-jcp-text-2 font-space font-bold rounded-lg hover:text-jcp-text hover:bg-white/5 transition-all flex items-center justify-center text-[16px]">
-              Ver cómo funciono <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-          </div>
-
-          {/* Social Proof */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex items-center gap-8 pt-8 border-t border-jcp-border-n max-w-lg"
-          >
-            <div>
-              <div className="text-2xl font-space font-bold text-jcp-text mb-1">+200</div>
-              <div className="text-[12px] text-jcp-text-2 uppercase tracking-wider font-space">Personas Impactadas</div>
-            </div>
-            <div className="w-px h-12 bg-jcp-border-n"></div>
-            <div>
-              <div className="text-2xl font-space font-bold text-jcp-text mb-1 flex items-center">
-                <MapPin className="w-5 h-5 mr-2 text-jcp-gold" />
-                5
-              </div>
-              <div className="text-[12px] text-jcp-text-2 uppercase tracking-wider font-space">Ciudades Impactadas</div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const Historia = () => {
-  return (
-    <section id="historia" className="section-padding bg-jcp-surface relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col-reverse lg:flex-row gap-16 items-center">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {particles.map((_, i) => {
+        const size = Math.random() * 5 + 3; // 3px to 8px
+        const isGold = Math.random() > 0.5;
+        const colorClass = isGold ? "bg-[#C5A059]" : "bg-[#4361EE]";
+        const duration = Math.random() * 15 + 15; // 15s to 30s
+        const delay = Math.random() * -15;
+        return (
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:w-3/5 relative flex"
-          >
-            {/* Timeline line */}
-            <div className="w-[3px] bg-gradient-to-b from-jcp-power via-jcp-power-l to-transparent shrink-0 rounded-full mr-8 hidden md:block"></div>
-            
-            <div>
-              <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">🌌 Mi Historia</div>
-              <h2 className="text-[36px] md:text-[40px] font-space font-semibold mb-8 text-jcp-text leading-tight">
-                Mi camino no empezó en la cima.
-              </h2>
-              
-              <blockquote className="quote-background pl-8 py-2 mb-8 bg-transparent border-0 relative">
-                <p className="font-cormorant text-[28px] text-jcp-gold font-semibold italic leading-snug relative z-10">
-                  "Empezó en el dolor."
-                </p>
-              </blockquote>
-              
-              <div className="space-y-6 text-[16px] text-jcp-text-2 font-jakarta font-normal leading-[1.75] max-w-2xl">
-                <p>
-                  En la pérdida de mi madre, gordo pesando +de 100 kilos y en la profunda depresión que me trajo la ruptura de mi matrimonio en pandemia. Estaba atrapado, viviendo en piloto automático, desconectado de mi verdadero potencial.
-                </p>
-                <p>
-                  Decidí reconstruirme. Perdí peso, recuperé mi disciplina y me conecté con mi mentalidad y espiritualidad para abrazar mi propósito.
-                </p>
-                <p>
-                  Hoy, mi mayor motor es mi hija Valeria. Ella me recuerda todos los días que el liderazgo empieza en casa. Mi fe en Dios y mi compromiso con la acción masiva me han llevado a crear una vida que no necesita motivación externa, porque está construida sobre disciplina y resultados.
-                </p>
-              </div>
-            </div>
-          </motion.div>
- 
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="lg:w-2/5 relative w-full"
-          >
-            <div className="aspect-[3/4] rounded-[24px] overflow-hidden relative z-10">
-              <img 
-                src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514609/JuanCa_Power_ygvsaf.png" 
-                alt="JuanCa Power - Transformación Personal y Liderazgo" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            {/* Decorative elements */}
-            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-jcp-power/10 rounded-full blur-3xl z-0"></div>
-            <div className="absolute -top-8 -left-8 w-64 h-64 bg-jcp-surface-2 rounded-full z-0"></div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const SistemaPower = () => {
-  return (
-    <section id="sistema" className="section-padding relative overflow-hidden" style={{ backgroundImage: 'var(--background-image-gradient-space)' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">⚡ Sistema Power 4</div>
-          <h2 className="text-[36px] font-space font-semibold mb-4 text-jcp-text">Un marco de transformación integral.</h2>
-          <p className="text-[20px] font-cormorant italic text-jcp-text-2 font-normal">
-            Diseñado para alinear tu vida, maximizar tu energía y generar resultados predecibles.
-          </p>
-        </motion.div>
-
-                <div className="max-w-4xl mx-auto flex flex-col gap-6 relative">
-          
-          {/* Architectural Lines */}
-          <div className="hidden md:block absolute top-[120px] bottom-[120px] left-1/2 -translate-x-1/2 w-px bg-jcp-border-n z-0"></div>
-          <div className="hidden md:block absolute top-[120px] left-1/4 right-1/4 h-px bg-jcp-border-n z-0"></div>
-          <div className="hidden md:block absolute bottom-[120px] left-1/4 right-1/4 h-px bg-jcp-border-n z-0"></div>
-
-          {/* Techo: Abundancia y Plenitud */}
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-jcp-surface-2 border border-jcp-gold/40 rounded-t-[3rem] p-8 md:p-10 text-center relative overflow-hidden shadow-[0_0_20px_rgba(197,160,89,0.15)] z-10"
-          >
-             <div className="absolute inset-0 bg-jcp-gold/5 blur-2xl"></div>
-             <h4 className="text-[28px] font-space font-bold mb-4 relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-jcp-cream to-jcp-gold" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>
-               ✨ Abundancia y Plenitud
-             </h4>
-             <p className="text-[16px] font-jakarta text-jcp-text-2 font-normal relative z-10 max-w-xl mx-auto">El resultado de un sistema alineado. La manifestación de tu propósito en todas las áreas de tu vida.</p>
-          </motion.div>
-
-          {/* Columnas: Emoción y Cuerpo */}
-          <div className="grid md:grid-cols-2 gap-6 z-10">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-jcp-surface-2 border border-jcp-border-n p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
-            >
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">4</div>
-               <div className="text-3xl mb-4 relative z-10">💧</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Emoción</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Dominio de tu energía interior. Pasa del estrés a la calma y toma decisiones asertivas.</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-jcp-surface-2 border border-jcp-border-n p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
-            >
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">3</div>
-               <div className="text-3xl mb-4 relative z-10">💪</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Cuerpo</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Construcción de hábitos innegociables. Transforma tu cuerpo físico y maximiza tu energía.</p>
-            </motion.div>
-          </div>
-
-          {/* Base: Mente y Espíritu */}
-          <div className="grid md:grid-cols-2 gap-6 z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-jcp-surface-2 border border-jcp-border-n rounded-bl-[3rem] p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
-            >
-               <div className="absolute inset-0 bg-gradient-to-t from-jcp-gold/5 to-transparent"></div>
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">2</div>
-               <div className="text-3xl mb-4 relative z-10">🧠</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Mente</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Reprogramación de creencias limitantes. Construcción de una mentalidad de acero y enfoque láser.</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="bg-jcp-surface-2 border border-jcp-border-n rounded-br-[3rem] p-8 relative overflow-hidden group hover:border-jcp-border transition-colors text-center"
-            >
-               <div className="absolute inset-0 bg-gradient-to-t from-jcp-gold/5 to-transparent"></div>
-               <div className="absolute -bottom-4 right-2 text-8xl font-mono text-white opacity-5 select-none pointer-events-none font-bold">1</div>
-               <div className="text-3xl mb-4 relative z-10">🌌</div>
-               <h4 className="text-[20px] font-space font-semibold mb-2 text-jcp-text relative z-10">Espíritu</h4>
-               <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed relative z-10">Conexión profunda con tu propósito y fe. La base inquebrantable de tu transformación.</p>
-            </motion.div>
-          </div>
-
-          {/* Integration Banner: JuanCa Power & Power Digital */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="mt-12 bg-gradient-to-br from-jcp-surface-2 to-[#0B0D17] border border-jcp-gold/20 rounded-[24px] p-8 md:p-10 relative overflow-hidden text-left"
-          >
-            {/* Minimalist Tech Architecture Graphic */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `radial-gradient(var(--jcp-power) 1.5px, transparent 1.5px)`, backgroundSize: '24px 24px' }}></div>
-            <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-jcp-power/10 rounded-full blur-[100px] pointer-events-none"></div>
-            <div className="absolute -left-24 -top-24 w-96 h-96 bg-jcp-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
-
-            <div className="relative z-10 flex flex-col lg:flex-row gap-8 items-center justify-between">
-              <div className="max-w-xl text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-jcp-power/10 border border-jcp-power/20 rounded-full text-xs font-mono text-jcp-power-l uppercase tracking-wider mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-jcp-power animate-pulse"></span>
-                  <span>Ecosistema de Expansión</span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-space font-bold text-white mb-4">
-                  Sinergia de Evolución Integral
-                </h3>
-                <p className="font-jakarta text-jcp-text-2 text-[15px] leading-relaxed mb-6">
-                  Para que tu impacto trascienda, no basta con alinear tu mentalidad. Expandimos tu legado construyendo tu ecosistema digital mediante automatizaciones de vanguardia, inteligencia artificial aplicada y diseño estratégico de alto valor.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-4 text-left">
-                  <div className="bg-[#0B0D17]/60 p-4 rounded-xl border border-jcp-border-n hover:border-jcp-gold/30 transition-colors">
-                    <span className="text-jcp-gold font-space font-bold text-[14px] block mb-1">🧠 JuanCa Power</span>
-                    <span className="text-[12px] text-jcp-text-2">Transformación interna profunda para elevar tus estándares y forjar una disciplina de acero.</span>
-                  </div>
-                  <div className="bg-[#0B0D17]/60 p-4 rounded-xl border border-jcp-border-n hover:border-jcp-power/30 transition-colors">
-                    <span className="text-jcp-power-l font-space font-bold text-[14px] block mb-1">⚡ Power Digital</span>
-                    <span className="text-[12px] text-jcp-text-2">Expansión externa masiva con sistemas tecnológicos avanzados, IA y construcción digital de marca.</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex-shrink-0 text-center lg:text-right bg-gradient-to-b from-[#10121F] to-[#0B0D17] p-8 rounded-2xl border border-jcp-gold/15 max-w-sm w-full shadow-2xl relative">
-                <div className="absolute top-2 right-2 flex space-x-1.5">
-                  <span className="w-2 h-2 rounded-full bg-jcp-power opacity-40"></span>
-                  <span className="w-2 h-2 rounded-full bg-jcp-gold opacity-40"></span>
-                </div>
-                <span className="font-cormorant italic text-jcp-gold text-[24px] block mb-4 leading-snug">
-                  "Primero transforma tu sistema interno. Luego construye tu sistema digital."
-                </span>
-                <span className="font-mono text-[9px] text-jcp-text-3 uppercase tracking-widest block">
-                  Principio de Crecimiento Infinito
-                </span>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Servicios = () => {
-  return (
-    <section id="servicios" className="section-padding bg-jcp-surface relative overflow-hidden border-y border-jcp-border-n">
-      {/* Subtle radial glow */}
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-jcp-power/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center md:text-left mb-16"
-        >
-          <div className="text-sm font-mono font-bold text-jcp-power uppercase tracking-[0.2em] mb-4">⚡ Trabaja Conmigo</div>
-          <h2 className="text-[36px] font-space font-semibold mb-4 text-jcp-text">Espacios limitados para personas comprometidas.</h2>
-          <p className="text-[20px] font-cormorant italic text-jcp-power-l font-medium">
-            Obsesiónate con tu objetivo. Diseña tu sistema.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
-          
-          {/* Card 1: Speaker */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-jcp-surface-2 p-8 rounded-[16px] border border-jcp-border-n relative overflow-hidden group hover:border-jcp-border transition-colors h-full flex flex-col"
-          >
-            <div className="inline-block px-3 py-1 bg-white/5 text-jcp-text-2 text-xs font-mono font-bold uppercase tracking-wider rounded border border-white/10 mb-6 w-fit">
-              Corporativo
-            </div>
-            <h4 className="text-[24px] font-space font-bold mb-4 text-jcp-text">Speaker</h4>
-            <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed flex-grow">
-              Llevo el mensaje de transformación, liderazgo y mentalidad de alto rendimiento a escenarios, empresas e instituciones. Una experiencia inmersiva diseñada para romper el piloto automático.
-            </p>
-            <a href="mailto:hola@juancapower.com" className="inline-flex items-center justify-center w-full mt-8 px-6 py-3 border border-jcp-border-n text-jcp-text-2 font-space font-bold rounded-lg hover:border-jcp-text hover:text-jcp-text transition-all text-[14px]">
-              Solicitar cotización <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </motion.div>
-
-          {/* Card 2: Mentoría Élite 1:1 - DESTACADA */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-jcp-surface-2 p-8 rounded-[16px] border border-jcp-gold relative overflow-hidden group h-full flex flex-col lg:-translate-y-4 shadow-[0_0_30px_rgba(197,160,89,0.15)]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-jcp-gold/5 via-transparent to-transparent pointer-events-none"></div>
-            
-            <div className="inline-flex items-center px-3 py-1 bg-jcp-gold/10 text-jcp-gold text-xs font-mono font-bold uppercase tracking-wider rounded border border-jcp-gold/20 mb-6 w-fit">
-              Servicio Premium ✨
-            </div>
-            <h4 className="text-[28px] font-space font-bold mb-4 text-jcp-text">Mentoría Élite 1:1</h4>
-            <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed flex-grow mb-6">
-              Acompañamiento privado y exclusivo para quienes están listos para dejar las excusas. Diseñaremos un plan de acción implacable para tu vida personal y profesional.
-            </p>
-            
-            <ul className="space-y-3 mb-8">
-              {['Claridad de propósito', 'Estrategia inquebrantable', 'Reprogramación mental'].map((item, i) => (
-                <li key={i} className="flex items-start text-jcp-text text-[14px] font-jakarta">
-                  <CheckCircle2 className="w-4 h-4 text-jcp-gold mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="font-light">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20aplicar%20a%20la%20mentoría%20élite" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-6 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all text-[16px] shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]">
-              Aplicar ahora <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </motion.div>
-
-          {/* Card 3: Comunidad Power */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="bg-jcp-surface-2 p-8 rounded-[16px] border border-jcp-border-n relative overflow-hidden group hover:border-jcp-border transition-colors h-full flex flex-col"
-          >
-            <div className="inline-flex items-center px-3 py-1 bg-[#25D366]/10 text-[#25D366] text-xs font-mono font-bold uppercase tracking-wider rounded border border-[#25D366]/20 mb-6 w-fit">
-              WhatsApp
-            </div>
-            <h4 className="text-[24px] font-space font-bold mb-4 text-jcp-text">Comunidad Power</h4>
-            <p className="text-[14px] font-jakarta text-jcp-text-2 font-normal leading-relaxed flex-grow">
-              Únete a nuestro grupo exclusivo de WhatsApp con personas elevando sus estándares todos los días. La tribu que necesitas.
-            </p>
-            <a href="https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe?mode=gi_t" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full mt-8 px-6 py-3 border border-[#25D366]/30 text-[#25D366] font-space font-bold rounded-lg hover:bg-[#25D366]/10 transition-all text-[14px]">
-              Unirme gratis <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-          </motion.div>
-
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const TestimonioVideo: React.FC<{ src: string, name: string, isMuted: boolean, onToggleMute: () => void }> = ({ src, name, isMuted, onToggleMute }) => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
-  // Sync the DOM element's muted property with the React state
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-    }
-  }, [isMuted]);
-
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onToggleMute();
-  };
-
-  return (
-    <div 
-      className="relative aspect-[9/16] rounded-xl overflow-hidden cursor-pointer group shrink-0 w-full mb-4"
-      onClick={toggleMute}
-    >
-      <video 
-        ref={videoRef}
-        src={src} 
-        className="w-full h-full object-cover"
-        loop
-        muted={isMuted}
-        playsInline
-        autoPlay
-        preload="metadata"
-      />
-      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md p-2 rounded-full text-white z-10 transition-opacity">
-        {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
-      </div>
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors pointer-events-none"></div>
+            key={i}
+            className={`absolute rounded-full opacity-30 ${colorClass}`}
+            style={{
+              width: size,
+              height: size,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -120, 0],
+              x: [0, Math.random() * 50 - 25, 0],
+              opacity: [0.1, 0.4, 0.1]
+            }}
+            transition={{
+              duration: duration,
+              repeat: Infinity,
+              delay: delay,
+              ease: "easeInOut"
+            }}
+          />
+        );
+      })}
     </div>
   );
 };
 
-const Testimonios = () => {
-  const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
-
-  const testimonios = [
-    {
-      name: "Ybeth A.",
-      cargo: "Maestra de Inicial",
-      quote: "JuanCa me ayudó a encontrar esa fuerza interior que no sabía que tenía. Mi vida personal ha dado un giro total.",
-      video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667361/Testimonio_YbethA_hjhhsw.mp4",
-    },
-    {
-      name: "Fiorella S.",
-      cargo: "Líder de Equipo",
-      quote: "No es motivación barata, es estrategia, disciplina y resultados reales medibles. La comunidad Power es increíble.",
-      video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_FiorellaS_k6drko.mp4",
-    },
-    {
-      name: "Gabriella V.",
-      cargo: "Líder de Equipo",
-      quote: "Alinear mis emociones con mi propósito de negocio fue el desbloqueo que necesitaba para escalar.",
-      video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_GabrielaV_zpq676.mp4",
-    },
-    {
-      name: "Karen G.",
-      cargo: "Abogada",
-      quote: "Entender que la mente dirige y el cuerpo ejecuta cambió mi forma de trabajar. Las sesiones 1 a 1 valen cada céntimo.",
-      video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_KarenG_fkgzkm.mp4",
-    },
-    {
-      name: "Alvaro V.",
-      cargo: "Ing. de Sistemas",
-      quote: "Pasé del piloto automático a tener el control intencional de mis días. La transformación es brutal y expansiva.",
-      video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667358/Testimonio_AlvaroV_u1liet.mp4",
-    }
-  ];
-
+const Hero = () => {
   return (
-    <section id="testimonios" className="section-padding bg-jcp-bg">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">💬 Resultados Reales</div>
-          <h2 className="text-[32px] font-space font-semibold text-jcp-text">Lo que dicen quienes ya tomaron acción.</h2>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
-        >
-          {testimonios.map((t, i) => (
-            <div key={i} className="bg-jcp-surface border border-jcp-border-n rounded-[12px] p-5 flex flex-col relative">
-              <TestimonioVideo 
-                src={t.video} 
-                 name={t.name} 
-                isMuted={activeVideoIndex !== i}
-                onToggleMute={() => setActiveVideoIndex(activeVideoIndex === i ? null : i)}
-              />
-              
-              <div className="relative mt-2 flex-grow flex flex-col justify-end">
-                <div className="mt-2">
-                  <div className="flex items-center text-jcp-gold mb-2 text-sm">
-                    ★★★★★
-                  </div>
-                  <div className="font-space font-semibold text-[14px] text-jcp-text">{t.name}</div>
-                  <div className="font-mono text-[10px] text-jcp-text-3 uppercase tracking-wider mt-1">{t.cargo}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+    <section id="inicio" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#0B0D17]">
+      {/* Background Image with Cinematic Ken Burns and Glow */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.img 
+          animate={{ 
+            scale: [1.02, 1.08, 1.02],
+            y: [0, -10, 0]
+          }}
+          transition={{ 
+            duration: 25, 
+            ease: "easeInOut", 
+            repeat: Infinity 
+          }}
+          src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775666946/JuanCa_Hero_zyte0x.png" 
+          alt="JuanCa Power en escenario" 
+          className="w-full h-full object-cover object-center opacity-30 lg:opacity-35"
+          referrerPolicy="no-referrer"
+        />
+        {/* Obsidian Overlay Filters */}
+        <div className="absolute inset-0 bg-[#0B0D17]/85 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D17]/95 via-transparent to-[#0B0D17]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D17] via-[#0B0D17]/80 to-transparent"></div>
+        
+        {/* Tech Glow Spotlights */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4361EE]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#D6B15F]/5 rounded-full blur-[100px] pointer-events-none"></div>
       </div>
-    </section>
-  );
-};
 
-const RecursosGratuitos = () => {
-  return (
-    <section id="recursos" className="section-padding bg-jcp-surface relative border-y border-jcp-border-n">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">🎁 Recursos Gratuitos</div>
-          <h2 className="text-[32px] font-space font-semibold mb-4 text-jcp-text">Reprograma tu Mente</h2>
-          <p className="text-[16px] font-jakarta font-normal text-jcp-text-2 mb-10 max-w-2xl mx-auto">
-            Un sistema paso a paso para hackear tus creencias limitantes. Accede a mi clase gratis "Mentalidad Power" y descarga mis ebooks gratuitos para empezar tu camino de transformación personal.
-          </p>
-          <a href="https://mentalidad.juancapower.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all text-[16px] shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_30px_var(--jcp-power-glow)] hover:-translate-y-1">
-            Accede al material gratuito <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+      <DigitalParticles />
 
-const Eventos = () => {
-  return (
-    <section id="eventos" className="section-padding bg-jcp-bg">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 mb-16">
-          <div>
-            <div className="text-sm font-mono font-bold text-jcp-gold uppercase tracking-[0.2em] mb-4">🎤 Próximos eventos</div>
-            <h2 className="text-[32px] font-space font-semibold mb-6 text-jcp-text">La energía de la transformación en vivo.</h2>
-            
-            <a href="https://despierta.juancapower.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 border border-jcp-gold text-jcp-gold font-space font-bold rounded-lg hover:bg-jcp-gold hover:text-jcp-bg transition-all mb-8">
-              Próximos eventos <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
-
-            <div className="space-y-8 mt-10">
-              {/* Próximo Evento: Libera tu propósito */}
-              <div className="bg-jcp-surface border border-jcp-gold p-8 rounded-[16px] relative overflow-hidden flex flex-col md:flex-row gap-8 items-center shadow-[0_0_20px_rgba(197,160,89,0.1)]">
-                <div className="absolute top-0 right-0 px-4 py-1 bg-jcp-gold text-jcp-bg text-xs font-bold font-mono uppercase rounded-bl-xl z-10">
-                  Próxima Experiencia
-                </div>
-                
-                <div className="w-full md:w-[220px] flex-shrink-0 flex justify-center relative z-10">
-                  <img 
-                    src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769045/JuanCaPower_LiberaTuProposito_kffzlv.png" 
-                    alt="Libera tu propósito" 
-                    className="w-full max-w-[240px] md:max-w-full rounded-xl object-cover shadow-lg border border-jcp-gold/20"
-                    style={{ aspectRatio: '9/16' }}
-                  />
-                </div>
-
-                <div className="flex-1 w-full relative z-10 text-center md:text-left">
-                  <div className="flex justify-center md:justify-start items-center gap-4 mb-4 mt-2">
-                    <div className="w-16 h-16 bg-jcp-gold/10 rounded-xl flex items-center justify-center">
-                      <Flame className="w-8 h-8 text-jcp-gold" />
-                    </div>
-                  </div>
-                  <h4 className="text-[22px] font-space font-bold mb-2 text-jcp-text">Libera tu propósito</h4>
-                  <p className="font-jakarta text-[14px] text-jcp-text-2 font-normal mb-6">Speaker confirmado. Speakers nacionales e internacionales de alto impacto.</p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 text-sm font-mono mb-8 text-jcp-text justify-center md:justify-start">
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
-                      17 de Octubre, 2026
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-jcp-power" />
-                      Lima, Perú
-                    </div>
-                  </div>
-                  
-                  <a href="https://wa.me/51963335717?text=Hola%20JuanCa,%20quiero%20más%20información%20sobre%20el%20evento%20Libera%20tu%20propósito%20en%20Lima" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 bg-jcp-gold text-jcp-bg font-space font-bold rounded-lg hover:bg-jcp-cream transition-all text-[14px]">
-                    Consultar preventa <ChevronRight className="w-4 h-4 ml-1" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="grid gap-6">
-                {/* Evento Pasado: Trascendiendo el duelo */}
-                <div className="bg-jcp-surface-2 p-8 rounded-[16px] border border-jcp-border-n opacity-70">
-                  <div className="text-xs font-mono font-bold text-jcp-text-3 uppercase tracking-wider mb-4">Evento Pasado</div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <img src="https://res.cloudinary.com/doguggkp8/image/upload/v1775669543/Recurso_62_wwqnzv.png" alt="Logo Trascendiendo el Duelo" className="h-12 w-auto object-contain opacity-80" />
-                  </div>
-                  <h4 className="text-[20px] font-space font-bold mb-2 text-jcp-text-2">Trascendiendo el duelo</h4>
-                  <div className="flex items-center text-[14px] font-mono text-jcp-text-3">
-                    <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
-                    3 de mayo de 2026 • Trujillo
-                  </div>
-                </div>
-
-                {/* Evento Pasado: Despierta tu Power */}
-                <div className="bg-jcp-surface-2 p-8 rounded-[16px] border border-jcp-border-n opacity-70">
-                  <div className="text-xs font-mono font-bold text-jcp-text-3 uppercase tracking-wider mb-4">Evento Pasado</div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1773382331/logo_ofofvn.png" alt="Logo Despierta tu Power" className="h-12 w-auto object-contain opacity-80" />
-                  </div>
-                  <h4 className="text-[20px] font-space font-bold mb-2 text-jcp-text-2">Despierta tu Power</h4>
-                  <div className="flex items-center text-[14px] font-mono text-jcp-text-3">
-                    <Calendar className="w-4 h-4 mr-2 text-jcp-power" />
-                    28 de marzo de 2026 • Trujillo
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 w-full">
+        <div className="flex flex-col justify-center">
+          {/* Tagline Badge */}
           <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="columns-2 sm:columns-2 gap-4 space-y-4"
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full border border-[#D6B15F]/20 bg-jcp-power/10 mb-8 self-start backdrop-blur-md"
           >
-            {/* Masonry Grid of images */}
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769045/TrascendiendoElDuelo_JuanCaPower_mchl22.jpg" alt="Trascendiendo el duelo JuanCa" className="w-full rounded-xl object-cover mb-4 aspect-[4/5]" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1776364279/CajaArequipa_Piura1_h6hbaz.jpg" alt="Evento" className="w-full rounded-xl object-cover mb-4" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1778769044/TrascendiendoElDuelo_grupal_mzytdc.jpg" alt="Trascendiendo el duelo Grupal" className="w-full rounded-xl object-cover mb-4 aspect-video" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514826/escenario_naywym.png" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-video" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1776364279/CajaArequipa_Piura2_hw7due.jpg" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-video" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_pizarra_onq7x1.png" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-[3/4]" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1776364279/CajaArequipa_Piura3_f9pi1u.jpg" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-video" />
-            <img src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/DtP_Inicio_gelwvj.png" alt="Evento" className="w-full rounded-xl object-cover mb-4 aspect-[4/5]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4361EE] animate-pulse"></span>
+            <span className="text-[10px] font-mono font-bold text-[#D6B15F] tracking-[0.15em] uppercase">
+              SPEAKER • MENTOR • CEO POWER DIGITAL
+            </span>
+          </motion.div>
+          
+          {/* Título */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[clamp(44px,6.5vw,76px)] font-space font-bold tracking-tight mb-4 leading-none text-white uppercase"
+          >
+            JUANCA POWER
+          </motion.h1>
+
+          {/* Frase principal */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-1 mb-6"
+          >
+            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-white/95">
+              Transforma tu mente.
+            </h2>
+            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#D6B15F] via-[#E7C97A] to-[#F4D890]">
+              Construye tu marca.
+            </h2>
+            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-[#4361EE]">
+              Crea resultados.
+            </h2>
+          </motion.div>
+          
+          {/* Descripción */}
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-sm md:text-base text-jcp-text-2 mb-6 max-w-[720px] font-jakarta font-normal leading-relaxed"
+          >
+            Ayudo a personas, emprendedores y marcas personales a salir del piloto automático, fortalecer su mentalidad y convertir su propósito en impacto combinando transformación personal e inteligencia artificial.
+          </motion.p>
+
+          {/* Línea de autoridad */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-[#D6B15F] font-semibold uppercase tracking-wider mb-10 max-w-[720px]"
+          >
+            <span>Ingeniero de Sistemas</span>
+            <span className="text-white/20 select-none">·</span>
+            <span>CEO & Founder de Power Digital</span>
+            <span className="text-white/20 select-none">·</span>
+            <span>Speaker</span>
+          </motion.div>
+          
+          {/* CTAs */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14"
+          >
+            <a 
+              href="#eventos" 
+              className="relative group px-7 py-4 bg-jcp-power text-white font-space font-bold rounded-xl overflow-hidden transition-all flex items-center justify-center text-sm shadow-[0_0_20px_rgba(67,97,238,0.35)] hover:shadow-[0_0_35px_rgba(67,97,238,0.55)] hover:-translate-y-0.5"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+              <span className="relative z-10 flex items-center gap-2">
+                🔥 Próximos Eventos
+              </span>
+            </a>
+            <a 
+              href="#comunidad" 
+              className="px-7 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-space font-bold rounded-xl transition-all flex items-center justify-center text-sm hover:-translate-y-0.5 shadow-sm"
+            >
+              ⚡ Comunidad Power
+            </a>
+          </motion.div>
+
+          {/* Metrics */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="flex flex-wrap items-center gap-6 sm:gap-10 pt-8 border-t border-white/5 max-w-2xl"
+          >
+            <div>
+              <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">+300</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">personas transformadas</div>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-white/5"></div>
+            <div>
+              <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">+50</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">marcas impactadas</div>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-white/5"></div>
+            <div>
+              <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">2 países</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">(perú y USA)</div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -805,38 +350,39 @@ const BottomCTA = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
-          <h2 className="text-[36px] md:text-[42px] font-cormorant font-semibold italic mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-jcp-cream to-jcp-gold" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>
+          <span className="font-mono text-xs text-jcp-gold uppercase tracking-[0.2em] block mb-4">EMPIEZA HOY</span>
+          <h2 className="text-4xl md:text-5xl font-cormorant font-semibold italic mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-jcp-cream via-jcp-gold to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>
             El momento de tomar el control es ahora.
           </h2>
-          <h3 className="text-[20px] font-space font-medium text-jcp-text-2 mb-8 max-w-2xl">
-            No esperes a que las circunstancias sean perfectas.
+          <h3 className="text-lg md:text-xl font-space font-bold text-white mb-6">
+            No esperes motivación. Crea resultados.
           </h3>
-          <p className="text-[16px] font-jakarta font-normal text-jcp-text-2 mb-10 max-w-2xl leading-[1.7]">
-            Mi programa no es motivación, es reprogramación y acción masiva. Las plazas son limitadas debido a que trabajo personalmente con cada uno en la Mentoría Elite. Da el salto y reserva tu sesión exploratoria.
+          <p className="font-jakarta text-jcp-text-2 text-base leading-relaxed mb-10 max-w-2xl">
+            Mi sistema no se basa en teoría ni en discursos motivacionales vacíos. Es el resultado de un riguroso proceso de transformación corporal, espiritual y mental, optimizado como un software de alto rendimiento. Las plazas para la Mentoría Premium 1:1 son sumamente limitadas.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 w-full sm:w-auto">
             <a 
               href="#mentoria" 
-              className="inline-flex items-center px-10 py-5 bg-jcp-power text-white font-space font-bold rounded-[8px] hover:bg-jcp-power-l transition-all text-[18px] shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_40px_var(--jcp-power-glow)] hover:-translate-y-1 w-full sm:w-auto justify-center"
+              className="inline-flex items-center px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-xl hover:bg-jcp-power-l transition-all text-sm shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_35px_var(--jcp-power-glow)] hover:-translate-y-0.5 w-full sm:w-auto justify-center"
             >
               ⚡ Agenda tu sesión gratuita
             </a>
             <a 
               href="mailto:hola@juancapower.com" 
-              className="inline-flex items-center px-8 py-5 border border-jcp-border text-jcp-text font-space font-bold rounded-[8px] hover:border-jcp-text transition-all text-[16px] w-full sm:w-auto justify-center"
+              className="inline-flex items-center px-8 py-4 bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all font-space font-bold rounded-xl text-sm w-full sm:w-auto justify-center"
             >
-              hola@juancapower.com
+              Escríbenos por Email
             </a>
           </div>
 
-          <div className="flex items-center gap-4 text-jcp-text-3 font-mono text-[11px] uppercase tracking-widest">
+          <div className="flex items-center gap-4 text-jcp-text-3 font-mono text-[10px] uppercase tracking-widest border-t border-white/5 pt-6 w-full justify-center">
             <span>hola@juancapower.com</span>
-            <span className="w-1 h-1 bg-jcp-text-3 rounded-full"></span>
+            <span className="w-1.5 h-1.5 bg-jcp-gold rounded-full"></span>
             <span>+51 963 335 717</span>
           </div>
         </motion.div>
@@ -847,57 +393,66 @@ const BottomCTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-jcp-surface pt-16 pb-6 border-t border-jcp-border">
+    <footer className="bg-jcp-surface pt-16 pb-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
-          {/* Col 1 */}
-          <div className="md:col-span-1">
-            <div className="mb-6">
+          {/* Logo Column */}
+          <div className="md:col-span-5 flex flex-col justify-between">
+            <div>
               <Logo />
+              <p className="text-xs font-jakarta text-jcp-text-2 max-w-sm mt-6 leading-relaxed">
+                Sistemas avanzados de transformación personal, mentalidad premium y expansión digital de legado.
+              </p>
             </div>
-            <p className="text-[13px] font-jakarta text-jcp-text-3 font-normal max-w-sm mb-6 leading-relaxed">
-              Mentoría premium, transformación real y liderazgo personal. Desarrollo de hábitos inquebrantables.
+            <p className="mt-8 text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider">
+              No esperes motivación. Crea resultados.
             </p>
           </div>
           
-          {/* Col 2 */}
-          <div className="md:col-span-1">
-            <h4 className="font-space font-bold mb-6 text-jcp-text">Menú</h4>
-            <ul className="space-y-4">
-              <li><a href="#sistema" className="text-[13px] font-jakarta text-jcp-text-2 hover:text-jcp-gold transition-colors font-normal">Sistema Power 4</a></li>
-              <li><a href="#servicios" className="text-[13px] font-jakarta text-jcp-text-2 hover:text-jcp-gold transition-colors font-normal">Trabaja Conmigo</a></li>
-              <li><a href="#eventos" className="text-[13px] font-jakarta text-jcp-text-2 hover:text-jcp-gold transition-colors font-normal">Eventos</a></li>
-              <li><a href="#recursos" className="text-[13px] font-jakarta text-jcp-text-2 hover:text-jcp-gold transition-colors font-normal">Recursos Gratuitos</a></li>
-              <li><a href="#contacto" className="text-[13px] font-jakarta text-jcp-text-2 hover:text-jcp-gold transition-colors font-normal">Contacto</a></li>
+          {/* Navigation Links Column */}
+          <div className="md:col-span-3">
+            <h4 className="font-space font-bold text-sm uppercase tracking-widest text-white mb-6 border-b border-white/5 pb-2">Menú</h4>
+            <ul className="space-y-3">
+              <li><a href="#eventos" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Evento</a></li>
+              <li><a href="#historia" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Historia</a></li>
+              <li><a href="#sistema" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Sistema Power 4</a></li>
+              <li><a href="#power-digital" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Power Digital</a></li>
+              <li><a href="#comunidad" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Comunidad</a></li>
+              <li><a href="#conferencias" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Conferencias</a></li>
+              <li><a href="#mentoria" className="text-xs font-mono text-jcp-text-2 hover:text-jcp-gold transition-colors">Mentoría</a></li>
             </ul>
           </div>
           
-          {/* Col 3 */}
-          <div className="md:col-span-1">
-            <h4 className="font-space font-bold mb-6 text-jcp-text">Sociales</h4>
-            <div className="flex space-x-4">
-              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
+          {/* Social Icons Column */}
+          <div className="md:col-span-4">
+            <h4 className="font-space font-bold text-sm uppercase tracking-widest text-white mb-6 border-b border-white/5 pb-2">Sociales</h4>
+            <div className="flex space-x-3 mb-6">
+              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
+              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
               </a>
-              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
+              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-[8px] bg-jcp-surface-2 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all">
+              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
-            <p className="mt-4 text-[13px] font-jakarta text-jcp-text-3 font-normal">@soyjuancapower</p>
+            <p className="text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider">@soyjuancapower</p>
           </div>
         </div>
         
-        <div className="pt-6 border-t border-jcp-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[9px] font-mono text-jcp-text-3 tracking-widest uppercase text-center md:text-left">
+        {/* Under-Footer */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[10px] font-mono text-jcp-text-3 tracking-widest uppercase text-center md:text-left">
             © 2026 JuanCa Power · Diseñado por <a href="https://digital.juancapower.com" className="hover:text-jcp-gold underline underline-offset-4">Power Digital</a>
           </p>
+          <span className="text-[9px] font-mono text-jcp-text-3 tracking-widest uppercase">
+            LIDERAZGO & TRANSFORMACIÓN PERSONAL
+          </span>
         </div>
       </div>
     </footer>
@@ -938,14 +493,34 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Historia />
-        <SistemaPower />
-        <Servicios />
-        <Testimonios />
-        <RecursosGratuitos />
-        <Eventos />
-        <EliteSection />
+        
+        {/* SECCIÓN 2 — PRÓXIMO EVENTO */}
+        <EventosSection />
+        
+        {/* SECCIÓN 3 — HISTORIA */}
+        <HistoriaSection />
+        
+        {/* SECCIÓN 4 — SISTEMA POWER 4™ */}
+        <SistemaPowerSection />
+        
+        {/* SECCIÓN 5 — POWER DIGITAL™ */}
+        <PowerDigitalSection />
+        
+        {/* SECCIÓN 6 — COMUNIDAD POWER */}
+        <ComunidadSection />
+        
+        {/* SECCIÓN 7 — MENTORÍA PREMIUM */}
         <MentoriaSection />
+        
+        {/* SECCIÓN 8 — CONFERENCIAS */}
+        <ConferenciasSection />
+        
+        {/* SECCIÓN 9 — TESTIMONIOS */}
+        <TestimoniosSection />
+        
+        {/* BACKED BY ELITE SECTION */}
+        <EliteSection />
+        
         <BottomCTA />
       </main>
       <Footer />
