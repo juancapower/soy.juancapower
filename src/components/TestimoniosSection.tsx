@@ -47,31 +47,36 @@ export default function TestimoniosSection() {
     {
       name: "Ybeth A.",
       cargo: "Maestra de Inicial",
-      quote: "JuanCa me ayudó a encontrar esa fuerza interior que no sabía que tenía. Mi vida personal ha dado un giro total.",
+      quote: "JuanCa me ayudó a encontrar esa fuerza interior que no sabía que tenía. Mi vida personal ha dado un giro total y he sanado profundamente.",
+      resultado: "Reconexión espiritual y paz",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667361/Testimonio_YbethA_hjhhsw.mp4",
     },
     {
       name: "Fiorella S.",
       cargo: "Líder de Equipo",
-      quote: "No es motivación barata, es estrategia, disciplina y resultados reales medibles. La comunidad Power es increíble.",
+      quote: "No es motivación barata, es estrategia pura, disciplina de acero y resultados reales medibles. La comunidad Power es mi mejor apoyo diario.",
+      resultado: "Disciplina de acero y foco",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_FiorellaS_k6drko.mp4",
     },
     {
       name: "Gabriella V.",
       cargo: "Líder de Equipo",
-      quote: "Alinear mis emociones con mi propósito de negocio fue el desbloqueo que necesitaba para escalar.",
+      quote: "Alinear mis emociones con mi propósito de negocio fue el desbloqueo innegociable que necesitaba para escalar profesionalmente.",
+      resultado: "Desbloqueo emocional para escalar",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_GabrielaV_zpq676.mp4",
     },
     {
       name: "Karen G.",
       cargo: "Abogada",
-      quote: "Entender que la mente dirige y el cuerpo ejecuta cambió mi forma de trabajar. Las sesiones 1 a 1 valen cada céntimo.",
+      quote: "Entender de forma práctica que la mente dirige y el cuerpo ejecuta cambió mi productividad. Sus sesiones valen cada céntimo.",
+      resultado: "Reprogramación mental",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667359/Testimonio_KarenG_fkgzkm.mp4",
     },
     {
       name: "Alvaro V.",
       cargo: "Ing. de Sistemas",
-      quote: "Pasé del piloto automático a tener el control intencional de mis días. La transformación es brutal y expansiva.",
+      quote: "Pasé del piloto automático a tener el control diario e intencional de mis hábitos y decisiones. La transformación es brutal.",
+      resultado: "Productividad y control diario",
       video: "https://res.cloudinary.com/ddn6qh7ve/video/upload/q_auto/f_auto/v1775667358/Testimonio_AlvaroV_u1liet.mp4",
     }
   ];
@@ -103,7 +108,7 @@ export default function TestimoniosSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-jcp-surface border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:border-jcp-gold/30 transition-all duration-300"
+              className="bg-gradient-to-b from-jcp-surface to-jcp-surface/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:border-jcp-gold/30 transition-all duration-300"
             >
               <div>
                 <TestimonioVideo 
@@ -113,12 +118,19 @@ export default function TestimoniosSection() {
                   onToggleMute={() => setActiveVideoIndex(activeVideoIndex === idx ? null : idx)}
                 />
                 
-                <p className="text-xs text-jcp-text-2 font-jakarta leading-relaxed mt-4 italic mb-4">
+                {/* Highlighted Result Tag */}
+                <div className="mt-3 px-2.5 py-1 bg-jcp-gold/5 border border-jcp-gold/20 rounded-lg inline-block">
+                  <span className="font-mono text-[10px] text-jcp-gold font-bold uppercase tracking-wider block">
+                    ✨ {t.resultado}
+                  </span>
+                </div>
+                
+                <p className="text-xs text-jcp-text-2 font-jakarta leading-relaxed mt-3 italic mb-4">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-white/5">
+              <div className="pt-4 border-t border-white/5 mt-auto">
                 <div className="flex items-center text-jcp-gold mb-1 text-xs tracking-wider">
                   ★★★★★
                 </div>

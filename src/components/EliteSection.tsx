@@ -57,18 +57,17 @@ export default function EliteSection() {
         >
           {/* Badge superior */}
           <div className="inline-block px-4 py-1.5 bg-jcp-gold/10 border border-jcp-gold/20 rounded-full mb-4">
-            <span className="text-xs font-mono font-bold text-jcp-gold uppercase tracking-[0.2em]">Mentoría de Alto Nivel</span>
+            <span className="text-xs font-mono font-bold text-jcp-gold uppercase tracking-[0.2em]">Alianzas & Crecimiento</span>
           </div>
 
           {/* Título */}
-          <h2 className="text-[32px] md:text-[36px] font-space font-semibold mb-6 text-jcp-text">
-            Respaldado por la <span className="text-jcp-gold">Élite</span>
+          <h2 className="text-[32px] md:text-[42px] font-space font-bold mb-4 text-white tracking-tight">
+            Momentos, alianzas y <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>experiencias reales</span>
           </h2>
 
           {/* Subtítulo */}
           <p className="text-[16px] font-jakarta font-normal text-jcp-text-2 max-w-2xl mx-auto leading-relaxed">
-            No camino solo. Cada paso ha sido guiado por los referentes
-            más influyentes del emprendimiento y las ventas en Latinoamérica.
+            Cada paso en mi camino ha sido impulsado por el aprendizaje continuo, las mentorías de alto nivel y las conexiones genuinas con grandes referentes del desarrollo en Latinoamérica.
           </p>
         </motion.div>
 

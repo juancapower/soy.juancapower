@@ -12,6 +12,8 @@ import ConferenciasSection from './components/ConferenciasSection';
 import TestimoniosSection from './components/TestimoniosSection';
 import EliteSection from './components/EliteSection';
 import MentoriaSection from './components/MentoriaSection';
+import SocialProofHighlights from './components/SocialProofHighlights';
+import RutaConversionSection from './components/RutaConversionSection';
 
 const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
@@ -233,7 +235,7 @@ const Hero = () => {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#4361EE] animate-pulse"></span>
             <span className="text-[10px] font-mono font-bold text-[#D6B15F] tracking-[0.15em] uppercase">
-              SPEAKER • MENTOR • CEO POWER DIGITAL
+              SPEAKER • MENTOR DE TRANSFORMACIÓN • CEO POWER DIGITAL
             </span>
           </motion.div>
           
@@ -255,13 +257,13 @@ const Hero = () => {
             className="space-y-1 mb-6"
           >
             <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-white/95">
-              Transforma tu mente.
+              Despierta tu poder.
             </h2>
             <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#D6B15F] via-[#E7C97A] to-[#F4D890]">
-              Construye tu marca.
+              Lidera tu mente.
             </h2>
             <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-[#4361EE]">
-              Crea resultados.
+              Transforma tu vida.
             </h2>
           </motion.div>
           
@@ -270,24 +272,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm md:text-base text-jcp-text-2 mb-6 max-w-[720px] font-jakarta font-normal leading-relaxed"
+            className="text-sm md:text-base text-jcp-text-2 mb-8 max-w-[720px] font-jakarta font-normal leading-relaxed"
           >
-            Ayudo a personas, emprendedores y marcas personales a salir del piloto automático, fortalecer su mentalidad y convertir su propósito en impacto combinando transformación personal e inteligencia artificial.
+            Mentoría, experiencias y sistema de transformación para personas y equipos que quieren vivir con propósito, disciplina e impacto.
           </motion.p>
-
-          {/* Línea de autoridad */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono text-[#D6B15F] font-semibold uppercase tracking-wider mb-10 max-w-[720px]"
-          >
-            <span>Ingeniero de Sistemas</span>
-            <span className="text-white/20 select-none">·</span>
-            <span>CEO & Founder de Power Digital</span>
-            <span className="text-white/20 select-none">·</span>
-            <span>Speaker</span>
-          </motion.div>
           
           {/* CTAs */}
           <motion.div 
@@ -297,37 +285,37 @@ const Hero = () => {
             className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14"
           >
             <a 
-              href="#eventos" 
-              className="relative group px-7 py-4 bg-jcp-power text-white font-space font-bold rounded-xl overflow-hidden transition-all flex items-center justify-center text-sm shadow-[0_0_20px_rgba(67,97,238,0.35)] hover:shadow-[0_0_35px_rgba(67,97,238,0.55)] hover:-translate-y-0.5"
+              href="#mentoria" 
+              className="relative group px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-xl overflow-hidden transition-all flex items-center justify-center text-sm shadow-[0_0_20px_rgba(67,97,238,0.35)] hover:shadow-[0_0_35px_rgba(67,97,238,0.55)] hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
               <span className="relative z-10 flex items-center gap-2">
-                🔥 Próximos Eventos
+                ⚡ Agendar mentoría
               </span>
             </a>
             <a 
-              href="#comunidad" 
-              className="px-7 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-space font-bold rounded-xl transition-all flex items-center justify-center text-sm hover:-translate-y-0.5 shadow-sm"
+              href="#eventos" 
+              className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-space font-bold rounded-xl transition-all flex items-center justify-center text-sm hover:-translate-y-0.5 shadow-sm"
             >
-              ⚡ Comunidad Power
+              🔥 Ver experiencia en vivo
             </a>
           </motion.div>
 
-          {/* Metrics */}
+          {/* Authority Metrics Line */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex flex-wrap items-center gap-6 sm:gap-10 pt-8 border-t border-white/5 max-w-2xl"
+            className="flex flex-wrap items-center gap-6 sm:gap-10 pt-8 border-t border-white/5 max-w-3xl"
           >
             <div>
               <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">+300</div>
-              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">personas transformadas</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">personas impactadas</div>
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/5"></div>
             <div>
               <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">+50</div>
-              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">marcas impactadas</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">mentorías</div>
             </div>
             <div className="hidden sm:block w-px h-8 bg-white/5"></div>
             <div>
@@ -339,6 +327,11 @@ const Hero = () => {
                 <span className="text-base" title="USA">🇺🇸</span>
                 <span>)</span>
               </div>
+            </div>
+            <div className="hidden md:block w-px h-8 bg-white/5"></div>
+            <div>
+              <div className="text-sm font-space font-bold text-jcp-gold mb-0.5">SPEAKER & MENTOR</div>
+              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">de transformación</div>
             </div>
           </motion.div>
         </div>
@@ -360,15 +353,13 @@ const BottomCTA = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center"
         >
-          <span className="font-mono text-xs text-jcp-gold uppercase tracking-[0.2em] block mb-4">EMPIEZA HOY</span>
-          <h2 className="text-4xl md:text-5xl font-cormorant font-semibold italic mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-jcp-cream via-jcp-gold to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>
-            El momento de tomar el control es ahora.
+          <span className="font-mono text-xs text-jcp-gold uppercase tracking-[0.2em] block mb-4">LLAMADO AL LIDERAZGO</span>
+          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 leading-tight text-white tracking-tight">
+            Tu próxima versión <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>no se espera. Se entrena.</span>
           </h2>
-          <h3 className="text-lg md:text-xl font-space font-bold text-white mb-6">
-            No esperes motivación. Crea resultados.
-          </h3>
           <p className="font-jakarta text-jcp-text-2 text-base leading-relaxed mb-10 max-w-2xl">
-            Mi sistema no se basa en teoría ni en discursos motivacionales vacíos. Es el resultado de un riguroso proceso de transformación corporal, espiritual y mental, optimizado como un software de alto rendimiento. Las plazas para la Mentoría Premium 1:1 son sumamente limitadas.
+            No bases tu futuro en motivación barata o discursos vacíos. Adopta un sistema científico de alto rendimiento corporal, mental, espiritual y estratégico optimizado para sostener tus resultados en el tiempo. Las plazas son exclusivas y limitadas.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 w-full sm:w-auto">
@@ -376,13 +367,13 @@ const BottomCTA = () => {
               href="#mentoria" 
               className="inline-flex items-center px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-xl hover:bg-jcp-power-l transition-all text-sm shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_35px_var(--jcp-power-glow)] hover:-translate-y-0.5 w-full sm:w-auto justify-center"
             >
-              ⚡ Agenda tu sesión gratuita
+              ⚡ Agendar mentoría
             </a>
             <a 
-              href="mailto:hola@juancapower.com" 
+              href="#eventos" 
               className="inline-flex items-center px-8 py-4 bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all font-space font-bold rounded-xl text-sm w-full sm:w-auto justify-center"
             >
-              Escríbenos por Email
+              🎟️ Reservar mi lugar
             </a>
           </div>
 
@@ -500,6 +491,9 @@ export default function App() {
       <main>
         <Hero />
         
+        {/* SOCIAL PROOF HIGHLIGHTS */}
+        <SocialProofHighlights />
+        
         {/* SECCIÓN 2 — PRÓXIMO EVENTO */}
         <EventosSection />
         
@@ -508,6 +502,9 @@ export default function App() {
         
         {/* SECCIÓN 4 — SISTEMA POWER 4™ */}
         <SistemaPowerSection />
+        
+        {/* RUTA DE CONVERSIÓN — ELIGE TU CAMINO */}
+        <RutaConversionSection />
         
         {/* SECCIÓN 5 — POWER DIGITAL™ */}
         <PowerDigitalSection />

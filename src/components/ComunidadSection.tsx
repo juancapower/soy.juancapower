@@ -5,29 +5,34 @@ import { Users, BookOpen, BrainCircuit, Share2, TrendingUp, MessageSquare, Arrow
 export default function ComunidadSection() {
   const communityFeatures = [
     {
-      title: "Comunidad",
-      desc: "Una tribu de personas selectas con altos estándares que se empujan mutuamente hacia el siguiente nivel.",
+      title: "Acompañamiento Élite",
+      desc: "Soporte diario y mentoría activa en el ecosistema para asegurar que nunca te detengas.",
       icon: <Users className="w-5 h-5 text-jcp-gold" />
     },
     {
-      title: "Aprendizaje",
-      desc: "Material educativo exclusivo de mentalidad, PNL, hábitos y desarrollo estratégico personal.",
+      title: "Disciplina de Acero",
+      desc: "Sistemas de hábitos innegociables y rutinas diarias basadas en altos estándares de rendimiento físico e intelectual.",
       icon: <BookOpen className="w-5 h-5 text-jcp-power-l" />
     },
     {
-      title: "Inteligencia Artificial",
-      desc: "Talleres y herramientas de IA aplicada para optimizar tu tiempo y automatizar flujos de trabajo.",
+      title: "Retos de Alto Impacto",
+      desc: "Desafíos mensuales de mentalidad, salud y productividad extrema diseñados para estirar tus límites reales.",
       icon: <BrainCircuit className="w-5 h-5 text-emerald-400" />
     },
     {
-      title: "Networking",
-      desc: "Alianzas estratégicas reales con profesionales y fundadores tecnológicos dentro del ecosistema.",
+      title: "Networking Estratégico",
+      desc: "Conexiones y alianzas de valor con fundadores, líderes de opinión y mentes hambrientas de evolución.",
       icon: <Share2 className="w-5 h-5 text-indigo-400" />
     },
     {
-      title: "Crecimiento",
-      desc: "Elevación constante de tus niveles de energía, disciplina física y mental de manera grupal.",
+      title: "Crecimiento Espiritual y Mental",
+      desc: "Herramientas de reprogramación subconsciente, PNL y meditación profunda para expandir tu paz y claridad.",
       icon: <TrendingUp className="w-5 h-5 text-amber-400" />
+    },
+    {
+      title: "Comunidad de Acción",
+      desc: "Una tribu enfocada 100% en ejecutar planes, eliminar excusas y celebrar victorias tangibles.",
+      icon: <MessageSquare className="w-5 h-5 text-jcp-power" />
     }
   ];
 

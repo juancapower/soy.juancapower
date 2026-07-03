@@ -38,15 +38,15 @@ export default function EventosSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-jcp-gold/10 border border-jcp-gold/20 rounded-full text-xs font-mono text-jcp-gold uppercase tracking-widest mb-4">
-            <Flame className="w-3.5 h-3.5 animate-pulse" />
-            <span>Experiencia Presencial Única</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-jcp-gold/10 border border-jcp-gold/25 rounded-full text-xs font-mono text-jcp-gold uppercase tracking-widest mb-4">
+            <Flame className="w-3.5 h-3.5 animate-pulse text-jcp-gold" />
+            <span>PRÓXIMA EXPERIENCIA EN VIVO</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-space font-bold text-white mb-4 tracking-tight">
-            Próxima Experiencia <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold via-[#E6B044] to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>En Vivo</span>
+            Vive la Transformación <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold via-[#E6B044] to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>En Escenario</span>
           </h2>
           <p className="font-cormorant italic text-jcp-text-2 text-2xl">
-            "No es un evento. Es una experiencia de transformación."
+            "No asistes a un evento. Cruzas el umbral hacia tu nueva realidad."
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function EventosSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
           id="proximo-evento-ticket"
-          className="bg-gradient-to-br from-jcp-surface-2 to-[#0B0D17] border-2 border-jcp-gold/30 rounded-[32px] overflow-hidden p-8 lg:p-12 shadow-[0_0_50px_rgba(197,160,89,0.15)] relative mb-20"
+          className="bg-gradient-to-br from-[#0F1122] via-[#0B0D17] to-[#161B33] border-2 border-jcp-gold/30 rounded-[32px] overflow-hidden p-8 lg:p-12 shadow-[0_0_50px_rgba(197,160,89,0.15)] relative mb-20"
         >
           {/* Subtle circuit line decoration */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-jcp-power via-jcp-gold to-jcp-power-l"></div>
@@ -65,14 +65,15 @@ export default function EventosSection() {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Visual poster column */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="absolute -inset-2 bg-gradient-to-tr from-jcp-power to-jcp-gold opacity-20 blur-xl rounded-2xl pointer-events-none"></div>
-              <div className="relative aspect-[3/4] w-full max-w-[380px] rounded-2xl overflow-hidden border border-jcp-gold/30 shadow-2xl group">
+              <div className="absolute -inset-2 bg-gradient-to-tr from-jcp-power to-jcp-gold opacity-25 blur-2xl rounded-2xl pointer-events-none"></div>
+              <div className="relative aspect-[3/4] w-full max-w-[380px] rounded-2xl overflow-hidden border-2 border-jcp-gold/40 shadow-2xl group">
                 <img 
                   src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1782918068/JuancaPower_Flyer_LiberaTuProp%C3%B3sito_zt23eq.jpg" 
                   alt="Libera Tu Propósito - JuanCa Power" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
               </div>
             </div>
 
@@ -84,58 +85,73 @@ export default function EventosSection() {
                     Lima, Perú
                   </span>
                   <span className="px-3 py-1 bg-red-500/10 border border-red-500/20 rounded text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider animate-pulse">
-                    Inició la Preventa
+                    Preventa Activa
                   </span>
                   <span className="px-3 py-1 bg-[#D6B15F]/15 border border-[#D6B15F]/30 rounded text-[11px] font-mono font-bold text-[#D6B15F] uppercase tracking-wider">
                     🎤 JuanCa Power
                   </span>
                 </div>
                 
-                <h3 className="text-3xl md:text-5xl font-space font-bold text-white mb-2">
+                <h3 className="text-3xl md:text-5xl font-space font-bold text-white mb-2 tracking-tight">
                   LIBERA TU PROPÓSITO
                 </h3>
 
                 <p className="font-mono text-sm text-jcp-gold uppercase tracking-widest mb-6">
-                  ✨ Speaker Principal Confirmado: JuanCa Power
+                  ✨ 2 Días de Inmersión y Mentalidad Élite
                 </p>
 
-                <p className="font-jakarta text-jcp-text-2 text-lg leading-relaxed mb-8">
-                  Únete a la mayor inmersión de transformación personal, mentalidad y propósito del año. Un espacio diseñado para destruir tus miedos, hackear tus creencias limitantes y programar tu mente para construir el legado que mereces.
+                <p className="font-jakarta text-jcp-text-2 text-base leading-relaxed mb-6">
+                  Únete a la mayor inmersión presencial de transformación integral del año. Diseñado meticulosamente para destruir miedos limitantes, reconectar con tu fuego interno y reprogramar tu mente hacia la disciplina inquebrantable.
                 </p>
 
-                {/* Event Highlights Grid */}
+                {/* Concrete Benefits Grid */}
+                <h5 className="font-space font-bold text-sm text-white mb-4 uppercase tracking-wider">Beneficios concretos de asistir:</h5>
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                  <div className="flex gap-3 items-start p-3 rounded-xl bg-white/5 border border-white/5">
-                    <Users className="w-5 h-5 text-jcp-power-l shrink-0 mt-0.5" />
+                  <div className="flex gap-2.5 items-start">
+                    <span className="text-jcp-gold text-base shrink-0">✔️</span>
                     <div>
-                      <h5 className="font-space font-bold text-white text-sm">Speakers Invitados</h5>
-                      <p className="text-xs text-jcp-text-3 font-jakarta">Líderes de impacto nacional e internacional.</p>
+                      <h6 className="font-space font-bold text-white text-xs uppercase tracking-wider">Hackeo Mental Profundo</h6>
+                      <p className="text-[11px] text-jcp-text-3 font-jakarta mt-0.5">Identifica y elimina de raíz las creencias limitantes inconscientes.</p>
                     </div>
                   </div>
-                  <div className="flex gap-3 items-start p-3 rounded-xl bg-white/5 border border-white/5">
-                    <Award className="w-5 h-5 text-jcp-gold shrink-0 mt-0.5" />
+                  <div className="flex gap-2.5 items-start">
+                    <span className="text-jcp-gold text-base shrink-0">✔️</span>
                     <div>
-                      <h5 className="font-space font-bold text-white text-sm">Metodología Power</h5>
-                      <p className="text-xs text-jcp-text-3 font-jakarta">Dinámicas inmersivas de alto impacto emocional.</p>
+                      <h6 className="font-space font-bold text-white text-xs uppercase tracking-wider">Hábitos de Acero</h6>
+                      <p className="text-[11px] text-jcp-text-3 font-jakarta mt-0.5">Sistemas exactos de disciplina física y energética diaria.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2.5 items-start">
+                    <span className="text-jcp-gold text-base shrink-0">✔️</span>
+                    <div>
+                      <h6 className="font-space font-bold text-white text-xs uppercase tracking-wider">Networking de Élite</h6>
+                      <p className="text-[11px] text-jcp-text-3 font-jakarta mt-0.5">Conéctate directamente con marcas y profesionales con altos estándares.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2.5 items-start">
+                    <span className="text-jcp-gold text-base shrink-0">✔️</span>
+                    <div>
+                      <h6 className="font-space font-bold text-white text-xs uppercase tracking-wider">Estrategia de Propósito</h6>
+                      <p className="text-[11px] text-jcp-text-3 font-jakarta mt-0.5">Estructura un plan tangible para monetizar tu legado e impacto.</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Event Details Row */}
-                <div className="flex flex-wrap gap-y-4 gap-x-8 text-sm font-mono text-white mb-8 border-y border-jcp-border-n py-4">
+                <div className="flex flex-wrap gap-y-4 gap-x-8 text-xs font-mono text-white mb-8 border-y border-white/5 py-4">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-jcp-gold" />
-                    <span>Sábado 17 y Domingo 18 de Octubre, 2 días de experiencia</span>
+                    <span>Sábado 17 y Domingo 18 de Octubre, 2026</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-jcp-power" />
+                    <MapPin className="w-4 h-4 text-jcp-power-l" />
                     <span>Colegio Médico de Miraflores - Lima</span>
                   </div>
                 </div>
               </div>
 
               {/* Countdown & Action */}
-              <div className="flex flex-col sm:flex-row gap-6 items-center justify-between mt-auto bg-[#0F111E] p-6 rounded-2xl border border-white/5">
+              <div className="flex flex-col sm:flex-row gap-6 items-center justify-between mt-auto bg-[#0A0C16] p-5 rounded-2xl border border-white/5">
                 <div className="flex gap-4 text-center">
                   <div>
                     <span className="block font-space font-bold text-2xl text-white">{timeLeft.days}</span>
@@ -164,7 +180,7 @@ export default function EventosSection() {
                   rel="noopener noreferrer" 
                   className="px-8 py-4 bg-jcp-power hover:bg-jcp-power-l text-white font-space font-bold rounded-xl transition-all shadow-[0_0_20px_var(--jcp-power-glow)] hover:shadow-[0_0_30px_var(--jcp-power-glow)] text-center text-sm w-full sm:w-auto"
                 >
-                  Reserva tu lugar
+                  Reservar mi lugar
                 </a>
               </div>
             </div>

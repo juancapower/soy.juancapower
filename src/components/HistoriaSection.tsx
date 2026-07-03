@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Sparkles, AlertCircle, Heart, Award } from 'lucide-react';
+import { ArrowRight, AlertCircle, Heart, Award } from 'lucide-react';
 
 export default function HistoriaSection() {
   const [activeStep, setActiveStep] = useState(0);
@@ -11,7 +11,7 @@ export default function HistoriaSection() {
       tag: "01. LA CAÍDA",
       title: "Vivir bajo la sombra del piloto automático.",
       quote: "Estaba roto por dentro, pero fingía estar bien por fuera.",
-      desc: "Mi historia no comenzó en escenarios ni siendo Coach. Comenzó en la oscuridad de una crisis total. En 2016 perdí a mi madre (mi mayor pilar), mi matrimonio se fracturó en una separación dolorosa, e inicié pandemia pesando más de 100 kilos, con un vacío emocional profundo. Estaba atrapado viviendo en automático, lejos de mi hija.",
+      desc: "Fingía estar bien, pero cargaba con una crisis total. En 2016 perdí a mi madre, mi matrimonio se fracturó, e inicié pandemia con más de 100 kilos y un vacío existencial inmenso. Estaba viviendo en piloto automático, lejos de mi hija y de mi verdadero potencial.",
       badge: "El dolor",
       icon: <AlertCircle className="w-5 h-5 text-red-400" />,
       glowColor: "rgba(239, 68, 68, 0.15)"
@@ -21,7 +21,7 @@ export default function HistoriaSection() {
       tag: "02. LA RECONSTRUCCIÓN",
       title: "La decisión innegociable de cambiar mi destino.",
       quote: "El dolor no te destruye si decides usarlo como combustible.",
-      desc: "Decidí que mis circunstancias no definirían mi futuro. Comencé una reconstrucción radical de adentro hacia afuera. Perdí peso de forma drástica, comencé a disciplinar mi alimentación y ejercicio físico, comencé a meditar seguido a sanar emociones, estudié PNL y reprogramación mental, y reconecté profundamente con mi fe y espiritualidad. Pasé de ser una víctima de las circunstancias a ser el ingeniero de mi realidad.",
+      desc: "Tomé la decisión innegociable de no ser víctima de mis circunstancias. Reduje mi peso drásticamente, discipliné mi cuerpo, reprogramé mi mente mediante PNL, y sané a través de la meditación y la espiritualidad profunda. Me convertí en el ingeniero de mi propio destino.",
       badge: "Disciplina de Acero",
       icon: <Heart className="w-5 h-5 text-jcp-gold" />,
       glowColor: "rgba(197, 160, 89, 0.2)"
@@ -31,7 +31,7 @@ export default function HistoriaSection() {
       tag: "03. EL PROPÓSITO",
       title: "Despertar líderes y dejar un legado eterno.",
       quote: "Mi mayor motor tiene nombre propio: mi hija Valeria.",
-      desc: "Hoy entiendo que el liderazgo real empieza en casa. Ella me inspira cada día a mantener mis estándares al máximo. Mi propósito absoluto es despertar a miles de personas, emprendedores y marcas personales para ayudarlos a construir un éxito alineado. No vendo motivación; te entrego las herramientas de un sistema exacto.",
+      desc: "Hoy, Valeria (mi hija) inspira mis máximos estándares. Mi misión no es motivar temporalmente; es equipar a miles de personas, emprendedores y marcas individuales con un sistema de alto rendimiento, mentalidad inquebrantable y trascendencia.",
       badge: "Trascendencia",
       icon: <Award className="w-5 h-5 text-jcp-power-l" />,
       glowColor: "rgba(67, 97, 238, 0.2)"
@@ -55,14 +55,14 @@ export default function HistoriaSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden border border-jcp-gold/20 shadow-2xl">
+            <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden border-2 border-jcp-gold/30 shadow-[0_0_50px_rgba(214,177,95,0.1)] group">
               <img 
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783015853/JuanCaPower_Foto_Frontal_gxocai.png" 
                 alt="JuanCa Power - Transformación y Liderazgo" 
-                className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.05]"
+                className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D17] via-transparent to-transparent opacity-90"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D17]/95 via-transparent to-transparent opacity-90"></div>
               
               {/* Dynamic Overlay based on active step */}
               <div className="absolute bottom-8 left-8 right-8 z-10">
@@ -81,12 +81,19 @@ export default function HistoriaSection() {
 
           {/* Right Column: Storytelling steps & Interactive Selector */}
           <div className="lg:col-span-7">
-            <div className="text-left mb-10">
+            <div className="text-left mb-8">
               <span className="font-mono text-xs text-jcp-gold uppercase tracking-[0.25em] block mb-3">🌌 Mi historia</span>
               <h2 className="text-3xl md:text-5xl font-space font-bold text-white tracking-tight leading-tight mb-4">
                 Mi camino no empezó en la cima. <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-jcp-gold to-jcp-cream" style={{ backgroundImage: 'var(--background-image-gradient-gold)' }}>Empezó en el dolor.</span>
               </h2>
+
+              {/* Permanent Highlight Quote Block */}
+              <div className="mt-5 p-6 bg-gradient-to-r from-[#121526] to-[#0A0C16] border-l-4 border-jcp-gold rounded-r-2xl shadow-xl">
+                <p className="font-cormorant italic text-xl md:text-2xl text-jcp-gold-l leading-relaxed">
+                  "No empecé con claridad. Empecé con dolor. Y desde ahí construí propósito."
+                </p>
+              </div>
             </div>
 
             {/* Step Selection Buttons */}
@@ -107,7 +114,7 @@ export default function HistoriaSection() {
             </div>
 
             {/* Active Content Display with AnimatePresence */}
-            <div className="min-h-[300px] flex flex-col justify-between">
+            <div className="min-h-[260px] flex flex-col justify-between">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeStep}

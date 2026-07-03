@@ -19,7 +19,8 @@ export default function SistemaPowerSection() {
       color: "from-purple-500/20 to-blue-500/20",
       accentColor: "text-purple-400",
       borderColor: "group-hover:border-purple-500/30",
-      number: "01"
+      number: "01",
+      resultadoEsperado: "Claridad existencial absoluta y un porqué indestructible que actúe como tu motor de vida."
     },
     {
       id: 1,
@@ -34,7 +35,8 @@ export default function SistemaPowerSection() {
       color: "from-blue-500/20 to-indigo-500/20",
       accentColor: "text-blue-400",
       borderColor: "group-hover:border-blue-500/30",
-      number: "02"
+      number: "02",
+      resultadoEsperado: "Enfoque láser ininterrumpido y eliminación completa de creencias de autosabotaje."
     },
     {
       id: 2,
@@ -49,7 +51,8 @@ export default function SistemaPowerSection() {
       color: "from-amber-500/20 to-red-500/20",
       accentColor: "text-amber-400",
       borderColor: "group-hover:border-amber-500/30",
-      number: "03"
+      number: "03",
+      resultadoEsperado: "Maestría interna ante crisis y toma de decisiones estratégicas bajo alta presión."
     },
     {
       id: 3,
@@ -64,7 +67,8 @@ export default function SistemaPowerSection() {
       color: "from-emerald-500/20 to-teal-500/20",
       accentColor: "text-emerald-400",
       borderColor: "group-hover:border-emerald-500/30",
-      number: "04"
+      number: "04",
+      resultadoEsperado: "Vitalidad física desbordante y rutinas energéticas innegociables."
     },
     {
       id: 4,
@@ -79,7 +83,8 @@ export default function SistemaPowerSection() {
       color: "from-amber-500/20 to-yellow-500/20",
       accentColor: "text-jcp-gold",
       borderColor: "group-hover:border-jcp-gold/30",
-      number: "05"
+      number: "05",
+      resultadoEsperado: "Monetización alineada de tu legado y escalabilidad de tu negocio premium."
     }
   ];
 
@@ -354,6 +359,14 @@ export default function SistemaPowerSection() {
                   <p className="font-jakarta text-jcp-text-2 text-sm leading-relaxed mb-6">
                     {pillars[selectedPillar].description}
                   </p>
+
+                  {/* Resultado Esperado Block */}
+                  <div className="bg-jcp-power/5 border border-jcp-power/20 rounded-2xl p-4.5 mb-6">
+                    <span className="font-mono text-[10px] text-jcp-gold uppercase tracking-widest block mb-1.5">✨ RESULTADO ESPERADO // META SUPREMA</span>
+                    <p className="font-space font-bold text-sm text-white leading-relaxed">
+                      {pillars[selectedPillar].resultadoEsperado}
+                    </p>
+                  </div>
 
                   {/* Systems Specs / Bullet points */}
                   <div className="grid sm:grid-cols-2 gap-6 mt-6">
