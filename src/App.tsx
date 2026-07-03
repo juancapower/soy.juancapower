@@ -107,7 +107,7 @@ const Navbar = () => {
               href="#mentoria"
               className="px-5 py-2.5 bg-jcp-power text-white font-space font-bold rounded-lg text-xs hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]"
             >
-              Agenda 1:1
+              Agenda una Sesión
             </a>
           </div>
 
@@ -144,7 +144,7 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(false)}
             className="block w-full py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)] text-center text-base"
           >
-            Agenda 1:1
+            Agenda una Sesión
           </a>
         </div>
       </div>
@@ -205,14 +205,14 @@ const Hero = () => {
             ease: "easeInOut", 
             repeat: Infinity 
           }}
-          src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775666946/JuanCa_Hero_zyte0x.png" 
+          src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783036806/JuanCaPower_Hero_kajv6v.png" 
           alt="JuanCa Power en escenario" 
-          className="w-full h-full object-cover object-center opacity-30 lg:opacity-35"
+          className="w-full h-full object-cover object-center opacity-65 lg:opacity-75"
           referrerPolicy="no-referrer"
         />
         {/* Obsidian Overlay Filters */}
-        <div className="absolute inset-0 bg-[#0B0D17]/85 backdrop-blur-[1px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D17]/95 via-transparent to-[#0B0D17]"></div>
+        <div className="absolute inset-0 bg-[#0B0D17]/50 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D17]/90 via-transparent to-[#0B0D17]"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D17] via-[#0B0D17]/80 to-transparent"></div>
         
         {/* Tech Glow Spotlights */}
@@ -332,7 +332,13 @@ const Hero = () => {
             <div className="hidden sm:block w-px h-8 bg-white/5"></div>
             <div>
               <div className="text-2xl md:text-3xl font-space font-bold text-white mb-0.5">2 países</div>
-              <div className="text-[10px] text-jcp-text-3 uppercase tracking-widest font-mono font-bold">(perú y USA)</div>
+              <div className="text-xs text-jcp-text-3 font-sans font-medium flex items-center gap-1">
+                <span>(</span>
+                <span className="text-base" title="Perú">🇵🇪</span>
+                <span className="mx-0.5 text-[10px] font-mono uppercase text-jcp-text-3">y</span>
+                <span className="text-base" title="USA">🇺🇸</span>
+                <span>)</span>
+              </div>
             </div>
           </motion.div>
         </div>
