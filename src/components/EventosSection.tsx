@@ -68,7 +68,7 @@ export default function EventosSection() {
               <div className="absolute -inset-2 bg-gradient-to-tr from-jcp-power to-jcp-gold opacity-25 blur-2xl rounded-2xl pointer-events-none"></div>
               <div className="relative aspect-[3/4] w-full max-w-[380px] rounded-2xl overflow-hidden border-2 border-jcp-gold/40 shadow-2xl group">
                 <img 
-                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1782918068/JuancaPower_Flyer_LiberaTuProp%C3%B3sito_zt23eq.jpg" 
+                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1784652998/WhatsApp_Image_2026-07-17_at_12.23.24_PM_1_axmlcp.jpg" 
                   alt="Libera Tu Propósito - JuanCa Power" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
