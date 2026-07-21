@@ -209,13 +209,13 @@ const Hero = () => {
           }}
           src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783036806/JuanCaPower_Hero_kajv6v.png" 
           alt="JuanCa Power en escenario" 
-          className="w-full h-full object-cover object-center opacity-65 lg:opacity-75"
+          className="w-full h-full object-cover object-center lg:object-[center_25%] opacity-85 lg:opacity-95"
           referrerPolicy="no-referrer"
         />
-        {/* Obsidian Overlay Filters */}
-        <div className="absolute inset-0 bg-[#0B0D17]/50 backdrop-blur-[1px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D17]/90 via-transparent to-[#0B0D17]"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D17] via-[#0B0D17]/80 to-transparent"></div>
+        {/* Obsidian Overlay Filters - Adjusted for maximum photo visibility and legibility */}
+        <div className="absolute inset-0 bg-[#0B0D17]/25"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D17]/80 via-transparent to-[#0B0D17]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D17] via-[#0B0D17]/65 to-transparent/30"></div>
         
         {/* Tech Glow Spotlights */}
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4361EE]/10 rounded-full blur-[120px] pointer-events-none"></div>
