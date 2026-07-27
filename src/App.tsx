@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, MapPin, Calendar, Mail, Instagram, Youtube, Facebook, Star, Flame } from 'lucide-react';
+import { Menu, X, ArrowRight, MapPin, Calendar, Mail, Instagram, Youtube, Facebook, Star, Flame, ShieldCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 
 // Import our highly polished, modular JuanCa Power 3.0 sections
@@ -390,19 +390,35 @@ const BottomCTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-jcp-surface pt-16 pb-8 border-t border-white/5">
+    <footer className="bg-jcp-surface pt-16 pb-8 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
           
-          {/* Logo Column */}
+          {/* Logo & Legal Info Column */}
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Logo />
-              <p className="text-xs font-jakarta text-jcp-text-2 max-w-sm mt-6 leading-relaxed">
+              <p className="text-xs font-jakarta text-jcp-text-2 max-w-sm mt-5 leading-relaxed">
                 Sistemas avanzados de transformación personal, mentalidad premium y expansión digital de legado.
               </p>
             </div>
-            <p className="mt-8 text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider">
+
+            {/* Official Company Badge */}
+            <div className="mt-6 p-4 bg-white/[0.02] border border-white/10 rounded-2xl max-w-sm backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-1.5">
+                <ShieldCheck className="w-4 h-4 text-jcp-gold shrink-0" />
+                <span className="font-space font-bold text-xs text-white tracking-wide">
+                  JC ESTRATEGIA Y DISEÑO INTEGRAL E.I.R.L.
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-[11px] font-mono text-jcp-text-2 pl-6">
+                <span>RUC: <strong className="text-jcp-gold font-bold">20615315525</strong></span>
+                <span className="text-white/20">•</span>
+                <span className="text-jcp-text-3 uppercase tracking-wider">Perú</span>
+              </div>
+            </div>
+
+            <p className="mt-6 text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider">
               No esperes motivación. Crea resultados.
             </p>
           </div>
@@ -444,10 +460,15 @@ const Footer = () => {
         
         {/* Under-Footer */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] font-mono text-jcp-text-3 tracking-widest uppercase text-center md:text-left">
-            © 2026 JuanCa Power · Diseñado por <a href="https://digital.juancapower.com" className="hover:text-jcp-gold underline underline-offset-4">Power Digital</a>
-          </p>
-          <span className="text-[9px] font-mono text-jcp-text-3 tracking-widest uppercase">
+          <div className="text-center md:text-left space-y-1">
+            <p className="text-[10px] font-mono text-jcp-text-3 tracking-widest uppercase">
+              © 2026 JuanCa Power · Diseñado por <a href="https://digital.juancapower.com" className="hover:text-jcp-gold underline underline-offset-4">Power Digital</a>
+            </p>
+            <p className="text-[10px] font-mono text-jcp-text-3/80 tracking-wider">
+              <span className="text-white/80 font-bold">JC ESTRATEGIA Y DISEÑO INTEGRAL E.I.R.L.</span> · RUC 20615315525 · Perú
+            </p>
+          </div>
+          <span className="text-[9px] font-mono text-jcp-text-3 tracking-widest uppercase px-3 py-1 bg-white/5 border border-white/10 rounded-full">
             LIDERAZGO & TRANSFORMACIÓN PERSONAL
           </span>
         </div>
