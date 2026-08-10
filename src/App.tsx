@@ -14,6 +14,7 @@ import EliteSection from './components/EliteSection';
 import MentoriaSection from './components/MentoriaSection';
 import SocialProofHighlights from './components/SocialProofHighlights';
 import RutaConversionSection from './components/RutaConversionSection';
+import LiberaTuPropositoPage from './pages/LiberaTuPropositoPage';
 
 const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
@@ -66,7 +67,7 @@ const Logo = () => (
   </div>
 );
 
-const Navbar = () => {
+const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -80,11 +81,20 @@ const Navbar = () => {
 
   const navLinks = [
     { id: 'eventos', name: 'Eventos', href: '#eventos' },
+    { id: 'ltp', name: 'Libera tu Propósito 🎟️', href: '/libera-tu-proposito', isSublanding: true },
     { id: 'sistema', name: 'Sistema Power', href: '#sistema' },
     { id: 'comunidad', name: 'Comunidad', href: '#comunidad' },
     { id: 'conferencias', name: 'Conferencias', href: '#conferencias' },
     { id: 'mentoria', name: 'Mentoría', href: '#mentoria' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
+    if (link.isSublanding && onNavigate) {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      onNavigate(link.href);
+    }
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-jcp-surface/90 backdrop-blur-xl border-b border-jcp-border-n py-4 shadow-lg shadow-black/20' : 'bg-transparent py-4'}`}>
@@ -100,7 +110,12 @@ const Navbar = () => {
               <a 
                 key={link.id} 
                 href={link.href}
-                className="text-xs font-mono uppercase tracking-wider text-jcp-text-2 hover:text-jcp-gold transition-colors"
+                onClick={(e) => handleNavClick(e, link)}
+                className={`text-xs font-mono uppercase tracking-wider transition-colors ${
+                  link.isSublanding 
+                    ? 'text-jcp-gold font-bold px-3 py-1 bg-jcp-gold/10 border border-jcp-gold/20 rounded-full hover:bg-jcp-gold/20' 
+                    : 'text-jcp-text-2 hover:text-jcp-gold'
+                }`}
               >
                 {link.name}
               </a>
@@ -133,7 +148,10 @@ const Navbar = () => {
             <a 
               key={link.id} 
               href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                handleNavClick(e, link);
+              }}
               className="text-lg font-space font-bold uppercase tracking-wider text-jcp-text-2 hover:text-jcp-gold transition-colors border-b border-white/5 pb-4"
             >
               {link.name}
@@ -478,10 +496,30 @@ const Footer = () => {
 };
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  );
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', path);
+      setCurrentPath(path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleHashScroll = () => {
       const hash = window.location.hash;
-      if (hash) {
+      if (hash && (currentPath === '/' || currentPath === '')) {
         const element = document.getElementById(hash.substring(1));
         if (element) {
           const headerOffset = 100;
@@ -503,12 +541,22 @@ export default function App() {
 
     window.addEventListener('load', handleHashScroll);
     return () => window.removeEventListener('load', handleHashScroll);
-  }, []);
+  }, [currentPath]);
+
+  // Check if user is requesting sublanding
+  if (currentPath === '/libera-tu-proposito' || currentPath.startsWith('/libera-tu-proposito')) {
+    return (
+      <>
+        <NoiseOverlay />
+        <LiberaTuPropositoPage onNavigate={navigateTo} />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-jcp-bg text-jcp-text font-jakarta selection:bg-jcp-power/30 selection:text-gold-light">
       <NoiseOverlay />
-      <Navbar />
+      <Navbar onNavigate={navigateTo} />
       <main>
         <Hero />
         
@@ -516,7 +564,7 @@ export default function App() {
         <SocialProofHighlights />
         
         {/* SECCIÓN 2 — PRÓXIMO EVENTO */}
-        <EventosSection />
+        <EventosSection onNavigate={navigateTo} />
         
         {/* SECCIÓN 3 — HISTORIA */}
         <HistoriaSection />
