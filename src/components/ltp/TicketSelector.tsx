@@ -3,6 +3,7 @@ import { TICKET_ZONES, OFFICIAL_EVENT_INFO, TicketZone } from '../../data/libera
 import TicketCard from './TicketCard';
 import OrderSummary from './OrderSummary';
 import JuanCaBonuses from './JuanCaBonuses';
+import SeatMapSection from './SeatMapSection';
 
 export default function TicketSelector() {
   const [selectedZoneId, setSelectedZoneId] = useState<string>('indomable');
@@ -49,6 +50,9 @@ export default function TicketSelector() {
           ℹ️ {OFFICIAL_EVENT_INFO.promoNotice}
         </div>
       </div>
+
+      {/* Official Auditorium Seat Map & Distribution */}
+      <SeatMapSection />
 
       {/* 4 Cards Grid - 1 col mobile, 2 cols tablet/desktop, 4 cols ultra wide */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

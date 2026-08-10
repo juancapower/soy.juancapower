@@ -29,6 +29,49 @@ const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?
   </svg>
 );
 
+const InstagramBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+    <defs>
+      <radialGradient id="rgInstaHero" cx="30%" cy="107%" r="150%">
+        <stop offset="0%" stopColor="#fdf497" />
+        <stop offset="5%" stopColor="#fdf497" />
+        <stop offset="45%" stopColor="#fd5949" />
+        <stop offset="60%" stopColor="#d6249f" />
+        <stop offset="90%" stopColor="#285AEB" />
+      </radialGradient>
+    </defs>
+    <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#rgInstaHero)"/>
+    <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" fill="#ffffff"/>
+  </svg>
+);
+
+const TikTokBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+  </svg>
+);
+
+const YoutubeBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" className={className}>
+    <path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+    <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  </svg>
+);
+
+const FacebookBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" className={className}>
+    <circle cx="12" cy="12" r="12" fill="#1877F2"/>
+    <path fill="#FFFFFF" d="M15.12 12.7l.42-2.73h-2.62V8.2c0-.75.37-1.48 1.54-1.48h1.19V4.4a14.52 14.52 0 00-2.12-.18c-2.16 0-3.57 1.31-3.57 3.68v2.07H7.55v2.73h2.41V24h2.98V12.7h2.18z"/>
+  </svg>
+);
+
+const SpotifyBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" className={className}>
+    <circle cx="12" cy="12" r="12" fill="#1DB954"/>
+    <path fill="#000000" d="M17.9 16.2a.7.7 0 01-1 .2c-2.7-1.6-6.1-2-10.1-1.1a.7.7 0 11-.3-1.4c4.4-1 8.2-.5 11.2 1.3a.7.7 0 01.2 1zm1.5-3.3a.9.9 0 01-1.2.3c-3.1-1.9-7.8-2.5-11.5-1.3a.9.9 0 11-.5-1.7c4.2-1.3 9.4-.6 13 1.6a.9.9 0 01.2 1.1zm.1-3.4C15.8 7.3 9.7 7.1 6.2 8.2a1 1 0 01-.6-2c4-1.2 10.8-1 15.1 1.6a1 1 0 01-1.2 1.7z"/>
+  </svg>
+);
+
 const NoiseOverlay = () => (
   <div 
     className="fixed inset-0 opacity-[0.03] pointer-events-none z-50 mix-blend-overlay" 
@@ -110,7 +153,16 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-jcp-surface/90 backdrop-blur-xl border-b border-jcp-border-n py-4 shadow-lg shadow-black/20' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <a href="#inicio" className="flex-shrink-0">
+          <a 
+            href="/" 
+            onClick={(e) => {
+              if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
+                e.preventDefault();
+                onNavigate('/');
+              }
+            }}
+            className="flex-shrink-0"
+          >
             <Logo />
           </a>
           
@@ -310,7 +362,7 @@ const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-14"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-10"
           >
             {/* MAIN PRIMARY CTA: LIBERA TU PROPÓSITO */}
             <a 
@@ -341,6 +393,69 @@ const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             >
               ⚡ Agenda mentoría 1-a-1
             </a>
+          </motion.div>
+
+          {/* MINIMALIST HERO SOCIAL MEDIA BAR */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap items-center gap-3 sm:gap-5 mb-12"
+          >
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-jcp-text-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="text-white">Sígueme:</span>
+            </span>
+
+            <div className="flex items-center gap-2.5">
+              {/* Instagram */}
+              <a 
+                href="https://instagram.com/soyjuancapower" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-[#E1306C]/80 hover:scale-110 transition-all shadow-sm hover:shadow-[0_0_20px_rgba(225,48,108,0.4)] flex items-center justify-center group"
+                title="Instagram @soyjuancapower"
+              >
+                <InstagramBrandIcon size={20} className="transition-transform group-hover:scale-105" />
+              </a>
+
+              {/* TikTok */}
+              <a 
+                href="https://tiktok.com/@soyjuancapower" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-[#00F2FE]/80 hover:scale-110 transition-all shadow-sm hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] flex items-center justify-center group"
+                title="TikTok @soyjuancapower"
+              >
+                <TikTokBrandIcon size={20} className="text-white transition-transform group-hover:scale-105" />
+              </a>
+
+              {/* YouTube */}
+              <a 
+                href="https://youtube.com/@soyjuancapower" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-[#FF0000]/80 hover:scale-110 transition-all shadow-sm hover:shadow-[0_0_20px_rgba(255,0,0,0.4)] flex items-center justify-center group"
+                title="YouTube @soyjuancapower"
+              >
+                <YoutubeBrandIcon size={20} className="transition-transform group-hover:scale-105" />
+              </a>
+
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/soyjuancapower1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-[#1877F2]/80 hover:scale-110 transition-all shadow-sm hover:shadow-[0_0_20px_rgba(24,119,242,0.4)] flex items-center justify-center group"
+                title="Facebook @soyjuancapower1"
+              >
+                <FacebookBrandIcon size={20} className="transition-transform group-hover:scale-105" />
+              </a>
+            </div>
+
+            <span className="text-[11px] font-mono font-bold text-jcp-gold bg-jcp-gold/10 px-3 py-1 rounded-full border border-jcp-gold/25 shadow-[0_0_10px_rgba(214,177,95,0.15)]">
+              @soyjuancapower
+            </span>
           </motion.div>
 
           {/* Authority Metrics Line */}
@@ -481,22 +596,25 @@ const Footer = () => {
           
           {/* Social Icons Column */}
           <div className="md:col-span-4">
-            <h4 className="font-space font-bold text-sm uppercase tracking-widest text-white mb-6 border-b border-white/5 pb-2">Sociales</h4>
-            <div className="flex space-x-3 mb-6">
-              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
-                <Instagram className="w-4 h-4" />
+            <h4 className="font-space font-bold text-sm uppercase tracking-widest text-white mb-6 border-b border-white/5 pb-2">Redes Oficiales</h4>
+            <div className="flex flex-wrap gap-2.5 mb-6">
+              <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#E1306C] hover:bg-[#E1306C]/10 transition-all hover:shadow-[0_0_15px_rgba(225,48,108,0.35)]" title="Instagram @soyjuancapower">
+                <InstagramBrandIcon size={20} />
               </a>
-              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              <a href="https://tiktok.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#00F2FE] hover:bg-black transition-all hover:shadow-[0_0_15px_rgba(0,242,254,0.35)]" title="TikTok @soyjuancapower">
+                <TikTokBrandIcon size={20} className="text-white" />
               </a>
-              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
-                <Youtube className="w-4 h-4" />
+              <a href="https://youtube.com/@soyjuancapower" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#FF0000] hover:bg-[#FF0000]/10 transition-all hover:shadow-[0_0_15px_rgba(255,0,0,0.35)]" title="YouTube @soyjuancapower">
+                <YoutubeBrandIcon size={20} />
               </a>
-              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-jcp-text-2 hover:text-white hover:bg-jcp-power transition-all hover:shadow-[0_0_10px_var(--jcp-power-glow)]">
-                <Facebook className="w-4 h-4" />
+              <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-all hover:shadow-[0_0_15px_rgba(24,119,242,0.35)]" title="Facebook soyjuancapower1">
+                <FacebookBrandIcon size={20} />
               </a>
             </div>
-            <p className="text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider">@soyjuancapower</p>
+            <p className="text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>@soyjuancapower</span>
+            </p>
           </div>
         </div>
         
@@ -588,10 +706,15 @@ export default function App() {
   // Check if user is requesting sublanding
   if (isLiberaTuProposito) {
     return (
-      <>
+      <div className="min-h-screen bg-jcp-bg text-jcp-text font-jakarta selection:bg-jcp-power/30 selection:text-gold-light">
         <NoiseOverlay />
-        <LiberaTuPropositoPage onNavigate={navigateTo} />
-      </>
+        <Navbar onNavigate={navigateTo} />
+        <main>
+          <LiberaTuPropositoPage onNavigate={navigateTo} />
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </div>
     );
   }
 

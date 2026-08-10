@@ -156,33 +156,10 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
       <div className="fixed top-0 right-1/4 w-[700px] h-[700px] bg-jcp-gold/10 rounded-full blur-[180px] pointer-events-none z-0"></div>
       <div className="fixed top-1/3 -left-32 w-[600px] h-[600px] bg-jcp-power/15 rounded-full blur-[180px] pointer-events-none z-0"></div>
 
-      {/* Sublanding Top Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-[#070814]/90 backdrop-blur-2xl border-b border-white/10 py-4 shadow-2xl">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-          <button
-            onClick={handleBackClick}
-            className="inline-flex items-center gap-2 text-xs font-jakarta font-medium text-jcp-text-2 hover:text-white transition-all bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-white/10"
-          >
-            <ArrowLeft className="w-4 h-4 text-jcp-gold" />
-            <span>Volver a JuanCaPower.com</span>
-          </button>
-
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-space font-bold text-jcp-gold bg-jcp-gold/10 border border-jcp-gold/25 uppercase tracking-widest">
-              <Sparkles className="w-3 h-3 text-jcp-gold" />
-              OFICIAL LIMA 2026
-            </span>
-            <span className="font-space font-bold text-sm text-white">
-              Libera tu Propósito
-            </span>
-          </div>
-        </div>
-      </nav>
-
       {/* ==========================================
           HERO SECTION — ULTRA PREMIUM FULL HERO
          ========================================== */}
-      <section className="relative pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-white/10 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-16 lg:pb-20 border-b border-white/10 overflow-hidden">
         {/* Backlight Glows */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-r from-jcp-power/20 via-jcp-gold/15 to-transparent rounded-full blur-[160px] pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-jcp-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -386,38 +363,6 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
           </div>
         </div>
       </main>
-
-      {/* Sublanding Footer */}
-      <footer className="bg-[#05060F] pt-12 pb-8 border-t border-white/10 relative z-10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-center sm:text-left">
-          <div className="space-y-1">
-            <p className="text-sm font-space font-bold text-white">
-              JuanCa Power · Sublanding Oficial Libera tu Propósito Lima 2026
-            </p>
-            <p className="text-xs font-jakarta text-jcp-text-2">
-              <strong className="text-jcp-gold">JC ESTRATEGIA Y DISEÑO INTEGRAL E.I.R.L.</strong> · RUC 20615315525 · Perú
-            </p>
-          </div>
-
-          <button
-            onClick={handleBackClick}
-            className="text-xs font-jakarta font-semibold text-jcp-gold hover:underline underline-offset-4"
-          >
-            ← Volver a JuanCaPower.com
-          </button>
-        </div>
-      </footer>
-
-      {/* Floating WhatsApp button */}
-      <a 
-        href={`https://wa.me/${PAYMENT_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hola JuanCa, tengo una consulta sobre las entradas para Libera tu Propósito.')}`} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="fixed bottom-6 right-6 z-[60] bg-emerald-600 text-white p-4 rounded-full shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:scale-110 transition-all flex items-center justify-center"
-        aria-label="Consultar entradas por WhatsApp"
-      >
-        <MessageCircle className="w-7 h-7 fill-white" />
-      </a>
     </div>
   );
 }
