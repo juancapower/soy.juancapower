@@ -19,6 +19,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -36,6 +37,21 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Generate static entry points for SPA routes
+        shell: bash
+        run: |
+          mkdir -p dist/libera-tu-proposito
+          cp dist/index.html dist/libera-tu-proposito/index.html
+          cp dist/index.html dist/404.html
+
+      - name: Verify generated entry points
+        shell: bash
+        run: |
+          test -f dist/index.html
+          test -f dist/404.html
+          test -f dist/libera-tu-proposito/index.html
+          echo "SPA entry points generated correctly"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
