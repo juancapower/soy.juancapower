@@ -80,19 +80,29 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   }, []);
 
   const navLinks = [
-    { id: 'eventos', name: 'Eventos', href: '#eventos' },
-    { id: 'ltp', name: 'Libera tu Propósito 🎟️', href: '/libera-tu-proposito', isSublanding: true },
-    { id: 'sistema', name: 'Sistema Power', href: '#sistema' },
-    { id: 'comunidad', name: 'Comunidad', href: '#comunidad' },
-    { id: 'conferencias', name: 'Conferencias', href: '#conferencias' },
-    { id: 'mentoria', name: 'Mentoría', href: '#mentoria' },
+    { id: 'historia', name: 'Mi Historia', href: '#historia' },
+    { id: 'ltp', name: 'Libera Tu Propósito 🎟️', href: '/libera-tu-proposito', isSublanding: true },
+    { id: 'sistema', name: 'Sistema Power 4', href: '#sistema' },
+    { id: 'decision', name: 'Tu Decisión', href: '#elige-tu-camino' },
+    { id: 'testimonios', name: 'Testimonios', href: '#testimonios' },
   ];
 
   const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
+    setIsMobileMenuOpen(false);
     if (link.isSublanding && onNavigate) {
       e.preventDefault();
-      setIsMobileMenuOpen(false);
       onNavigate(link.href);
+    } else if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
+      e.preventDefault();
+      onNavigate('/' + link.href);
+    }
+  };
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    setIsMobileMenuOpen(false);
+    if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
+      e.preventDefault();
+      onNavigate('/#mentoria');
     }
   };
 
@@ -113,7 +123,7 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
                 onClick={(e) => handleNavClick(e, link)}
                 className={`text-xs font-mono uppercase tracking-wider transition-colors ${
                   link.isSublanding 
-                    ? 'text-jcp-gold font-bold px-3 py-1 bg-jcp-gold/10 border border-jcp-gold/20 rounded-full hover:bg-jcp-gold/20' 
+                    ? 'text-jcp-gold font-bold px-3 py-1 bg-jcp-gold/10 border border-jcp-gold/25 rounded-full hover:bg-jcp-gold/20 shadow-[0_0_12px_rgba(214,177,95,0.15)]' 
                     : 'text-jcp-text-2 hover:text-jcp-gold'
                 }`}
               >
@@ -122,9 +132,10 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             ))}
             <a 
               href="#mentoria"
+              onClick={handleCtaClick}
               className="px-5 py-2.5 bg-jcp-power text-white font-space font-bold rounded-lg text-xs hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)]"
             >
-              Agenda una Sesión
+              Agenda tu Sesión
             </a>
           </div>
 
@@ -148,11 +159,10 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             <a 
               key={link.id} 
               href={link.href}
-              onClick={(e) => {
-                setIsMobileMenuOpen(false);
-                handleNavClick(e, link);
-              }}
-              className="text-lg font-space font-bold uppercase tracking-wider text-jcp-text-2 hover:text-jcp-gold transition-colors border-b border-white/5 pb-4"
+              onClick={(e) => handleNavClick(e, link)}
+              className={`text-lg font-space font-bold uppercase tracking-wider transition-colors border-b border-white/5 pb-4 ${
+                link.isSublanding ? 'text-jcp-gold' : 'text-jcp-text-2 hover:text-jcp-gold'
+              }`}
             >
               {link.name}
             </a>
@@ -161,10 +171,10 @@ const Navbar = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         <div className="mt-8">
           <a 
             href="#mentoria"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleCtaClick}
             className="block w-full py-4 bg-jcp-power text-white font-space font-bold rounded-lg hover:bg-jcp-power-l transition-all shadow-[0_0_15px_var(--jcp-power-glow)] hover:shadow-[0_0_25px_var(--jcp-power-glow)] text-center text-base"
           >
-            Agenda una Sesión
+            Agenda tu Sesión
           </a>
         </div>
       </div>
@@ -210,7 +220,7 @@ const DigitalParticles = () => {
   );
 };
 
-const Hero = () => {
+const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#0B0D17]">
       {/* Background Image with Cinematic Ken Burns and Glow */}
@@ -237,7 +247,7 @@ const Hero = () => {
         
         {/* Tech Glow Spotlights */}
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#4361EE]/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#D6B15F]/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#D6B15F]/15 rounded-full blur-[100px] pointer-events-none"></div>
       </div>
 
       <DigitalParticles />
@@ -249,11 +259,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full border border-[#D6B15F]/20 bg-jcp-power/10 mb-8 self-start backdrop-blur-md"
+            className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full border border-[#D6B15F]/35 bg-[#D6B15F]/10 mb-8 self-start backdrop-blur-md shadow-[0_0_20px_rgba(214,177,95,0.2)]"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4361EE] animate-pulse"></span>
-            <span className="text-[10px] font-mono font-bold text-[#D6B15F] tracking-[0.15em] uppercase">
-              SPEAKER • MENTOR DE TRANSFORMACIÓN • CEO POWER DIGITAL
+            <span className="w-2 h-2 rounded-full bg-[#D6B15F] animate-ping"></span>
+            <span className="text-[10px] sm:text-xs font-mono font-bold text-[#D6B15F] tracking-[0.15em] uppercase">
+              🔥 PRÓXIMO EVENTO PRESENCIAL · LIMA 2026
             </span>
           </motion.div>
           
@@ -300,22 +310,36 @@ const Hero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-4 mb-14"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 mb-14"
           >
+            {/* MAIN PRIMARY CTA: LIBERA TU PROPÓSITO */}
+            <a 
+              href="/libera-tu-proposito" 
+              onClick={(e) => {
+                if (onNavigate) {
+                  e.preventDefault();
+                  onNavigate('/libera-tu-proposito');
+                }
+              }}
+              className="relative group px-8 py-4.5 bg-gradient-to-r from-[#D6B15F] via-[#F5DC9A] to-[#D6B15F] hover:from-[#E7C97A] hover:via-[#FFF3C4] hover:to-[#E7C97A] text-black font-space font-extrabold rounded-2xl overflow-hidden transition-all flex items-center justify-center text-base sm:text-lg shadow-[0_0_35px_rgba(214,177,95,0.45)] hover:shadow-[0_0_55px_rgba(214,177,95,0.7)] hover:-translate-y-1 transform border border-white/50"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer" />
+              <div className="relative z-10 flex items-center gap-3">
+                <span className="flex h-3 w-3 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-black"></span>
+                </span>
+                <span className="tracking-tight uppercase">🎟️ Libera Tu Propósito // Entradas Lima 2026</span>
+                <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1.5 transition-transform" />
+              </div>
+            </a>
+
+            {/* SECONDARY CTA: AGENDA MENTORÍA */}
             <a 
               href="#mentoria" 
-              className="relative group px-8 py-4 bg-jcp-power text-white font-space font-bold rounded-xl overflow-hidden transition-all flex items-center justify-center text-sm shadow-[0_0_20px_rgba(67,97,238,0.35)] hover:shadow-[0_0_35px_rgba(67,97,238,0.55)] hover:-translate-y-0.5"
+              className="px-7 py-4.5 bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/30 text-white font-space font-bold rounded-2xl transition-all flex items-center justify-center text-sm sm:text-base hover:-translate-y-0.5 shadow-sm"
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
-              <span className="relative z-10 flex items-center gap-2">
-                ⚡ Agendar mentoría
-              </span>
-            </a>
-            <a 
-              href="#eventos" 
-              className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white font-space font-bold rounded-xl transition-all flex items-center justify-center text-sm hover:-translate-y-0.5 shadow-sm"
-            >
-              🔥 Ver experiencia en vivo
+              ⚡ Agenda mentoría 1-a-1
             </a>
           </motion.div>
 
@@ -511,15 +535,27 @@ export default function App() {
   const navigateTo = (path: string) => {
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', path);
-      setCurrentPath(path);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setCurrentPath(path.split('#')[0].split('?')[0]);
+      
+      const hash = path.includes('#') ? path.substring(path.indexOf('#') + 1) : '';
+      if (hash) {
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
   useEffect(() => {
     const handleHashScroll = () => {
       const hash = window.location.hash;
-      if (hash && (currentPath === '/' || currentPath === '')) {
+      const normalized = currentPath.toLowerCase();
+      if (hash && (normalized === '/' || normalized === '')) {
         const element = document.getElementById(hash.substring(1));
         if (element) {
           const headerOffset = 100;
@@ -543,8 +579,14 @@ export default function App() {
     return () => window.removeEventListener('load', handleHashScroll);
   }, [currentPath]);
 
+  // Normalize path for robust route matching (supports query params, trailing slashes, case-insensitivity)
+  const normalizedPath = currentPath.toLowerCase().trim();
+  const isLiberaTuProposito = 
+    normalizedPath.includes('libera-tu-proposito') || 
+    normalizedPath.startsWith('/libera-tu-proposito');
+
   // Check if user is requesting sublanding
-  if (currentPath === '/libera-tu-proposito' || currentPath.startsWith('/libera-tu-proposito')) {
+  if (isLiberaTuProposito) {
     return (
       <>
         <NoiseOverlay />
@@ -558,7 +600,7 @@ export default function App() {
       <NoiseOverlay />
       <Navbar onNavigate={navigateTo} />
       <main>
-        <Hero />
+        <Hero onNavigate={navigateTo} />
         
         {/* SOCIAL PROOF HIGHLIGHTS */}
         <SocialProofHighlights />

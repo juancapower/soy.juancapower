@@ -179,35 +179,35 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
         </div>
       </nav>
 
-      <main className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-8 pb-24">
-        
-        {/* ==========================================
-            HERO SECTION — ULTRA PREMIUM HIGH TICKET
-           ========================================== */}
-        <section className="relative rounded-[36px] bg-gradient-to-br from-[#0F1226] via-[#090B17] to-[#141834] border border-jcp-gold/35 p-8 lg:p-14 shadow-[0_0_80px_rgba(214,177,95,0.15)] mb-16 overflow-hidden">
-          {/* Top subtle metallic accent line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-jcp-gold to-transparent"></div>
+      {/* ==========================================
+          HERO SECTION — ULTRA PREMIUM FULL HERO
+         ========================================== */}
+      <section className="relative pt-8 lg:pt-12 pb-16 lg:pb-20 border-b border-white/10 overflow-hidden">
+        {/* Backlight Glows */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-r from-jcp-power/20 via-jcp-gold/15 to-transparent rounded-full blur-[160px] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-jcp-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Poster Column - Left */}
             <div className="lg:col-span-5 flex justify-center relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-jcp-power via-jcp-gold to-jcp-power-l opacity-20 blur-3xl rounded-3xl pointer-events-none"></div>
+              <div className="absolute -inset-4 bg-gradient-to-tr from-jcp-power via-jcp-gold to-jcp-power-l opacity-25 blur-3xl rounded-3xl pointer-events-none"></div>
               
-              <div className="relative aspect-[3/4] w-full max-w-[390px] rounded-2xl overflow-hidden border-2 border-jcp-gold/40 shadow-[0_20px_50px_rgba(0,0,0,0.8)] group">
+              <div className="relative aspect-[3/4] w-full max-w-[400px] rounded-3xl overflow-hidden border border-jcp-gold/40 shadow-[0_25px_60px_rgba(0,0,0,0.85)] group">
                 <img 
                   src={OFFICIAL_EVENT_INFO.posterUrl} 
                   alt={`${OFFICIAL_EVENT_INFO.name} - Conecta con tu poder`} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
                 
-                <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/75 backdrop-blur-md rounded-xl border border-white/10 text-center">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-black/80 backdrop-blur-md rounded-2xl border border-white/10 text-center">
                   <span className="font-space text-xs text-jcp-gold font-bold uppercase tracking-wider block">
                     Experiencia Presencial Exclusiva
                   </span>
-                  <span className="font-jakarta text-[11px] text-white/80">
+                  <span className="font-jakarta text-[11px] text-white/90 font-medium">
                     Lima, Perú · 17 y 18 de Octubre
                   </span>
                 </div>
@@ -218,87 +218,91 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
             <div className="lg:col-span-7 space-y-7">
               
               {/* Badges Bar */}
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="px-3.5 py-1 bg-jcp-gold/15 border border-jcp-gold/30 rounded-full text-xs font-space font-bold text-jcp-gold uppercase tracking-wider flex items-center gap-1.5">
-                  <Flame className="w-3.5 h-3.5 text-jcp-gold" />
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="px-4 py-1.5 bg-jcp-gold/15 border border-jcp-gold/30 rounded-full text-xs font-space font-bold text-jcp-gold uppercase tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(214,177,95,0.2)]">
+                  <Flame className="w-4 h-4 text-jcp-gold" />
                   EVENTO PRESENCIAL ÉLITE
                 </span>
-                <span className="px-3.5 py-1 bg-blue-500/15 border border-blue-500/30 rounded-full text-xs font-space font-bold text-blue-300 uppercase tracking-wider">
+                <span className="px-4 py-1.5 bg-blue-500/15 border border-blue-500/30 rounded-full text-xs font-space font-bold text-blue-300 uppercase tracking-wider">
                   🎤 JuanCa Power // Speaker Invitado
                 </span>
               </div>
 
               {/* Title & Claim */}
-              <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-space font-extrabold text-white tracking-tight uppercase leading-[1.08]">
+              <div className="space-y-3">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-space font-extrabold text-white tracking-tight uppercase leading-[1.05]">
                   {OFFICIAL_EVENT_INFO.name}
                 </h1>
-                <p className="font-cormorant italic text-jcp-gold text-2xl sm:text-3xl font-light">
+                <p className="font-cormorant italic text-jcp-gold text-2xl sm:text-3xl lg:text-4xl font-light">
                   "{OFFICIAL_EVENT_INFO.claim}"
                 </p>
               </div>
 
-              {/* Value Proposition Box */}
-              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-3">
-                <p className="font-jakarta text-white/95 font-medium text-base sm:text-lg leading-relaxed">
+              {/* Value Proposition */}
+              <div className="space-y-3 border-l-2 border-jcp-gold/60 pl-6 py-1">
+                <p className="font-jakarta text-white/95 font-semibold text-lg sm:text-xl leading-relaxed">
                   {OFFICIAL_EVENT_INFO.valueProposition}
                 </p>
-                <p className="font-jakarta text-jcp-text-2 text-xs sm:text-sm leading-relaxed">
+                <p className="font-jakarta text-jcp-text-2 text-sm leading-relaxed">
                   {OFFICIAL_EVENT_INFO.supportText}
                 </p>
               </div>
 
               {/* Organization & Speaker Roles */}
-              <div className="grid sm:grid-cols-2 gap-3.5 p-4 rounded-xl bg-black/50 border border-white/10 text-xs font-jakarta">
+              <div className="grid sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-xs font-jakarta">
                 <div className="flex items-center gap-3 text-jcp-text-2">
-                  <User className="w-4 h-4 text-jcp-gold shrink-0" />
-                  <span><strong className="text-white font-semibold">Creador:</strong> {OFFICIAL_EVENT_INFO.createdBy}</span>
+                  <div className="p-2 bg-jcp-gold/10 rounded-xl border border-jcp-gold/20">
+                    <User className="w-4 h-4 text-jcp-gold shrink-0" />
+                  </div>
+                  <span><strong className="text-white font-semibold block">Creador del Evento</strong> {OFFICIAL_EVENT_INFO.createdBy}</span>
                 </div>
                 <div className="flex items-center gap-3 text-jcp-text-2">
-                  <Building2 className="w-4 h-4 text-jcp-power-l shrink-0" />
-                  <span><strong className="text-white font-semibold">Organizador:</strong> {OFFICIAL_EVENT_INFO.organizedBy}</span>
+                  <div className="p-2 bg-jcp-power/10 rounded-xl border border-jcp-power/20">
+                    <Building2 className="w-4 h-4 text-jcp-power-l shrink-0" />
+                  </div>
+                  <span><strong className="text-white font-semibold block">Organización Oficial</strong> {OFFICIAL_EVENT_INFO.organizedBy}</span>
                 </div>
               </div>
 
               {/* Event Date & Venue */}
-              <div className="flex flex-wrap gap-4 text-xs font-space text-white pt-1">
-                <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl">
+              <div className="flex flex-wrap gap-4 text-xs font-space text-white">
+                <div className="flex items-center gap-2.5 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl">
                   <Calendar className="w-4 h-4 text-jcp-gold" />
-                  <span className="font-medium">{OFFICIAL_EVENT_INFO.date}</span>
+                  <span className="font-semibold">{OFFICIAL_EVENT_INFO.date}</span>
                 </div>
-                <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl">
+                <div className="flex items-center gap-2.5 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl">
                   <MapPin className="w-4 h-4 text-jcp-power-l" />
-                  <span className="font-medium">{OFFICIAL_EVENT_INFO.location}</span>
+                  <span className="font-semibold">{OFFICIAL_EVENT_INFO.location}</span>
                 </div>
               </div>
 
               {/* Countdown & High-Ticket CTA Anchor */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-[#080A14] border border-jcp-gold/30">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 rounded-2xl bg-gradient-to-r from-black/80 via-[#0B0D1A] to-black/80 border border-jcp-gold/40 shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
                 <div className="flex gap-4 text-center">
                   <div>
                     <span className="block font-space font-bold text-2xl text-white">{timeLeft.days}</span>
-                    <span className="text-[10px] uppercase font-space font-medium text-jcp-text-3">Días</span>
+                    <span className="text-[10px] uppercase font-space font-bold text-jcp-text-3">Días</span>
                   </div>
                   <span className="text-jcp-gold text-xl font-bold">:</span>
                   <div>
                     <span className="block font-space font-bold text-2xl text-white">{timeLeft.hours}</span>
-                    <span className="text-[10px] uppercase font-space font-medium text-jcp-text-3">Hrs</span>
+                    <span className="text-[10px] uppercase font-space font-bold text-jcp-text-3">Hrs</span>
                   </div>
                   <span className="text-jcp-gold text-xl font-bold">:</span>
                   <div>
                     <span className="block font-space font-bold text-2xl text-white">{timeLeft.minutes}</span>
-                    <span className="text-[10px] uppercase font-space font-medium text-jcp-text-3">Min</span>
+                    <span className="text-[10px] uppercase font-space font-bold text-jcp-text-3">Min</span>
                   </div>
                   <span className="text-jcp-gold text-xl font-bold">:</span>
                   <div>
                     <span className="block font-space font-bold text-2xl text-white">{timeLeft.seconds}</span>
-                    <span className="text-[10px] uppercase font-space font-medium text-jcp-text-3">Seg</span>
+                    <span className="text-[10px] uppercase font-space font-bold text-jcp-text-3">Seg</span>
                   </div>
                 </div>
 
                 <a
                   href="#entradas"
-                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-jcp-gold to-[#E7C97A] hover:from-[#E7C97A] hover:to-jcp-gold text-black font-space font-bold text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(214,177,95,0.3)] hover:shadow-[0_0_40px_rgba(214,177,95,0.45)] text-center flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-jcp-gold to-[#E7C97A] hover:from-[#E7C97A] hover:to-jcp-gold text-black font-space font-bold text-sm rounded-xl transition-all shadow-[0_0_30px_rgba(214,177,95,0.35)] hover:shadow-[0_0_45px_rgba(214,177,95,0.5)] text-center flex items-center justify-center gap-2"
                 >
                   <Ticket className="w-4 h-4" />
                   <span>Asegurar Mi Entrada Oficial</span>
@@ -307,7 +311,7 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
               </div>
 
               {/* Trust badges */}
-              <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] font-jakarta text-jcp-text-3 pt-2 border-t border-white/5">
+              <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] font-jakarta text-jcp-text-3 pt-2">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   Precios oficiales con IGV incluido
@@ -324,7 +328,10 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
 
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <main className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pb-24">
 
         {/* ==========================================
             TICKET SELECTOR SECTION
