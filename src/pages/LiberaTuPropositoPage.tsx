@@ -5,8 +5,9 @@ import {
   ShieldCheck, MessageCircle, HelpCircle, ChevronDown, ChevronUp, CheckCircle2,
   Sparkles, Award, Star, Ticket, ExternalLink, ArrowDown, Zap, Heart, Compass, Target, ArrowRight
 } from 'lucide-react';
-import { OFFICIAL_EVENT_INFO, PAYMENT_CONFIG, TICKET_ZONES } from '../data/liberaTuProposito';
+import { OFFICIAL_EVENT_INFO, PAYMENT_CONFIG, TICKET_ZONES, buildLtpGeneralWhatsAppLink } from '../data/liberaTuProposito';
 import TicketSelector from '../components/ltp/TicketSelector';
+import { initUTMTracking, trackLtpViewContent, trackLtpContact } from '../utils/ltpTracking';
 
 interface LiberaTuPropositoPageProps {
   onNavigate: (path: string) => void;
@@ -19,6 +20,10 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
   useEffect(() => {
     // Scroll to top when page opens
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+
+    // Initialize UTM tracking & fire Meta Pixel ViewContent event
+    initUTMTracking();
+    trackLtpViewContent();
 
     // Target event date: October 17, 2026
     const targetDate = new Date('2026-10-17T09:00:00').getTime();
@@ -57,15 +62,15 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
     },
     {
       q: "¿Qué incluye cada una de las 4 zonas disponibles (Despertar, Indomable, MFT y Face Your Fear)?",
-      a: "Disponemos de 4 experiencias adaptadas a tu nivel de compromiso:\n• Zona Despertar: Ingreso los 2 días, kit de bienvenida y certificado de participación.\n• Zona Indomable: Todo lo anterior + Experiencia Fire Walking (caminata sobre brasas) + 1 mes de membresía virtual con Orlando Denegri.\n• Zona MFT: Todo lo anterior + Desayuno empresarial posterior + Meet & Greet exclusivo + Foto oficial con speakers + Certificación de Coaching y PNL.\n• Zona Face Your Fear: Todo lo de MFT + Retiro Élite de 5 días en Valle Sagrado del Cusco (del 2 al 6 de diciembre) con hospedaje, alimentación y movilidad en Cusco incluidos."
+      a: "Disponemos de 4 experiencias adaptadas a tu nivel de compromiso:\n• Zona Despertar: Ingreso los 2 días, kit de bienvenida y certificado de participación.\n• Zona Indomable: Todo lo anterior + Experiencia Fire Walking (caminata sobre brasas) + 1 mes de membresía virtual con Orlando Denegri.\n• Zona MFT: Todo lo anterior + Desayuno empresarial posterior + Meet & Greet exclusivo + Foto oficial con speakers + Certificación de Coaching y PNL.\n• Zona Face Your Fear: Todo lo de MFT + Retiro Élite de 5 días en Valle Sagrado del Cusco (del 2 al 6 de diciembre) con hospedaje, alimentación y movilidad local en Cusco incluidos."
     },
     {
       q: "¿Cómo funciona la tarifa preferencial para 2 personas (Opción Promo)?",
       a: "Las zonas Despertar, Indomable y MFT cuentan con la opción de adquirir un pase doble para 2 asistentes con un descuento significativo (ahorro de hasta S/600). La Zona Face Your Fear es un pase individual de acceso premium exclusivo."
     },
     {
-      q: "¿Cuáles son los métodos de pago aceptados y cómo se emite mi comprobante oficial?",
-      a: "Aceptamos Yape, Plin y Mercado Pago (tarjetas de crédito y débito con opción a cuotas). Todos los precios incluyen IGV y se emite boleta o factura oficial. Tras transferir, solo debes enviar tu comprobante por WhatsApp para validar y recibir tu pase digital."
+      q: "¿Cómo se realiza la reserva y cuáles son los medios de pago?",
+      a: "Tu reserva comienza por WhatsApp. Amara te ayudará a elegir la zona y cantidad de entradas, te indicará las opciones de pago disponibles y JuanCa validará el pago antes de confirmar tu registro."
     },
     {
       q: "¿Qué beneficios y bonus adicionales entrega JuanCa Power al reservar desde este portal?",
@@ -73,7 +78,7 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
     },
     {
       q: "¿Qué incluye la experiencia de la Zona Face Your Fear en el Cusco?",
-      a: "Incluye la entrada completa al evento presencial en Lima (17 y 18 de octubre) con todos los beneficios MFT, más la participación en el Retiro Face Your Fear de 5 días en el Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026). Incluye hospedaje, alimentación y movilidad desde el punto de reunión en Cusco."
+      a: "Incluye la entrada completa al evento presencial en Lima (17 y 18 de octubre) con todos los beneficios MFT, más la participación en el Retiro Face Your Fear de 5 días en el Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026). Incluye hospedaje, alimentación y movilidad local desde el punto de reunión informado en Cusco hasta el lugar del retiro, además del retorno al mismo punto al finalizar. El traslado del participante hacia y desde Cusco no está incluido."
     }
   ];
 
@@ -304,7 +309,7 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
               <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-jakarta text-jcp-text-3 pt-1">
                 <span className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  IGV incluido y boleta/factura oficial
+                  Reserva guiada y validada por WhatsApp
                 </span>
                 <span className="flex items-center gap-2">
                   <Award className="w-4 h-4 text-jcp-gold" />
@@ -456,9 +461,17 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
               </div>
             </div>
             <a
-              href={`https://wa.me/${PAYMENT_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hola JuanCa, tengo una consulta sobre Libera tu Propósito Lima 2026.')}`}
+              href={buildLtpGeneralWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackLtpContact({
+                  zone_id: 'general',
+                  zone_name: 'Consulta FAQ WhatsApp',
+                  quantity: 1,
+                  value: 0,
+                })
+              }
               className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black font-space font-bold text-xs uppercase tracking-wider rounded-xl transition-all shrink-0 inline-flex items-center gap-2"
             >
               Consultar por WhatsApp

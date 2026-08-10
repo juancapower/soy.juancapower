@@ -16,6 +16,9 @@ import SocialProofHighlights from './components/SocialProofHighlights';
 import RutaConversionSection from './components/RutaConversionSection';
 import LiberaTuPropositoPage from './pages/LiberaTuPropositoPage';
 
+import { OFFICIAL_EVENT_INFO, PAYMENT_CONFIG, TICKET_ZONES, buildLtpGeneralWhatsAppLink } from './data/liberaTuProposito';
+import { trackLtpContact } from './utils/ltpTracking';
+
 const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
     width={size} 
@@ -79,17 +82,35 @@ const NoiseOverlay = () => (
   ></div>
 );
 
-const FloatingWhatsApp = () => (
-  <a 
-    href="https://wa.me/51963335717" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="fixed bottom-6 right-6 z-[60] bg-jcp-power text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-power-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-power-glow)] transition-all flex items-center justify-center animate-bounce"
-    aria-label="Contactar por WhatsApp"
-  >
-    <WhatsAppIcon size={28} />
-  </a>
-);
+const FloatingWhatsApp = ({ isLtp = false }: { isLtp?: boolean }) => {
+  const href = isLtp
+    ? buildLtpGeneralWhatsAppLink()
+    : "https://wa.me/51963335717";
+
+  const handleClick = () => {
+    if (isLtp) {
+      trackLtpContact({
+        zone_id: 'general',
+        zone_name: 'Consulta Floating WhatsApp',
+        quantity: 1,
+        value: 0,
+      });
+    }
+  };
+
+  return (
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      onClick={handleClick}
+      className="fixed bottom-6 right-6 z-[60] bg-jcp-power text-white p-4 rounded-full shadow-[0_0_20px_var(--jcp-power-glow)] hover:scale-110 hover:shadow-[0_0_30px_var(--jcp-power-glow)] transition-all flex items-center justify-center animate-bounce"
+      aria-label="Contactar por WhatsApp"
+    >
+      <WhatsAppIcon size={28} />
+    </a>
+  );
+};
 
 const Logo = () => (
   <div className="flex items-center space-x-3 group">
@@ -713,7 +734,7 @@ export default function App() {
           <LiberaTuPropositoPage onNavigate={navigateTo} />
         </main>
         <Footer />
-        <FloatingWhatsApp />
+        <FloatingWhatsApp isLtp={true} />
       </div>
     );
   }

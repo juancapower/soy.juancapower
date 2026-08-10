@@ -1,3 +1,5 @@
+import { getAttributionValues } from '../utils/ltpTracking';
+
 export type TicketZone = {
   id: string;
   name: string;
@@ -115,10 +117,11 @@ export const TICKET_ZONES: TicketZone[] = [
     pairPrice: undefined,
     benefits: [
       "Todos los beneficios indicados oficialmente para Zona MFT",
-      "Retiro Face Your Fear de cinco días en Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026)",
+      "Retiro transformacional de cinco días en Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026)",
+      "Hospedaje, alimentación y movilidad local desde el punto de reunión en Cusco",
       "Acceso al grupo élite de networking de BINLP para miembros Titanium"
     ],
-    notice: "Incluye hospedaje, alimentación y movilidad desde el punto de reunión en Cusco."
+    notice: "Face Your Fear incluye hospedaje, alimentación y movilidad local desde el punto de reunión informado en Cusco hasta el lugar del retiro, además del retorno al mismo punto al finalizar. El traslado del participante hacia y desde Cusco no está incluido."
   }
 ];
 
@@ -148,9 +151,8 @@ export const JUANCA_BONUSES = [
 export const PAYMENT_CONFIG = {
   whatsappNumber: "51963335717",
   whatsappFormatted: "+51 963 335 717",
-  mercadoPagoLink: "https://link.mercadopago.com.pe/juancapowerpe",
-  paymentNoticeText: "Puedes pagar mediante Mercado Pago, Yape o Plin. Tu entrada será confirmada después de validar el pago.",
-  receiptInstruction: "Después de pagar, envía el comprobante por WhatsApp indicando tu nombre completo, zona y cantidad de entradas."
+  paymentNoticeText: "La reserva se inicia por WhatsApp. Amara te indicará las opciones disponibles y JuanCa validará el pago antes de confirmar tu registro.",
+  receiptInstruction: "Tu reserva es guiada y validada directamente por WhatsApp antes de confirmar tu registro."
 };
 
 export function calculatePrice(zone: TicketZone, quantity: number): { total: number; savings?: number } {
@@ -168,14 +170,33 @@ export function calculatePrice(zone: TicketZone, quantity: number): { total: num
 }
 
 export function buildWhatsAppLink(zoneName: string, quantity: number, totalAmount: number): string {
-  const message = `Hola JuanCa, quiero reservar mi entrada para Libera tu Propósito.
+  const { ref, camp } = getAttributionValues();
+  const quantityText = quantity === 1 ? '1 entrada' : `${quantity} entradas`;
+
+  const message = `Hola, vengo de la página de Libera tu Propósito y quiero reservar.
 
 Zona: ${zoneName}
-Cantidad: ${quantity} ${quantity === 1 ? 'entrada' : 'entradas'}
-Total: S/${totalAmount.toLocaleString('es-PE')}
-Origen: WEB-LTP-JCP
+Cantidad: ${quantityText}
+Total referencial: S/${totalAmount.toLocaleString('es-PE')}
 
-Quiero recibir las instrucciones de pago y confirmar mi entrada.`;
+Referencia: ${ref}
+Campaña: ${camp}
+
+Mi nombre es:`;
 
   return `https://wa.me/${PAYMENT_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+export function buildLtpGeneralWhatsAppLink(): string {
+  const { ref, camp } = getAttributionValues();
+
+  const message = `Hola, vengo de la página de Libera tu Propósito y quiero consultar sobre el evento.
+
+Referencia: ${ref}
+Campaña: ${camp}
+
+Mi nombre es:`;
+
+  return `https://wa.me/${PAYMENT_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+

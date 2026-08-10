@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { ShoppingBag, MessageCircle, CreditCard, CheckCircle2, ShieldCheck, ExternalLink, Info, Copy, Check, Sparkles, Lock } from 'lucide-react';
+import React from 'react';
+import { ShoppingBag, MessageCircle, CheckCircle2, Info } from 'lucide-react';
 import { TicketZone, calculatePrice, buildWhatsAppLink, PAYMENT_CONFIG } from '../../data/liberaTuProposito';
+import { trackLtpContact } from '../../utils/ltpTracking';
 
 interface OrderSummaryProps {
   selectedZone: TicketZone;
@@ -15,15 +16,16 @@ export default function OrderSummary({
 }: OrderSummaryProps) {
   const { total, savings } = calculatePrice(selectedZone, quantity);
   const waLink = buildWhatsAppLink(selectedZone.name, quantity, total);
-  const [showMercadoPago, setShowMercadoPago] = useState(false);
-  const [copiedLink, setCopiedLink] = useState(false);
 
   const canSelectPair = selectedZone.pairPrice !== undefined;
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(PAYMENT_CONFIG.mercadoPagoLink);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2000);
+  const handleWhatsAppClick = () => {
+    trackLtpContact({
+      zone_id: selectedZone.id,
+      zone_name: selectedZone.name,
+      quantity,
+      value: total,
+    });
   };
 
   return (
@@ -130,7 +132,6 @@ export default function OrderSummary({
                 <span className="text-3xl sm:text-4xl font-space font-extrabold text-jcp-gold drop-shadow-[0_0_10px_rgba(214,177,95,0.3)]">
                   S/{total.toLocaleString('es-PE')}
                 </span>
-                <span className="block text-[10px] font-mono text-jcp-text-3">incluye IGV</span>
               </div>
             </div>
           </div>
@@ -145,6 +146,7 @@ export default function OrderSummary({
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
               className="w-full min-h-[56px] px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-space font-extrabold text-sm sm:text-base rounded-2xl transition-all shadow-[0_0_30px_rgba(16,185,129,0.35)] hover:shadow-[0_0_45px_rgba(16,185,129,0.5)] flex items-center justify-center gap-3 uppercase tracking-wider"
               aria-label="Continuar mi reserva por WhatsApp"
             >
@@ -158,49 +160,6 @@ export default function OrderSummary({
 
             <div className="text-xs font-jakarta font-semibold text-jcp-gold bg-jcp-gold/10 border border-jcp-gold/25 px-4 py-3 rounded-xl w-full">
               ℹ️ {PAYMENT_CONFIG.receiptInstruction}
-            </div>
-
-            {/* Mercado Pago Expandable Toggle */}
-            <div className="w-full pt-4 border-t border-white/10 mt-2">
-              <button
-                type="button"
-                onClick={() => setShowMercadoPago(!showMercadoPago)}
-                className="text-xs font-mono text-jcp-text-3 hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto"
-              >
-                <CreditCard className="w-4 h-4 text-jcp-gold" />
-                <span>{showMercadoPago ? 'Ocultar opción de pago Mercado Pago' : 'Ver pago directo con tarjeta de crédito/débito (Mercado Pago)'}</span>
-              </button>
-
-              {showMercadoPago && (
-                <div className="mt-4 p-5 bg-white/[0.03] border border-white/10 rounded-2xl text-left text-xs font-jakarta space-y-3 animate-fadeIn">
-                  <div className="flex items-start gap-2.5 text-jcp-text-2">
-                    <ShieldCheck className="w-4 h-4 text-jcp-gold shrink-0 mt-0.5" />
-                    <p>
-                      Puedes efectuar tu pago con cualquier tarjeta bancaria mediante el enlace oficial de Mercado Pago. Tras realizar el pago, envía tu comprobante por WhatsApp para emitir tu boleta/factura y validar tu acceso.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                    <a
-                      href={PAYMENT_CONFIG.mercadoPagoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-5 py-3 bg-sky-600 hover:bg-sky-500 text-white font-space font-bold text-xs rounded-xl transition-all inline-flex items-center justify-center gap-2"
-                    >
-                      Abrir link Mercado Pago <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-
-                    <button
-                      type="button"
-                      onClick={handleCopyLink}
-                      className="w-full sm:w-auto px-4 py-3 bg-white/5 hover:bg-white/10 text-jcp-text-2 text-xs font-mono rounded-xl transition-all inline-flex items-center justify-center gap-2 border border-white/10"
-                    >
-                      {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                      {copiedLink ? 'Enlace Copiado' : 'Copiar enlace'}
-                    </button>
-                  </div>
-                </div>
-              )}
             </div>
 
           </div>

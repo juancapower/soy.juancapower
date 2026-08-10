@@ -7,7 +7,7 @@ import SeatMapSection from './SeatMapSection';
 import { Users, User, Ticket, Sparkles, Check } from 'lucide-react';
 
 export default function TicketSelector() {
-  const [selectedZoneId, setSelectedZoneId] = useState<string>('indomable');
+  const [selectedZoneId, setSelectedZoneId] = useState<string>('despertar');
   const [globalQuantity, setGlobalQuantity] = useState<number>(1);
 
   const selectedZone = TICKET_ZONES.find((z) => z.id === selectedZoneId) || TICKET_ZONES[0];
@@ -26,8 +26,8 @@ export default function TicketSelector() {
 
   const handleGlobalQuantityChange = (qty: number) => {
     if (selectedZone.pairPrice === undefined && qty === 2) {
-      // If user switches to 2 but selected zone is Face Your Fear (which doesn't have pairPrice), auto-switch to MFT or Indomable
-      setSelectedZoneId('indomable');
+      // If user switches to 2 but selected zone is Face Your Fear (which doesn't have pairPrice), auto-switch to despertar
+      setSelectedZoneId('despertar');
     }
     setGlobalQuantity(qty);
   };

@@ -67,7 +67,6 @@ export default function TicketCard({
               <span className="text-2xl sm:text-3xl font-space font-extrabold text-white">
                 S/{total.toLocaleString('es-PE')}
               </span>
-              <span className="block text-[10px] font-mono text-jcp-text-3">incl. IGV</span>
             </div>
           </div>
 
