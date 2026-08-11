@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://juancapower.com/sitemap.xml
+Sitemap: https://www.juancapower.com/sitemap.xml

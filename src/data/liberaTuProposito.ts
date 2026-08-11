@@ -26,7 +26,7 @@ export const OFFICIAL_EVENT_INFO = {
   createdBy: "Orlando Denegri",
   organizedBy: "BINLP — Business Institute & NLP",
   juancaRole: "Speaker invitado",
-  posterUrl: "https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1784652998/WhatsApp_Image_2026-07-17_at_12.23.24_PM_1_axmlcp.jpg",
+  posterUrl: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1786487780/libera-tu-proposito-lima-2026-og-1200x630-02_uxsmj1.webp",
   valueProposition: "Dos días de experiencias, herramientas y conversaciones orientadas a reconocer tus recursos, cuestionar patrones y tomar decisiones con mayor claridad y propósito.",
   supportText: "Una experiencia presencial creada por Orlando Denegri y organizada por BINLP, con la participación de JuanCa Power y otros speakers invitados.",
   promoNotice: "Promoción vigente sujeta a disponibilidad y confirmación del organizador.",

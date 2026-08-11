@@ -340,42 +340,34 @@ const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             </span>
           </motion.div>
           
-          {/* Título */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[clamp(44px,6.5vw,76px)] font-space font-bold tracking-tight mb-4 leading-none text-white uppercase"
-          >
-            JUANCA POWER
-          </motion.h1>
-
-          {/* Frase principal */}
+          {/* Título Branding */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-1 mb-6"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[clamp(22px,3vw,32px)] font-space font-extrabold tracking-widest text-[#D6B15F] uppercase mb-2"
           >
-            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-white/95">
-              Despierta tu poder.
-            </h2>
-            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#D6B15F] via-[#E7C97A] to-[#F4D890]">
-              Lidera tu mente.
-            </h2>
-            <h2 className="text-2xl md:text-4xl lg:text-[46px] font-space font-bold leading-tight text-[#4361EE]">
-              Transforma tu vida.
-            </h2>
+            JUANCA POWER
           </motion.div>
+
+          {/* H1 Principal Único Visible */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-[clamp(36px,5.2vw,62px)] font-space font-bold tracking-tight mb-6 leading-[1.08] text-white uppercase"
+          >
+            Despierta tu POWER y <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D6B15F] via-[#E7C97A] to-[#F4D890]">construye tu nueva versión</span>
+          </motion.h1>
           
-          {/* Descripción */}
+          {/* Descripción concisa */}
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm md:text-base text-jcp-text-2 mb-8 max-w-[720px] font-jakarta font-normal leading-relaxed"
+            className="text-sm md:text-base text-jcp-text-2 mb-8 max-w-[760px] font-jakarta font-normal leading-relaxed"
           >
-            Mentoría, experiencias y sistema de transformación para personas y equipos que quieren vivir con propósito, disciplina e impacto.
+            JuanCa Power es speaker, mentor y creador del Sistema POWER 4 (Espíritu, Mente, Emoción y Cuerpo). Acompaña a personas, emprendedores y organizaciones a potenciar su liderazgo, integrar tecnología e Inteligencia Artificial y tomar decisiones con propósito y visión estratégica.
           </motion.p>
           
           {/* CTAs */}
@@ -716,6 +708,37 @@ export default function App() {
 
     window.addEventListener('load', handleHashScroll);
     return () => window.removeEventListener('load', handleHashScroll);
+  }, [currentPath]);
+
+  // Dynamic Head Metadata Updates for Client-Side Navigation
+  useEffect(() => {
+    const isLtp = currentPath.toLowerCase().includes('libera-tu-proposito');
+    
+    if (isLtp) {
+      document.title = "Libera tu Propósito Lima 2026 | Entradas y zonas";
+      
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'Conoce fechas, sede, zonas, precios y beneficios de Libera tu Propósito, evento presencial del 17 y 18 de octubre de 2026 en Miraflores, Lima. Reserva por WhatsApp.');
+      }
+      
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', 'https://www.juancapower.com/libera-tu-proposito');
+      }
+    } else {
+      document.title = "JuanCa Power | Speaker, Mentor y Creador del Sistema POWER 4";
+      
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'JuanCa Power integra mentalidad, propósito, liderazgo, tecnología e IA para ayudar a personas y marcas a construir una versión más consciente y estratégica.');
+      }
+      
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', 'https://www.juancapower.com/');
+      }
+    }
   }, [currentPath]);
 
   // Normalize path for robust route matching (supports query params, trailing slashes, case-insensitivity)

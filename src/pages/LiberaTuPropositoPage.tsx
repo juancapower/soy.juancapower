@@ -53,96 +53,127 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
 
   const faqs = [
     {
-      q: "¿Qué es 'Libera tu Propósito Lima 2026' y cuál es la propuesta de valor del entrenamiento?",
-      a: "Libera tu Propósito es un entrenamiento presencial intensivo de 2 días (17 y 18 de octubre de 2026) en Lima, Perú. Está diseñado para ayudarte a identificar patrones limitantes, reprogramar tu mentalidad con herramientas de PNL y Neuro-Liderazgo, y estructurar un plan claro para expandir tus proyectos de vida y negocios."
+      q: "¿Qué es Libera tu Propósito?",
+      a: "Es un evento presencial intensivo de 2 días (17 y 18 de octubre de 2026) en Lima que integra desarrollo personal, liderazgo consciente y herramientas de PNL, hipnosis y coaching para transformar tu mentalidad y accionar estratégico."
     },
     {
-      q: "¿Quiénes son los creadores, organizadores y speakers principales del evento?",
-      a: "El evento es una experiencia creada por Orlando Denegri y organizada oficialmente por BINLP (Business Institute & NLP). Cuenta con la participación magistral de JuanCa Power como Speaker Invitado especial, quien imparte estrategias de alto rendimiento, aceleración de marca y superación de límites."
+      q: "¿Cuándo y dónde será?",
+      a: "Se llevará a cabo el sábado 17 y domingo 18 de octubre de 2026 en el Colegio Médico de Miraflores, Lima, Perú."
     },
     {
-      q: "¿Qué incluye cada una de las 4 zonas disponibles (Despertar, Indomable, MFT y Face Your Fear)?",
-      a: "Disponemos de 4 experiencias adaptadas a tu nivel de compromiso:\n• Zona Despertar: Ingreso los 2 días, kit de bienvenida y certificado de participación.\n• Zona Indomable: Todo lo anterior + Experiencia Fire Walking (caminata sobre brasas) + 1 mes de membresía virtual con Orlando Denegri.\n• Zona MFT: Todo lo anterior + Desayuno empresarial posterior + Meet & Greet exclusivo + Foto oficial con speakers + Certificación de Coaching y PNL.\n• Zona Face Your Fear: Todo lo de MFT + Retiro Élite de 5 días en Valle Sagrado del Cusco (del 2 al 6 de diciembre) con hospedaje, alimentación y movilidad local en Cusco incluidos."
+      q: "¿Para quién está pensado?",
+      a: "Está diseñado para personas, profesionales, emprendedores y líderes que buscan conectar con su propósito, reconfigurar patrones limitantes, fortalecer su liderazgo y tomar decisiones con mayor claridad."
     },
     {
-      q: "¿Cómo funciona la tarifa preferencial para 2 personas (Opción Promo)?",
-      a: "Las zonas Despertar, Indomable y MFT cuentan con la opción de adquirir un pase doble para 2 asistentes con un descuento significativo (ahorro de hasta S/600). La Zona Face Your Fear es un pase individual de acceso premium exclusivo."
+      q: "¿Qué diferencia existe entre las zonas?",
+      a: "• Zona Despertar: Ingreso los 2 días, kit de bienvenida y certificado digital.\n• Zona Indomable: Todo lo anterior + Experiencia Fire Walking (caminata sobre brasas) + 1 mes de membresía virtual con Orlando Denegri.\n• Zona MFT: Todo lo anterior + Desayuno empresarial posterior + Meet & Greet exclusivo + Foto oficial con speakers + Certificación de Coaching y PNL.\n• Zona Face Your Fear: Todo lo de MFT + Retiro Élite de 5 días en Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026) con hospedaje, alimentación y movilidad local en Cusco incluidos."
     },
     {
-      q: "¿Cómo se realiza la reserva y cuáles son los medios de pago?",
-      a: "Tu reserva comienza por WhatsApp. Amara te ayudará a elegir la zona y cantidad de entradas, te indicará las opciones de pago disponibles y JuanCa validará el pago antes de confirmar tu registro."
+      q: "¿Cómo se reserva una entrada?",
+      a: "Seleccionas tu zona preferida en esta página y presionas el botón de reserva para iniciar la conversación por WhatsApp con Amara, agente IA de JuanCa Power. Amara te guiará con los medios de pago disponibles y el equipo validará tu comprobante para emitir tu pase digital."
     },
     {
-      q: "¿Qué beneficios y bonus adicionales entrega JuanCa Power al reservar desde este portal?",
-      a: "Al realizar tu reserva desde esta web oficial de JuanCa Power, recibes bonus exclusivos administrados por su equipo: acceso a recursos digitales en Hotmart, membresía a la Comunidad Power WhatsApp, opción a diagnóstico digital para tu negocio y la posibilidad de postular a una entrevista en el canal Marcas Power."
+      q: "¿Qué incluye Face Your Fear?",
+      a: "Incluye la experiencia presencial completa MFT en Lima (17 y 18 de octubre de 2026) más la participación en el Retiro Élite Face Your Fear de 5 días en el Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026). Incluye hospedaje, alimentación y movilidad local desde el punto de encuentro informado en Cusco. El traslado hacia/desde Cusco corre por cuenta del participante."
     },
     {
-      q: "¿Qué incluye la experiencia de la Zona Face Your Fear en el Cusco?",
-      a: "Incluye la entrada completa al evento presencial en Lima (17 y 18 de octubre) con todos los beneficios MFT, más la participación en el Retiro Face Your Fear de 5 días en el Valle Sagrado del Cusco (del 2 al 6 de diciembre de 2026). Incluye hospedaje, alimentación y movilidad local desde el punto de reunión informado en Cusco hasta el lugar del retiro, además del retorno al mismo punto al finalizar. El traslado del participante hacia y desde Cusco no está incluido."
+      q: "¿Cómo funciona la promoción para dos personas?",
+      a: "Las zonas Despertar, Indomable y MFT disponen de la opción Promo (Pase Doble) con una tarifa preferencial con descuento significativo para dos asistentes. La Zona Face Your Fear es un pase individual de acceso exclusivo."
     }
   ];
 
-  // Structured Data (JSON-LD) for SEO & AEO (Answer Engine Optimization)
-  const jsonLdEvent = {
+  // Structured Data (JSON-LD) for Event & BreadcrumbList
+  const jsonLdData = {
     "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Libera tu Propósito - Lima 2026",
-    "description": OFFICIAL_EVENT_INFO.valueProposition,
-    "startDate": "2026-10-17T09:00:00-05:00",
-    "endDate": "2026-10-18T19:00:00-05:00",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": "Colegio Médico de Miraflores",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. 28 de Julio 776",
-        "addressLocality": "Miraflores",
-        "addressRegion": "Lima",
-        "addressCountry": "PE"
-      }
-    },
-    "image": [OFFICIAL_EVENT_INFO.posterUrl],
-    "organizer": {
-      "@type": "Organization",
-      "name": "BINLP - Business Institute & NLP",
-      "url": "https://juancapower.com/libera-tu-proposito"
-    },
-    "performer": [
+    "@graph": [
       {
-        "@type": "Person",
-        "name": "Orlando Denegri",
-        "jobTitle": "Creador y Speaker Principal"
+        "@type": "BreadcrumbList",
+        "@id": "https://www.juancapower.com/libera-tu-proposito#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.juancapower.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Libera tu Propósito",
+            "item": "https://www.juancapower.com/libera-tu-proposito"
+          }
+        ]
       },
       {
-        "@type": "Person",
-        "name": "JuanCa Power",
-        "jobTitle": "Speaker Invitado y Mentor de Alto Rendimiento"
+        "@type": "Event",
+        "@id": "https://www.juancapower.com/libera-tu-proposito#event",
+        "name": "Libera tu Propósito",
+        "description": OFFICIAL_EVENT_INFO.valueProposition,
+        "startDate": "2026-10-17",
+        "endDate": "2026-10-18",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Colegio Médico",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Miraflores",
+            "addressRegion": "Lima",
+            "addressCountry": "PE"
+          }
+        },
+        "image": [OFFICIAL_EVENT_INFO.posterUrl],
+        "organizer": {
+          "@type": "Organization",
+          "name": "BINLP – Business Institute & NLP",
+          "url": "https://www.juancapower.com/libera-tu-proposito"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Orlando Denegri"
+        },
+        "performer": {
+          "@type": "Person",
+          "name": "JuanCa Power",
+          "url": "https://www.juancapower.com/"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Zona Despertar",
+            "price": "300",
+            "priceCurrency": "PEN",
+            "url": "https://www.juancapower.com/libera-tu-proposito",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Zona Indomable",
+            "price": "490",
+            "priceCurrency": "PEN",
+            "url": "https://www.juancapower.com/libera-tu-proposito",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Zona MFT",
+            "price": "1800",
+            "priceCurrency": "PEN",
+            "url": "https://www.juancapower.com/libera-tu-proposito",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Zona Face Your Fear",
+            "price": "9997",
+            "priceCurrency": "PEN",
+            "url": "https://www.juancapower.com/libera-tu-proposito",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
       }
-    ],
-    "offers": TICKET_ZONES.map(zone => ({
-      "@type": "Offer",
-      "name": zone.name,
-      "price": zone.individualPrice,
-      "priceCurrency": "PEN",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2026-01-01",
-      "url": "https://juancapower.com/libera-tu-proposito"
-    }))
-  };
-
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(f => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": f.a.replace(/\n/g, "<br/>")
-      }
-    }))
+    ]
   };
 
   return (
@@ -150,11 +181,7 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
       {/* Inject SEO & AEO Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdEvent) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
 
       {/* Atmospheric High-Ticket Ambient Lighting */}
@@ -228,7 +255,7 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
               {/* Title & Claim */}
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-space font-extrabold text-white tracking-tight uppercase leading-[1.05]">
-                  {OFFICIAL_EVENT_INFO.name}
+                  Libera tu Propósito Lima 2026
                 </h1>
                 <p className="font-cormorant italic text-jcp-gold text-2xl sm:text-3xl lg:text-4xl font-light">
                   "{OFFICIAL_EVENT_INFO.claim}"
@@ -264,6 +291,38 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
                   <div>
                     <span className="text-jcp-text-3 font-mono block text-[10px] uppercase">Organización Oficial</span>
                     <strong className="text-white font-semibold text-sm">{OFFICIAL_EVENT_INFO.organizedBy}</strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* BLOQUE INFORMACIÓN ESENCIAL */}
+              <div className="p-6 rounded-2xl bg-white/[0.04] border border-jcp-gold/30 shadow-[0_0_25px_rgba(214,177,95,0.1)] space-y-4">
+                <h2 className="text-base font-space font-bold text-jcp-gold uppercase tracking-wider flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-jcp-gold" />
+                  Información Esencial
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4 text-xs font-jakarta">
+                  <div className="space-y-1">
+                    <span className="text-jcp-text-3 font-mono block uppercase text-[10px]">Qué es</span>
+                    <p className="text-white font-medium leading-relaxed">Evento presencial de desarrollo personal, liderazgo y herramientas de PNL, hipnosis y coaching.</p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-jcp-text-3 font-mono block uppercase text-[10px]">Cuándo</span>
+                    <p className="text-white font-medium leading-relaxed">17 y 18 de octubre de 2026</p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-jcp-text-3 font-mono block uppercase text-[10px]">Dónde</span>
+                    <p className="text-white font-medium leading-relaxed">Colegio Médico, Miraflores, Lima</p>
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-jcp-text-3 font-mono block uppercase text-[10px]">Entradas desde</span>
+                    <p className="text-white font-medium leading-relaxed">S/300 (Zona Despertar)</p>
+                  </div>
+                  <div className="sm:col-span-2 space-y-1 pt-2 border-t border-white/10">
+                    <span className="text-jcp-text-3 font-mono block uppercase text-[10px]">Cómo reservar</span>
+                    <p className="text-white/90 leading-relaxed">
+                      Selecciona una zona y continúa por WhatsApp con Amara, agente IA de JuanCa Power. Amara te indicará las opciones de pago y el equipo validará tu comprobante para confirmar tu registro.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -476,6 +535,28 @@ export default function LiberaTuPropositoPage({ onNavigate }: LiberaTuPropositoP
             >
               Consultar por WhatsApp
               <ArrowRight className="w-4 h-4 text-black" />
+            </a>
+          </div>
+        </section>
+
+        {/* Navigation back to main site */}
+        <section className="py-10 border-t border-white/10 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-jcp-text-2">
+            <a href="/" onClick={handleBackClick} className="hover:text-jcp-gold transition-colors flex items-center gap-1.5">
+              <ArrowLeft className="w-3.5 h-3.5 text-jcp-gold" />
+              <span className="text-white font-medium">Volver a JuanCa Power (Inicio)</span>
+            </a>
+            <span className="text-white/20">|</span>
+            <a href="/#biografia" onClick={(e) => { e.preventDefault(); onNavigate('/#biografia'); }} className="hover:text-jcp-gold transition-colors">
+              Biografía & Trayectoria
+            </a>
+            <span className="text-white/20">|</span>
+            <a href="/#marcas-power" onClick={(e) => { e.preventDefault(); onNavigate('/#marcas-power'); }} className="hover:text-jcp-gold transition-colors">
+              Ecosistema Marcas Power
+            </a>
+            <span className="text-white/20">|</span>
+            <a href="/#contacto" onClick={(e) => { e.preventDefault(); onNavigate('/#contacto'); }} className="hover:text-jcp-gold transition-colors">
+              Contacto
             </a>
           </div>
         </section>
