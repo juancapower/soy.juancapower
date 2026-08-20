@@ -68,6 +68,13 @@ const FacebookBrandIcon = ({ size = 20, className = "" }: { size?: number, class
   </svg>
 );
 
+const LinkedInBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+    <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+    <path d="M19 19H16.33V14.82C16.33 13.82 16.31 12.54 14.94 12.54C13.55 12.54 13.34 13.62 13.34 14.75V19H10.67V10.42H13.23V11.59H13.27C13.63 10.91 14.51 10.19 15.82 10.19C18.54 10.19 19.04 11.98 19.04 14.31V19ZM7.76 9.25C6.9 9.25 6.21 8.56 6.21 7.7C6.21 6.84 6.9 6.15 7.76 6.15C8.62 6.15 9.31 6.84 9.31 7.7C9.31 8.56 8.62 9.25 7.76 9.25ZM9.1 19H6.42V10.42H9.1V19Z" fill="white"/>
+  </svg>
+);
+
 const SpotifyBrandIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" className={className}>
     <circle cx="12" cy="12" r="12" fill="#1DB954"/>
@@ -464,6 +471,17 @@ const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
               >
                 <FacebookBrandIcon size={20} className="transition-transform group-hover:scale-105" />
               </a>
+
+              {/* LinkedIn */}
+              <a 
+                href="https://www.linkedin.com/in/soyjuancapower/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/15 hover:border-[#0A66C2]/80 hover:scale-110 transition-all shadow-sm hover:shadow-[0_0_20px_rgba(10,102,194,0.4)] flex items-center justify-center group"
+                title="LinkedIn soyjuancapower"
+              >
+                <LinkedInBrandIcon size={20} className="transition-transform group-hover:scale-105" />
+              </a>
             </div>
 
             <span className="text-[11px] font-mono font-bold text-jcp-gold bg-jcp-gold/10 px-3 py-1 rounded-full border border-jcp-gold/25 shadow-[0_0_10px_rgba(214,177,95,0.15)]">
@@ -622,6 +640,9 @@ const Footer = () => {
               </a>
               <a href="https://www.facebook.com/soyjuancapower1" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#1877F2] hover:bg-[#1877F2]/10 transition-all hover:shadow-[0_0_15px_rgba(24,119,242,0.35)]" title="Facebook soyjuancapower1">
                 <FacebookBrandIcon size={20} />
+              </a>
+              <a href="https://www.linkedin.com/in/soyjuancapower/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all hover:shadow-[0_0_15px_rgba(10,102,194,0.35)]" title="LinkedIn soyjuancapower">
+                <LinkedInBrandIcon size={20} />
               </a>
             </div>
             <p className="text-[11px] font-mono text-jcp-text-3 uppercase tracking-wider flex items-center gap-2">
