@@ -130,6 +130,20 @@ export function trackPixelEvent(eventName: string, params?: Record<string, any>)
   }
 }
 
+export function trackTikTokEvent(eventName: string, params?: Record<string, any>): void {
+  if (typeof window === 'undefined') return;
+
+  try {
+    const ttq = (window as any).ttq;
+    if (ttq && typeof ttq.track === 'function') {
+      ttq.track(eventName, params);
+    }
+  } catch (e) {
+    // Fail silently if TikTok Pixel is blocked or unavailable
+    console.warn('TikTok Pixel track failed:', e);
+  }
+}
+
 export function trackLtpViewContent(): void {
   if (typeof window === 'undefined') return;
 
@@ -142,6 +156,12 @@ export function trackLtpViewContent(): void {
         content_ids: ['ltp-lima-2026'],
         currency: 'PEN',
       });
+      trackTikTokEvent('ViewContent', {
+        content_name: 'Libera tu Propósito Lima 2026',
+        content_id: 'ltp-lima-2026',
+        content_type: 'product',
+        currency: 'PEN',
+      });
       sessionStorage.setItem(VIEWCONTENT_FIRED_KEY, '1');
     }
   } catch (e) {
@@ -150,6 +170,12 @@ export function trackLtpViewContent(): void {
       content_name: 'Libera tu Propósito Lima 2026',
       content_category: 'Evento presencial',
       content_ids: ['ltp-lima-2026'],
+      currency: 'PEN',
+    });
+    trackTikTokEvent('ViewContent', {
+      content_name: 'Libera tu Propósito Lima 2026',
+      content_id: 'ltp-lima-2026',
+      content_type: 'product',
       currency: 'PEN',
     });
   }
@@ -163,9 +189,12 @@ export function trackLtpContact(details: {
 }): void {
   const utms = getStoredUTMs();
 
+  // Meta Pixel Standard 'Contact' Event
   trackPixelEvent('Contact', {
-    content_name: 'Libera tu Propósito Lima 2026',
-    content_category: 'WhatsApp',
+    content_name: details.zone_name,
+    content_category: 'Ticket Reservation',
+    content_ids: [details.zone_id],
+    content_id: details.zone_id,
     zone_id: details.zone_id,
     zone_name: details.zone_name,
     quantity: details.quantity,
@@ -175,5 +204,21 @@ export function trackLtpContact(details: {
     utm_medium: utms.utm_medium,
     utm_campaign: utms.utm_campaign,
     utm_content: utms.utm_content,
+    utm_term: utms.utm_term,
+  });
+
+  // TikTok Pixel Standard 'Contact' Event
+  trackTikTokEvent('Contact', {
+    content_name: details.zone_name,
+    content_id: details.zone_id,
+    content_type: 'product',
+    quantity: details.quantity,
+    value: details.value,
+    currency: 'PEN',
+    utm_source: utms.utm_source,
+    utm_medium: utms.utm_medium,
+    utm_campaign: utms.utm_campaign,
+    utm_content: utms.utm_content,
+    utm_term: utms.utm_term,
   });
 }
