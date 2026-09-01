@@ -764,6 +764,34 @@ export default function App() {
 
   // Normalize path for robust route matching (supports query params, trailing slashes, case-insensitivity)
   const normalizedPath = currentPath.toLowerCase().trim();
+
+  // Temporary 302 redirect for /powerprompts to Notion guide
+  const isPowerPrompts = 
+    normalizedPath === '/powerprompts' || 
+    normalizedPath.startsWith('/powerprompts/') || 
+    normalizedPath.startsWith('/powerprompts?') || 
+    normalizedPath.startsWith('/powerprompts#') ||
+    normalizedPath === '/powerprompts.html';
+
+  if (isPowerPrompts) {
+    if (typeof window !== 'undefined') {
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+      window.location.replace('https://app.notion.com/p/POWER-PROMPTS-01-Rompepatrones-con-ChatGPT-3cef574ee8138135b65ffb558ed09fe5' + search + hash);
+    }
+    return (
+      <div className="min-h-screen bg-jcp-bg text-jcp-text flex flex-col items-center justify-center p-6 text-center font-jakarta">
+        <p className="text-xl font-space font-bold mb-4 text-white">Redirigiendo a Power Prompts…</p>
+        <a 
+          href="https://app.notion.com/p/POWER-PROMPTS-01-Rompepatrones-con-ChatGPT-3cef574ee8138135b65ffb558ed09fe5"
+          className="text-jcp-gold underline font-mono text-sm hover:text-jcp-gold-l transition-colors"
+        >
+          Haz clic aquí si no eres redirigido automáticamente
+        </a>
+      </div>
+    );
+  }
+
   const isLiberaTuProposito = 
     normalizedPath.includes('libera-tu-proposito') || 
     normalizedPath.startsWith('/libera-tu-proposito');
