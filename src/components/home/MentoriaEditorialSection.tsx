@@ -58,7 +58,7 @@ export default function MentoriaEditorialSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-6 text-xs font-mono text-[#636980]">
+            <div className="flex items-center gap-6 text-xs font-mono text-[#8a8f9f]">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#deb660]" />
                 <span>Total confidencialidad</span>
@@ -79,7 +79,7 @@ export default function MentoriaEditorialSection() {
             className="lg:col-span-5"
           >
             <div className="p-8 sm:p-10 rounded-3xl bg-[#101322] border border-white/12 shadow-2xl relative overflow-hidden">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#deb660]/10 border border-[#deb660]/20 text-[#deb660] font-mono text-[10px] uppercase tracking-widest mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#deb660]/10 border border-[#deb660]/20 text-[#deb660] font-mono text-xs uppercase tracking-wider mb-6">
                 <span>Cupos Limitados · 1 Proceso a la Vez</span>
               </div>
 
@@ -87,7 +87,7 @@ export default function MentoriaEditorialSection() {
                 Sesión de Exploración
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#9ea3b5] font-jakarta leading-relaxed mb-8">
+              <p className="text-sm text-[#9ea3b5] font-jakarta leading-relaxed mb-8">
                 30 minutos para conversar sobre tu situación actual, tus metas y validar si existe un
                 match genuino antes de iniciar cualquier acompañamiento formal.
               </p>
@@ -97,9 +97,9 @@ export default function MentoriaEditorialSection() {
                   href={calendarLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 px-6 rounded-xl bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider hover:bg-[#deb660] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-4 px-6 rounded-xl bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#4361ee]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4361ee]"
                 >
-                  <Calendar className="w-4 h-4 text-[#0b0d17]" />
+                  <Calendar className="w-4 h-4 text-white" />
                   <span>Agendar en Google Calendar</span>
                 </a>
 
@@ -107,15 +107,15 @@ export default function MentoriaEditorialSection() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white font-jakarta text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-6 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white font-jakarta text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
                 >
                   <span>Coordinar horario por WhatsApp</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#deb660]" />
                 </a>
               </div>
 
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] text-[11px] font-mono text-[#636980] leading-relaxed">
-                Requisito: Disposición real a cuestionar viejos patrones y ejecutar cambios conscientes.
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] text-xs font-jakarta text-[#9ea3b5] leading-relaxed">
+                <strong className="text-white font-medium">Requisito:</strong> Disposición real a cuestionar viejos patrones y ejecutar cambios conscientes.
               </div>
             </div>
           </motion.div>

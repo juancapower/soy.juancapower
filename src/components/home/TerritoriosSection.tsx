@@ -10,9 +10,9 @@ export default function TerritoriosSection() {
       tag: 'Eje 01',
       title: 'Mentalidad & Propósito',
       icon: <Compass className="w-5 h-5 text-[#deb660]" />,
-      lead: 'Reprogramación mental, claridad existencial y autoliderazgo.',
-      desc: 'El verdadero crecimiento no empieza con herramientas externas, sino con la deconstrucción de patrones limitantes para operar desde la serenidad y la certeza.',
-      disciplines: 'Autoliderazgo · Principios Universales · Inteligencia Emocional',
+      lead: 'Reprogramación mental, claridad y autoliderazgo.',
+      desc: 'Deconstrucción de patrones limitantes para operar desde la serenidad, la certeza y el propósito auténtico.',
+      disciplines: 'Autoliderazgo · Leyes del Ser · Inteligencia Emocional',
       href: '#sobre-mi',
     },
     {
@@ -21,9 +21,9 @@ export default function TerritoriosSection() {
       tag: 'Eje 02',
       title: 'IA & Growth',
       icon: <Cpu className="w-5 h-5 text-[#4361ee]" />,
-      lead: 'Pensamiento exponencial, creatividad y sistemas de trabajo modernos.',
-      desc: 'Inteligencia artificial como amplificador de la capacidad humana. Diseño de flujos de pensamiento, prompts de alto impacto y escala sin perder autenticidad.',
-      disciplines: 'Power Prompts · Modelos Mentales · Adopción Estratégica',
+      lead: 'Pensamiento exponencial y sistemas de trabajo con IA.',
+      desc: 'Inteligencia artificial como amplificador humano. Flujos de pensamiento, prompts estratégicos y ejecución sin perder autenticidad.',
+      disciplines: 'Power Prompts · Modelos Mentales · Adopción de IA',
       href: '#power-lab',
     },
     {
@@ -32,9 +32,9 @@ export default function TerritoriosSection() {
       tag: 'Eje 03',
       title: 'Speaker & Experiencias',
       icon: <Mic className="w-5 h-5 text-[#deb660]" />,
-      lead: 'Conferencias magnas, talleres inmersivos y eventos presenciales.',
-      desc: 'Experiencias de alto impacto para organizaciones y convenciones. Mensajes contundentes que combinan profundidad humana, rigor y visión de futuro.',
-      disciplines: 'Keynotes · Inmersiones Presenciales · Liderazgo en Vivo',
+      lead: 'Conferencias magnas, talleres y eventos en vivo.',
+      desc: 'Experiencias de alto impacto para organizaciones. Mensajes que unen profundidad humana, rigor y decisiones reales.',
+      disciplines: 'Keynotes · Inmersiones Presenciales · Convenciones',
       href: '#speaker',
     },
   ];
@@ -44,9 +44,6 @@ export default function TerritoriosSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16 lg:mb-20">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#deb660] block mb-4">
-            02 // Ejes Temáticos
-          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-jakarta font-extrabold text-white tracking-[-0.03em] leading-tight mb-6">
             Tres territorios donde <br />
             <span className="font-cormorant italic font-normal text-[1.12em] text-[#deb660]">
@@ -88,19 +85,19 @@ export default function TerritoriosSection() {
                   {item.lead}
                 </p>
 
-                <p className="text-xs sm:text-sm font-jakarta text-[#9ea3b5] leading-relaxed mb-6">
+                <p className="text-sm sm:text-[15px] font-jakarta text-[#9ea3b5] leading-relaxed mb-6">
                   {item.desc}
                 </p>
               </div>
 
               <div>
-                <div className="text-[11px] font-mono text-[#636980] mb-6 pt-4 border-t border-white/[0.05]">
+                <div className="text-xs font-mono text-[#8a8f9f] mb-6 pt-4 border-t border-white/[0.08]">
                   {item.disciplines}
                 </div>
 
                 <a
                   href={item.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-jakarta font-semibold text-white group-hover:text-[#deb660] transition-colors"
+                  className="inline-flex items-center gap-1.5 py-2.5 px-4 rounded-xl text-xs font-jakarta font-semibold text-white hover:text-[#deb660] hover:bg-white/[0.05] border border-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
                 >
                   <span>Explorar territorio</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

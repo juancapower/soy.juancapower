@@ -15,7 +15,7 @@ export default function ProximoEventoCompact({ onNavigate }: ProximoEventoCompac
   };
 
   return (
-    <section id="proximo-evento" className="py-8 bg-[#0b0d17] relative z-20">
+    <section id="proximo-evento" className="py-14 lg:py-20 bg-[#0b0d17] border-y border-white/[0.08] relative z-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -29,7 +29,7 @@ export default function ProximoEventoCompact({ onNavigate }: ProximoEventoCompac
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#deb660]/10 border border-[#deb660]/25 text-[#deb660] font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.22em] mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#deb660]/10 border border-[#deb660]/25 text-[#deb660] font-mono text-xs uppercase tracking-wider mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#deb660] animate-pulse" />
                 <span>Próximo Evento · Lima · 17–18 Octubre 2026</span>
               </div>
@@ -55,16 +55,16 @@ export default function ProximoEventoCompact({ onNavigate }: ProximoEventoCompac
               </div>
             </div>
 
-            <div className="flex flex-col items-start lg:items-end gap-3 flex-shrink-0">
+            <div className="w-full lg:w-auto flex flex-col items-stretch sm:items-start lg:items-end gap-3 flex-shrink-0">
               <a
                 href="/libera-tu-proposito"
                 onClick={handleClick}
-                className="px-7 py-4 rounded-xl bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider hover:bg-[#deb660] hover:text-[#0b0d17] transition-all flex items-center justify-center gap-2 shadow-lg shadow-white/5"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#4361ee]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4361ee]"
               >
                 <span>Conocer el evento</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <span className="font-mono text-[10px] text-[#636980]">
+              <span className="font-mono text-xs text-[#8a8f9f]">
                 Preventa activa · Zonas limitadas
               </span>
             </div>

@@ -36,7 +36,7 @@ export default function SistemaPowerCompact() {
 
             <a
               href="#power-lab"
-              className="inline-flex items-center gap-2 text-xs font-jakarta font-semibold text-white hover:text-[#deb660] transition-colors group"
+              className="inline-flex items-center gap-2 py-2 px-3 -ml-3 rounded-lg text-xs font-jakarta font-semibold text-white hover:text-[#deb660] hover:bg-white/[0.04] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
             >
               <span>Explorar en Power Lab</span>
               <ArrowRight className="w-4 h-4 text-[#deb660] group-hover:translate-x-1 transition-transform" />
@@ -49,15 +49,15 @@ export default function SistemaPowerCompact() {
               {nodes.map((node, idx) => (
                 <div
                   key={idx}
-                  className="px-4 py-3 rounded-xl bg-white/[0.02] border border-white/10 text-center flex flex-col justify-center min-w-[120px]"
+                  className="px-4 py-3.5 rounded-xl bg-white/[0.02] border border-white/10 text-center flex flex-col justify-center min-w-[120px]"
                 >
-                  <span className="font-mono text-[10px] text-[#deb660] uppercase tracking-widest block mb-0.5">
+                  <span className="font-mono text-xs text-[#deb660] uppercase tracking-wider block mb-0.5">
                     0{idx + 1}
                   </span>
                   <span className="font-space font-bold text-sm text-white">
                     {node.name}
                   </span>
-                  <span className="text-[10px] font-mono text-[#636980] mt-0.5">
+                  <span className="text-xs font-jakarta text-[#8a8f9f] mt-1">
                     {node.detail}
                   </span>
                 </div>

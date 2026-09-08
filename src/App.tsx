@@ -5,10 +5,8 @@ import PosicionamientoSection from './components/home/PosicionamientoSection';
 import ProximoEventoCompact from './components/home/ProximoEventoCompact';
 import TerritoriosSection from './components/home/TerritoriosSection';
 import HistoriaEditorialSection from './components/home/HistoriaEditorialSection';
-import SistemaPowerCompact from './components/home/SistemaPowerCompact';
 import PowerLabSection from './components/home/PowerLabSection';
-import SpeakerSection from './components/home/SpeakerSection';
-import MentoriaEditorialSection from './components/home/MentoriaEditorialSection';
+import TrabajaConmigoSection from './components/home/TrabajaConmigoSection';
 import PowerDigitalTeaser from './components/home/PowerDigitalTeaser';
 import CtaFinalSection from './components/home/CtaFinalSection';
 import HomeFooter from './components/home/HomeFooter';
@@ -211,37 +209,31 @@ export default function App() {
       <NoiseOverlay />
       <HomeNavbar onNavigate={navigateTo} />
       <main>
-        {/* 01. HERO */}
+        {/* 01. HERO (DARK) */}
         <HeroSection onNavigate={navigateTo} />
 
-        {/* 02. BLOQUE DE POSICIONAMIENTO */}
+        {/* 02. BLOQUE DE LOS 4 PILARES (LIGHT) */}
         <PosicionamientoSection />
 
-        {/* 03. PRÓXIMO EVENTO (COMPACTO) */}
+        {/* 03. PRÓXIMO EVENTO (DARK) */}
         <ProximoEventoCompact onNavigate={navigateTo} />
 
-        {/* 04. TRES TERRITORIOS */}
+        {/* 04. TRES TERRITORIOS (LIGHT) */}
         <TerritoriosSection />
 
-        {/* 05. MI HISTORIA */}
+        {/* 05. HISTORIA (DARK) */}
         <HistoriaEditorialSection />
 
-        {/* 06. SISTEMA POWER 4 (COMPACTO) */}
-        <SistemaPowerCompact />
+        {/* 06. POWER LAB TEASER (LIGHT) */}
+        <PowerLabSection onNavigate={navigateTo} />
 
-        {/* 07. POWER LAB */}
-        <PowerLabSection />
+        {/* 07. TRABAJA CONMIGO: SPEAKER + MENTORÍA (DARK) */}
+        <TrabajaConmigoSection />
 
-        {/* 08. SPEAKER */}
-        <SpeakerSection />
-
-        {/* 09. MENTORÍA */}
-        <MentoriaEditorialSection />
-
-        {/* 10. POWER DIGITAL (ECOSISTEMA) */}
+        {/* 08. POWER DIGITAL (LIGHT) */}
         <PowerDigitalTeaser />
 
-        {/* 11. CTA FINAL */}
+        {/* 09. CTA FINAL (DARK) */}
         <CtaFinalSection />
       </main>
       <HomeFooter onNavigate={navigateTo} />

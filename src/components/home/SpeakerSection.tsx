@@ -72,11 +72,11 @@ export default function SpeakerSection() {
                       <h4 className="font-space font-bold text-sm sm:text-base text-white">
                         {fmt.title}
                       </h4>
-                      <span className="font-mono text-[10px] uppercase text-[#636980] tracking-widest whitespace-nowrap">
+                      <span className="font-mono text-xs uppercase text-[#8a8f9f] tracking-wider whitespace-nowrap">
                         {fmt.scope}
                       </span>
                     </div>
-                    <p className="font-jakarta text-xs text-[#9ea3b5] mt-1 leading-relaxed">
+                    <p className="font-jakarta text-sm text-[#9ea3b5] mt-1 leading-relaxed">
                       {fmt.desc}
                     </p>
                   </div>
@@ -90,7 +90,7 @@ export default function SpeakerSection() {
                 href={whatsappSpeakerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-xl bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider hover:bg-[#deb660] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                className="px-8 py-4 rounded-xl bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#4361ee]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4361ee]"
               >
                 <span>Invitar a JuanCa como speaker</span>
                 <ArrowRight className="w-4 h-4" />
@@ -98,7 +98,7 @@ export default function SpeakerSection() {
 
               <a
                 href="mailto:hola@juancapower.com?subject=Invitaci%C3%B3n%20como%20Speaker%20-%20JuanCa%20Power"
-                className="px-7 py-4 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] text-white font-jakarta text-xs font-semibold transition-colors flex items-center justify-center gap-2"
+                className="px-7 py-4 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] text-white font-jakarta text-xs font-semibold transition-colors flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
               >
                 <Mail className="w-4 h-4 text-[#9ea3b5]" />
                 <span>hola@juancapower.com</span>
@@ -118,7 +118,7 @@ export default function SpeakerSection() {
             <div className="relative rounded-3xl overflow-hidden border border-white/12 bg-[#101322] shadow-2xl">
               <img
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1775514826/escenario_naywym.png"
-                alt="JuanCa Power en escenario"
+                alt="JuanCa Power en conferencia magistral en escenario"
                 className="w-full aspect-[4/3] object-cover filter contrast-[1.05]"
                 referrerPolicy="no-referrer"
               />
@@ -137,11 +137,11 @@ export default function SpeakerSection() {
             <div className="hidden sm:block absolute -bottom-8 -right-6 w-52 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-[#101322]">
               <img
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1776364279/CajaArequipa_Piura2_hw7due.jpg"
-                alt="Evento corporativo Caja Arequipa Piura"
+                alt="Evento corporativo Caja Arequipa con JuanCa Power en Piura"
                 className="w-full aspect-[16/10] object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="p-2.5 bg-[#0b0d17]/90 font-mono text-[10px] text-[#9ea3b5]">
+              <div className="p-2.5 bg-[#0b0d17]/90 font-mono text-xs text-[#c4c7d4]">
                 Piura · Convenciones
               </div>
             </div>

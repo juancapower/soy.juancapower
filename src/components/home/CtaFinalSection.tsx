@@ -27,14 +27,13 @@ export default function CtaFinalSection() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#9ea3b5] font-jakarta leading-relaxed max-w-2xl mx-auto mb-10">
-            Deja de aplazar tus decisiones por falta de claridad. Conecta con un método
-            probado que alinea tu mundo interno, tu liderazgo y las herramientas del futuro.
+            Deja de postergar tus decisiones por falta de claridad. Conecta con un método estructurado que alinea tu mundo interno con las herramientas del futuro.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-12">
             <a
               href="#mentoria"
-              className="px-8 py-4 rounded-xl bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider hover:bg-[#deb660] transition-colors flex items-center justify-center gap-2 group shadow-lg"
+              className="px-8 py-4 rounded-xl bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 group shadow-lg shadow-[#4361ee]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4361ee]"
             >
               <span>Agendar una mentoría 1:1</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -42,21 +41,21 @@ export default function CtaFinalSection() {
 
             <a
               href="mailto:hola@juancapower.com"
-              className="px-8 py-4 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] text-white font-jakarta text-xs font-semibold transition-colors flex items-center justify-center gap-2"
+              className="px-8 py-4 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.08] text-white font-jakarta text-xs font-semibold transition-colors flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
             >
               <Mail className="w-4 h-4 text-[#9ea3b5]" />
               <span>hola@juancapower.com</span>
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#636980]">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#8a8f9f]">
             <span>Lima, Perú</span>
             <span className="w-1 h-1 rounded-full bg-[#deb660]" />
-            <a href="https://wa.me/51963335717" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="https://wa.me/51963335717" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660]">
               +51 963 335 717
             </a>
             <span className="w-1 h-1 rounded-full bg-[#deb660]" />
-            <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660]">
               @soyjuancapower
             </a>
           </div>

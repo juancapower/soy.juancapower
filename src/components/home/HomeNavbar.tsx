@@ -18,11 +18,9 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
   }, []);
 
   const navLinks = [
-    { id: 'inicio', name: 'Inicio', href: '#inicio' },
-    { id: 'sobre-mi', name: 'Sobre mí', href: '#sobre-mi' },
+    { id: 'inicio', name: 'Home', href: '#inicio' },
+    { id: 'sobre-mi', name: 'Sobre mi', href: '#sobre-mi' },
     { id: 'power-lab', name: 'Power Lab', href: '#power-lab' },
-    { id: 'speaker', name: 'Speaker', href: '#speaker' },
-    { id: 'mentoria', name: 'Mentoría', href: '#mentoria' },
     { id: 'eventos', name: 'Eventos', href: '/libera-tu-proposito', isSublanding: true },
     { id: 'contacto', name: 'Contacto', href: '#contacto' },
   ];
@@ -75,7 +73,7 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
               <span className="font-space font-bold text-base tracking-tight text-white group-hover:text-[#f8f9fa] transition-colors leading-none">
                 JuanCa Power
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9ea3b5] mt-1">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#9ea3b5] mt-1">
                 Mentalidad · IA · Propósito
               </span>
             </div>
@@ -88,7 +86,7 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link)}
-                className={`text-[13px] font-jakarta tracking-wide transition-colors ${
+                className={`text-[13px] font-jakarta tracking-wide transition-colors py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660] rounded-md ${
                   link.isSublanding
                     ? 'text-white font-semibold hover:text-[#deb660] flex items-center gap-1.5'
                     : 'text-[#9ea3b5] hover:text-white font-medium'
@@ -106,41 +104,47 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
               href="https://www.powerdigital.pe"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[13px] font-jakarta font-medium text-[#9ea3b5] hover:text-white transition-colors flex items-center gap-1 group py-1"
+              className="text-[13px] font-jakarta font-medium text-[#9ea3b5] hover:text-white transition-colors flex items-center gap-1 group py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660] rounded-md"
             >
               <span>Power Digital</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#636980] group-hover:text-[#deb660] transition-colors" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#8a8f9f] group-hover:text-[#deb660] transition-colors" />
             </a>
 
             {/* Direct CTA */}
             <a
-              href="#mentoria"
+              href="#contacto"
               onClick={(e) => {
                 if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
                   e.preventDefault();
-                  onNavigate('/#mentoria');
+                  onNavigate('/#contacto');
                 }
               }}
-              className="px-4 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-white/30 text-white font-jakarta text-xs font-semibold tracking-wide transition-all shadow-sm"
+              className="px-5 py-2.5 rounded-xl bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta text-xs font-semibold uppercase tracking-wider transition-all shadow-md shadow-[#4361ee]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4361ee]"
             >
-              Mentoría 1:1
+              Contáctame
             </a>
           </nav>
 
           {/* Mobile Button Toggle */}
           <div className="lg:hidden flex items-center space-x-3">
             <a
-              href="#mentoria"
-              className="px-3 py-1.5 rounded-lg bg-white/10 text-white font-jakarta text-xs font-semibold border border-white/10"
+              href="#contacto"
+              onClick={(e) => {
+                if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
+                  e.preventDefault();
+                  onNavigate('/#contacto');
+                }
+              }}
+              className="px-3.5 py-2 min-h-[44px] flex items-center rounded-xl bg-[#4361ee] text-white font-jakarta text-xs font-semibold shadow-sm"
             >
-              Mentoría
+              Contáctame
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white p-2 rounded-lg hover:bg-white/5 focus:outline-none"
+              className="text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#deb660]"
               aria-label="Abrir menú"
             >
-              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -149,8 +153,8 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
       {/* Mobile Overlay Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-[60px] bg-[#0b0d17]/98 backdrop-blur-2xl z-50 px-6 py-8 flex flex-col justify-between border-t border-white/10 overflow-y-auto">
-          <div className="flex flex-col space-y-3">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#636980] mb-2">
+          <div className="flex flex-col space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#8a8f9f] mb-2">
               Navegación Principal
             </span>
             {navLinks.map((link) => (
@@ -158,13 +162,13 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link)}
-                className={`text-lg font-space font-semibold tracking-tight py-2.5 border-b border-white/[0.05] flex items-center justify-between ${
+                className={`text-lg font-space font-semibold tracking-tight py-3 border-b border-white/[0.05] flex items-center justify-between min-h-[48px] ${
                   link.isSublanding ? 'text-[#deb660]' : 'text-white hover:text-[#4361ee]'
                 }`}
               >
                 <span>{link.name}</span>
                 {link.isSublanding && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#deb660]/10 border border-[#deb660]/30 text-[#deb660]">
+                  <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#deb660]/10 border border-[#deb660]/30 text-[#deb660]">
                     17–18 Oct
                   </span>
                 )}
@@ -172,14 +176,14 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
             ))}
 
             <div className="pt-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#636980] block mb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#8a8f9f] block mb-3">
                 Ecosistema
               </span>
               <a
                 href="https://www.powerdigital.pe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between text-sm text-white"
+                className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between text-sm text-white"
               >
                 <div>
                   <div className="font-semibold text-white">Power Digital</div>
@@ -192,11 +196,17 @@ export default function HomeNavbar({ onNavigate }: HomeNavbarProps) {
 
           <div className="pt-6 border-t border-white/10">
             <a
-              href="#mentoria"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full block py-4 text-center bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider rounded-xl shadow-lg"
+              href="#contacto"
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                if (onNavigate && typeof window !== 'undefined' && window.location.pathname.includes('libera-tu-proposito')) {
+                  e.preventDefault();
+                  onNavigate('/#contacto');
+                }
+              }}
+              className="w-full block py-4 text-center bg-[#4361ee] hover:bg-[#3651d4] text-white font-jakarta font-semibold text-xs uppercase tracking-wider rounded-xl shadow-lg shadow-[#4361ee]/25 transition-all"
             >
-              Agenda tu mentoría 1:1
+              Contáctame
             </a>
           </div>
         </div>

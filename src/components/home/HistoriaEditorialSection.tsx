@@ -17,18 +17,18 @@ export default function HistoriaEditorialSection() {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/12 bg-[#101322] shadow-2xl">
               <img
                 src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783015853/JuanCaPower_Foto_Frontal_gxocai.png"
-                alt="JuanCa Power"
+                alt="JuanCa Power - Historia y Filosofía"
                 className="w-full h-full object-cover object-top filter contrast-[1.04]"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0d17] via-[#0b0d17]/25 to-transparent opacity-90" />
               
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#0b0d17]/85 backdrop-blur-md border border-white/10">
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#deb660] block mb-0.5">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#deb660] block mb-1">
                   Trayectoria
                 </span>
                 <p className="font-space font-bold text-lg text-white">Juan Carlos</p>
-                <p className="font-jakarta text-xs text-[#9ea3b5]">Ingeniero de Sistemas · Speaker · Mentor</p>
+                <p className="font-jakarta text-xs sm:text-sm text-[#9ea3b5]">Ingeniero de Sistemas · Speaker · Mentor</p>
               </div>
             </div>
           </motion.div>
@@ -61,26 +61,23 @@ export default function HistoriaEditorialSection() {
 
             <div className="space-y-5 text-base font-jakarta text-[#9ea3b5] leading-relaxed">
               <p>
-                Durante años me dediqué al diseño de sistemas y tecnología para organizaciones.
-                Pero la vida me enfrentó a una pérdida devastadora: el duelo más profundo que un ser
-                humano puede atravesar.
+                Durante años me dediqué al diseño de sistemas para organizaciones.
+                Pero la vida me enfrentó a una pérdida devastadora: el duelo más profundo que un ser humano puede atravesar.
               </p>
               <p>
-                En ese punto de quiebre entendí que ninguna estructura externa sostiene a una
-                persona si su mundo interno está fragmentado. Comencé a estudiar la mente, las
-                leyes universales de la conciencia, la reprogramación de hábitos y el autoliderazgo.
+                En ese quiebre entendí que ninguna estructura externa te sostiene si tu mundo interno está fragmentado.
+                Me volqué a estudiar la mente, las leyes de la conciencia, la reprogramación de hábitos y el autoliderazgo.
               </p>
               <p>
-                Hoy uno esos dos mundos: la profundidad del desarrollo interior con la contundencia
-                de los sistemas modernos y la Inteligencia Artificial. No te hablo desde la teoría;
-                te hablo desde la reconstrucción.
+                Hoy uno esos dos mundos: la profundidad del autoconocimiento con el rigor de los sistemas modernos y la Inteligencia Artificial.
+                No hablo desde la teoría; hablo desde la reconstrucción.
               </p>
             </div>
 
             <div className="pt-8 mt-8 border-t border-white/[0.08] flex items-center gap-6">
               <div>
                 <div className="font-space font-bold text-sm text-white">JuanCa Power</div>
-                <div className="font-mono text-[11px] text-[#636980]">Lima, Perú</div>
+                <div className="font-mono text-xs text-[#8a8f9f]">Lima, Perú</div>
               </div>
             </div>
           </motion.div>

@@ -67,7 +67,7 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
               <div className="text-xs font-space font-bold text-white mb-1">
                 JC ESTRATEGIA Y DISEÑO INTEGRAL E.I.R.L.
               </div>
-              <div className="text-[11px] font-mono text-[#636980]">
+              <div className="text-xs font-mono text-[#8a8f9f]">
                 RUC: <span className="text-[#deb660]">20615315525</span> · Lima, Perú
               </div>
             </div>
@@ -75,16 +75,16 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
 
           {/* Navigation Links Column (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-4">
               Navegación
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {exploreLinks.map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={item.href}
                     onClick={(e) => handleLinkClick(e, item.href, item.isSublanding)}
-                    className="text-xs font-jakarta text-[#9ea3b5] hover:text-white transition-colors flex items-center justify-between"
+                    className="text-sm font-jakarta text-[#9ea3b5] hover:text-white transition-colors flex items-center justify-between py-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660] rounded"
                   >
                     <span>{item.name}</span>
                     {item.isSublanding && (
@@ -98,10 +98,10 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
 
           {/* Ecosystem Column (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-4">
               Ecosistema
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {ecosystemLinks.map((item, idx) => (
                 <li key={idx}>
                   <a
@@ -109,10 +109,10 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
                     target={item.isExternal ? '_blank' : undefined}
                     rel={item.isExternal ? 'noopener noreferrer' : undefined}
                     onClick={(e) => handleLinkClick(e, item.href, item.isSublanding)}
-                    className="text-xs font-jakarta text-[#9ea3b5] hover:text-[#deb660] transition-colors flex items-center gap-1.5"
+                    className="text-sm font-jakarta text-[#9ea3b5] hover:text-[#deb660] transition-colors flex items-center gap-1.5 py-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660] rounded"
                   >
                     <span>{item.name}</span>
-                    {item.isExternal && <ArrowUpRight className="w-3 h-3 text-[#636980]" />}
+                    {item.isExternal && <ArrowUpRight className="w-3.5 h-3.5 text-[#8a8f9f]" />}
                   </a>
                 </li>
               ))}
@@ -121,20 +121,20 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
 
           {/* Social Links Column (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-white mb-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-white mb-4">
               Conexión
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {socialLinks.map((item, idx) => (
                 <li key={idx}>
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-jakarta text-[#9ea3b5] hover:text-white transition-colors flex items-center justify-between"
+                    className="text-sm font-jakarta text-[#9ea3b5] hover:text-white transition-colors flex items-center justify-between py-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660] rounded"
                   >
                     <span>{item.name}</span>
-                    <span className="text-[10px] font-mono text-[#636980]">{item.handle}</span>
+                    <span className="text-xs font-mono text-[#8a8f9f]">{item.handle}</span>
                   </a>
                 </li>
               ))}
@@ -143,7 +143,7 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
         </div>
 
         {/* Bottom copyright & closure */}
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#636980]">
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8a8f9f]">
           <div>
             © {new Date().getFullYear()} JuanCa Power. Todos los derechos reservados.
           </div>
