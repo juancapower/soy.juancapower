@@ -1,6 +1,6 @@
 {
   "name": "JuanCa Power - Mentoría Premium",
-  "description": "Landing page premium para JuanCa Power, speaker y mentor de transformación personal.",
+  "description": "Web oficial de JuanCa Power: marca personal, mentalidad, tecnología, inteligencia artificial, conferencias y mentoría estratégica.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
