@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Mail, MessageSquare } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 
 export default function CtaFinalSection() {
   return (
-    <section id="contacto" className="py-24 lg:py-32 bg-[#0b0d17] border-t border-white/[0.06] relative overflow-hidden">
-      {/* Editorial subtle lighting */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#deb660]/5 rounded-full blur-[140px] pointer-events-none"></div>
+    <section id="contacto" className="py-24 lg:py-32 bg-[#0b0d17] border-t border-white/[0.08] relative overflow-hidden">
+      {/* Editorial subtle warm ambient glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#deb660]/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <motion.div
@@ -21,14 +21,14 @@ export default function CtaFinalSection() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-jakarta font-extrabold text-white tracking-[-0.03em] leading-tight mb-6">
             Tu próxima versión no se espera.{' '}
-            <span className="font-cormorant italic font-normal text-[1.1em] text-[#deb660] block">
+            <span className="font-cormorant italic font-normal text-[1.12em] text-[#deb660] block mt-1">
               Se entrena y se diseña.
             </span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#9ea3b5] font-jakarta leading-relaxed max-w-2xl mx-auto mb-10">
             Deja de aplazar tus decisiones por falta de claridad. Conecta con un método
-            probado que alinea tu mente, tu liderazgo y las herramientas del futuro.
+            probado que alinea tu mundo interno, tu liderazgo y las herramientas del futuro.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 mb-12">
@@ -36,7 +36,7 @@ export default function CtaFinalSection() {
               href="#mentoria"
               className="px-8 py-4 rounded-xl bg-white text-[#0b0d17] font-jakarta font-semibold text-xs uppercase tracking-wider hover:bg-[#deb660] transition-colors flex items-center justify-center gap-2 group shadow-lg"
             >
-              <span>Agendar una mentoría</span>
+              <span>Agendar una mentoría 1:1</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -49,12 +49,16 @@ export default function CtaFinalSection() {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#636980]">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#636980]">
             <span>Lima, Perú</span>
-            <span className="w-1 h-1 rounded-full bg-[#deb660]"></span>
-            <span>+51 963 335 717</span>
-            <span className="w-1 h-1 rounded-full bg-[#deb660]"></span>
-            <span>@soyjuancapower</span>
+            <span className="w-1 h-1 rounded-full bg-[#deb660]" />
+            <a href="https://wa.me/51963335717" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              +51 963 335 717
+            </a>
+            <span className="w-1 h-1 rounded-full bg-[#deb660]" />
+            <a href="https://instagram.com/soyjuancapower" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              @soyjuancapower
+            </a>
           </div>
         </motion.div>
       </div>

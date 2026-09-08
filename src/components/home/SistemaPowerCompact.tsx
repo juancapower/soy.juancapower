@@ -1,87 +1,70 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Brain, Heart, Target, TrendingUp, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function SistemaPowerCompact() {
-  const pillars = [
-    {
-      title: 'Mente',
-      desc: 'Reprogramación de creencias, modelos mentales y foco implacable.',
-      icon: <Brain className="w-5 h-5 text-[#deb660]" />,
-    },
-    {
-      title: 'Cuerpo',
-      desc: 'Energía biológica, disciplina física y sostenibilidad vital.',
-      icon: <Heart className="w-5 h-5 text-[#4361ee]" />,
-    },
-    {
-      title: 'Propósito',
-      desc: 'Alineación espiritual, conciencia y sentido de trascendencia.',
-      icon: <Target className="w-5 h-5 text-[#deb660]" />,
-    },
-    {
-      title: 'Estrategia',
-      desc: 'Sistemas digitales, adopción de IA y visión de largo plazo.',
-      icon: <TrendingUp className="w-5 h-5 text-[#4361ee]" />,
-    },
+  const nodes = [
+    { name: 'Mente', detail: 'Patrones & Foco' },
+    { name: 'Cuerpo', detail: 'Energía Vital' },
+    { name: 'Propósito', detail: 'Alineación & Ser' },
+    { name: 'Estrategia', detail: 'Sistemas & IA' },
   ];
 
   return (
-    <section id="sistema" className="py-20 lg:py-28 bg-[#0b0d17] border-t border-white/[0.06] relative">
+    <section id="sistema" className="py-16 lg:py-20 bg-[#0b0d17] border-t border-white/[0.08] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Header Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-[#101322]/40 border border-white/[0.07] flex flex-col lg:flex-row lg:items-center justify-between gap-10"
+        >
+          {/* Editorial Left Side */}
+          <div className="max-w-xl">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#deb660] block mb-3">
-              04 // Marco Metodológico
+              04 // Marco Conceptual
             </span>
-            <h2 className="text-3xl sm:text-4xl font-jakarta font-extrabold text-white tracking-[-0.03em] leading-tight mb-5">
+
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-white tracking-tight mb-3">
               Sistema Power 4™
             </h2>
-            <p className="text-base text-[#9ea3b5] font-jakarta leading-relaxed mb-8">
-              Un marco de desarrollo integral diseñado para sincronizar cuatro dimensiones fundamentales.
-              Si una de ellas colapsa, el rendimiento general se desgasta.
+
+            <p className="text-sm sm:text-base text-[#9ea3b5] font-jakarta leading-relaxed mb-6">
+              Un marco para integrar mente, cuerpo, propósito y estrategia. Sin fricción, sin dogmas y con rigor de ejecución.
             </p>
 
             <a
               href="#power-lab"
-              className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-white hover:text-[#deb660] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-jakarta font-semibold text-white hover:text-[#deb660] transition-colors group"
             >
-              <span>Explorar recursos del sistema</span>
+              <span>Explorar en Power Lab</span>
               <ArrowRight className="w-4 h-4 text-[#deb660] group-hover:translate-x-1 transition-transform" />
             </a>
-          </motion.div>
-
-          {/* 4 Pillars Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {pillars.map((p, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 rounded-2xl bg-[#101322] border border-white/[0.07] hover:border-white/15 transition-all"
-              >
-                <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-4">
-                  {p.icon}
-                </div>
-                <h3 className="font-jakarta font-bold text-lg text-white mb-1.5">
-                  {p.title}
-                </h3>
-                <p className="font-jakarta text-xs text-[#9ea3b5] leading-relaxed">
-                  {p.desc}
-                </p>
-              </motion.div>
-            ))}
           </div>
-        </div>
+
+          {/* Compact Architectural Representation of the 4 Dimensions */}
+          <div className="flex-shrink-0 w-full lg:w-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {nodes.map((node, idx) => (
+                <div
+                  key={idx}
+                  className="px-4 py-3 rounded-xl bg-white/[0.02] border border-white/10 text-center flex flex-col justify-center min-w-[120px]"
+                >
+                  <span className="font-mono text-[10px] text-[#deb660] uppercase tracking-widest block mb-0.5">
+                    0{idx + 1}
+                  </span>
+                  <span className="font-space font-bold text-sm text-white">
+                    {node.name}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#636980] mt-0.5">
+                    {node.detail}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
