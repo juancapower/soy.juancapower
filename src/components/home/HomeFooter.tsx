@@ -9,9 +9,8 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
   const exploreLinks = [
     { name: 'Sobre mí', href: '#sobre-mi' },
     { name: 'Power Lab', href: '#power-lab' },
-    { name: 'Speaker', href: '#speaker' },
-    { name: 'Mentoría', href: '#mentoria' },
-    { name: 'Libera tu Propósito 2026', href: '/libera-tu-proposito', isSublanding: true },
+    { name: 'Speaker & Keynotes', href: '#speaker' },
+    { name: 'Mentoría 1:1', href: '#mentoria' },
     { name: 'Contacto', href: '#contacto' },
   ];
 
@@ -83,13 +82,9 @@ export default function HomeFooter({ onNavigate }: HomeFooterProps) {
                 <li key={idx}>
                   <a
                     href={item.href}
-                    onClick={(e) => handleLinkClick(e, item.href, item.isSublanding)}
                     className="text-sm font-jakarta text-[#9ea3b5] hover:text-white transition-colors flex items-center justify-between py-0.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#deb660] rounded"
                   >
                     <span>{item.name}</span>
-                    {item.isSublanding && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#deb660]" />
-                    )}
                   </a>
                 </li>
               ))}

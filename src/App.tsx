@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import HomeNavbar from './components/home/HomeNavbar';
 import HeroSection from './components/home/HeroSection';
 import PosicionamientoSection from './components/home/PosicionamientoSection';
-import ProximoEventoCompact from './components/home/ProximoEventoCompact';
 import TerritoriosSection from './components/home/TerritoriosSection';
 import HistoriaEditorialSection from './components/home/HistoriaEditorialSection';
 import PowerLabSection from './components/home/PowerLabSection';
@@ -10,10 +9,6 @@ import TrabajaConmigoSection from './components/home/TrabajaConmigoSection';
 import PowerDigitalTeaser from './components/home/PowerDigitalTeaser';
 import CtaFinalSection from './components/home/CtaFinalSection';
 import HomeFooter from './components/home/HomeFooter';
-
-import LiberaTuPropositoPage from './pages/LiberaTuPropositoPage';
-import { buildLtpGeneralWhatsAppLink } from './data/liberaTuProposito';
-import { trackLtpContact } from './utils/ltpTracking';
 
 const WhatsAppIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
   <svg 
@@ -35,28 +30,14 @@ const NoiseOverlay = () => (
   ></div>
 );
 
-const FloatingWhatsApp = ({ isLtp = false }: { isLtp?: boolean }) => {
-  const href = isLtp
-    ? buildLtpGeneralWhatsAppLink()
-    : "https://wa.me/51963335717?text=Hola%20JuanCa,%20te%20escribo%20desde%20tu%20web%20personal.";
-
-  const handleClick = () => {
-    if (isLtp) {
-      trackLtpContact({
-        zone_id: 'general',
-        zone_name: 'Consulta Floating WhatsApp',
-        quantity: 1,
-        value: 0,
-      });
-    }
-  };
+const FloatingWhatsApp = () => {
+  const href = "https://wa.me/51963335717?text=Hola%20JuanCa,%20te%20escribo%20desde%20tu%20web%20personal.";
 
   return (
     <a 
       href={href} 
       target="_blank" 
       rel="noopener noreferrer" 
-      onClick={handleClick}
       className="fixed bottom-6 right-6 z-[60] bg-[#4361ee] hover:bg-[#6a82fb] text-white p-3.5 rounded-full shadow-[0_0_25px_rgba(67,97,238,0.35)] hover:scale-110 transition-all flex items-center justify-center group"
       aria-label="Contactar por WhatsApp"
     >
@@ -125,32 +106,19 @@ export default function App() {
 
   // Dynamic Head Metadata Updates for Client-Side Navigation
   useEffect(() => {
-    const isLtp = currentPath.toLowerCase().includes('libera-tu-proposito');
+    document.title = "JuanCa Power | Speaker, Mentor y Creador del Sistema POWER 4";
     
-    if (isLtp) {
-      document.title = "Libera tu Propósito Lima 2026 | Entradas y Zonas Oficiales";
-      
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Conoce fechas, sede, zonas, precios y beneficios de Libera tu Propósito, evento presencial del 17 y 18 de octubre de 2026 en Miraflores, Lima. Reserva por WhatsApp.');
-      }
-      
-      const canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) {
-        canonical.setAttribute('href', 'https://www.juancapower.com/libera-tu-proposito');
-      }
-    } else {
-      document.title = "JuanCa Power | Marca Personal · Mentalidad, Tecnología y Propósito";
-      
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'JuanCa Power integra mentalidad, propósito, liderazgo, tecnología e IA para ayudar a personas y marcas a construir una versión más consciente y estratégica.');
-      }
-      
-      const canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) {
-        canonical.setAttribute('href', 'https://www.juancapower.com/');
-      }
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        'content',
+        'JuanCa Power integra mentalidad, propósito, liderazgo, tecnología e IA para ayudar a personas y marcas a construir una versión más consciente y estratégica.'
+      );
+    }
+    
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', 'https://www.juancapower.com/');
     }
   }, [currentPath]);
 
@@ -184,21 +152,25 @@ export default function App() {
     );
   }
 
+  // Redirect former event landing /libera-tu-proposito to Home
   const isLiberaTuProposito = 
     normalizedPath.includes('libera-tu-proposito') || 
-    normalizedPath.startsWith('/libera-tu-proposito');
+    normalizedPath.startsWith('/libera-tu-proposito') ||
+    normalizedPath.includes('ltp-2026');
 
-  // Sublanding /libera-tu-proposito
   if (isLiberaTuProposito) {
+    if (typeof window !== 'undefined') {
+      window.location.replace('/');
+    }
     return (
-      <div className="min-h-screen bg-[#0b0d17] text-[#f8f9fa] font-jakarta selection:bg-[#4361ee]/30 selection:text-[#deb660]">
-        <NoiseOverlay />
-        <HomeNavbar onNavigate={navigateTo} />
-        <main>
-          <LiberaTuPropositoPage onNavigate={navigateTo} />
-        </main>
-        <HomeFooter onNavigate={navigateTo} />
-        <FloatingWhatsApp isLtp={true} />
+      <div className="min-h-screen bg-[#0b0d17] text-[#f8f9fa] flex flex-col items-center justify-center p-6 text-center font-jakarta">
+        <p className="text-xl font-space font-bold mb-4 text-white">Redirigiendo a juancapower.com…</p>
+        <a 
+          href="/"
+          className="text-[#deb660] underline font-mono text-sm hover:text-[#ecd28a] transition-colors"
+        >
+          Haz clic aquí si no eres redirigido automáticamente
+        </a>
       </div>
     );
   }
@@ -209,31 +181,28 @@ export default function App() {
       <NoiseOverlay />
       <HomeNavbar onNavigate={navigateTo} />
       <main>
-        {/* 01. HERO (DARK) */}
+        {/* 01. HERO */}
         <HeroSection onNavigate={navigateTo} />
 
-        {/* 02. BLOQUE DE LOS 4 PILARES (LIGHT) */}
+        {/* 02. BLOQUE DE LOS 4 PILARES */}
         <PosicionamientoSection />
 
-        {/* 03. PRÓXIMO EVENTO (DARK) */}
-        <ProximoEventoCompact onNavigate={navigateTo} />
-
-        {/* 04. TRES TERRITORIOS (LIGHT) */}
+        {/* 03. TRES TERRITORIOS */}
         <TerritoriosSection />
 
-        {/* 05. HISTORIA (DARK) */}
+        {/* 04. HISTORIA & ORIGEN */}
         <HistoriaEditorialSection />
 
-        {/* 06. POWER LAB TEASER (LIGHT) */}
+        {/* 05. POWER LAB TEASER */}
         <PowerLabSection onNavigate={navigateTo} />
 
-        {/* 07. TRABAJA CONMIGO: SPEAKER + MENTORÍA (DARK) */}
+        {/* 06. TRABAJA CONMIGO: SPEAKER + MENTORÍA */}
         <TrabajaConmigoSection />
 
-        {/* 08. POWER DIGITAL (LIGHT) */}
+        {/* 07. POWER DIGITAL */}
         <PowerDigitalTeaser />
 
-        {/* 09. CTA FINAL (DARK) */}
+        {/* 08. CTA FINAL */}
         <CtaFinalSection />
       </main>
       <HomeFooter onNavigate={navigateTo} />
